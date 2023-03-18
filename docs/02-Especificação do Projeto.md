@@ -76,7 +76,7 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 
 ## Diagrama de Casos de Uso
 
-A imagem a seguir reprersenta o diagrama de casos de uso do projeto em desenvolvimento:
+A imagem a seguir representa o diagrama de casos de uso do projeto em desenvolvimento:
 
 ![WhatsApp Image 2023-03-16 at 21 37 55](https://user-images.githubusercontent.com/89876269/226137909-dfc7fd49-3947-48ad-b20e-bf3dd4b44483.jpeg)
 
