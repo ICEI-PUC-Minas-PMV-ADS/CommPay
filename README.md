@@ -19,7 +19,7 @@ Desenvolvimento de uma aplicação simples que visa automatizar e evitar falhas 
 
 ## Orientador
 
-Rosilane Ribeiro da Mota
+* Rosilane Ribeiro da Mota
 
 ## Instruções de utilização
 
