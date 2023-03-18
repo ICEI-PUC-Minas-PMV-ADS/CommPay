@@ -1,4 +1,5 @@
-![WhatsApp Image 2023-03-18 at 18 35 48](https://user-images.githubusercontent.com/89876269/226141391-3eeff2c0-c06f-4715-93c2-829ffd377895.jpeg)
+![logo](https://user-images.githubusercontent.com/79721330/226141573-ee748c45-be0f-4ca9-850a-210cd6043c9a.png)
+
 # SOLUÇÃO PARA GESTÃO DE COMISSIONAMENTO
 
 `ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
