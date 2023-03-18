@@ -11,7 +11,7 @@ Desenvolvimento de uma aplicação simples que visa automatizar e evitar falhas 
 ## Integrantes
 
 * Amanda Ramires Guimarães Brito
-* Geison Amorim
+* Geison Amorim Marçal
 * Lucas Guilherme dos Reis
 * Marlon Cezar de Almeida dos Santos
 * Pablo Muriell Batista Alves
