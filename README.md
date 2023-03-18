@@ -1,23 +1,25 @@
-# TÍTULO DO PROJETO
+SOLUÇÃO PARA GESTÃO DE COMISSIONAMENTO  
 
-`CURSO`
+ANÁLISE E DESENVOLVIMENTO DE SISTEMAS
 
-`DISCIPLINA`
+PROJETO DE DESENVOLVIMENTO DE UMA APLICAÇÃO INTERATIVA 
 
-`SEMESTRE`
+2023/1
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Desenvolvimento de uma aplicação simples que visa automatizar e evitar falhas na somatória de comissões.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+Amanda Ramires Guimarães Brito
+Geison Amorim
+Lucas Guilherme dos Reis
+Marlon Cezar de Almeida dos Santos
+Pablo Muriell Batista Alves
+Victor Kingma
 
 ## Orientador
 
-* Nome completo do professor 1
+Rosilane Ribeiro da Mota
 
 ## Instruções de utilização
 
