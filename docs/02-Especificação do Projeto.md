@@ -1,26 +1,16 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+A definição exata do problema e os pontos mais relevantes a serem tratados neste projeto foi consolidada com a participação dos usuários em um trabalho de imersão feito por um membro da equipe a partir da observação do usuário em seu local natural e por meio de entrevista direta. Os detalhes levantados nesse processo foram consolidados na forma de personas e histórias de usuários
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+As personas levantadas durante o processo de entendimento do problema são apresentadas abaixo.
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+Manoela Silva, 23 anos trabalha como auxiliar financeiro em uma empresa de vendas. Tem como hobbie a meditação, a leitura e estar em contato com a natureza. Busca atráves da aplicação maior agilidade e precisão na somatória das comissões, otimização do tempo de trabalho e tornar o processo mais transparente e eficiente, visto que atualmente todo o processo de soma dessas comissões é realizada de forma manual.
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+Gabriela Andrade, 35 anos vendedora do setor moveleiro. Gosta de viajar e participar de trilhas. Possui frustrações que afetam seu desempenho no trabalho como o atraso no pagamento e erros nos valores de suas comissões por se tratar de um trabalho manual e demorado. Deseja uma aplicação que reduza o tempo e os erros que possam ser cometidos no processo de soma de suas comissões. 
+
+Rafael Cardoso, 27 anos expedidor de mercadorias. Seus hobbies englobam ler, jogar e treinar. Como parte de sua função na empresa ele necessita enviar ao setor fianceiro um relatório de entregas concluídas para que as comissões sejam pagas ao seu respectivo vendedor, atualmente esse processo é feito de forma manual sendo necessário passar todos os romaneios de entrega para o setor financeiro, busca por meio de uma aplicação uma forma de registrar as entregas concluídas e gerar um relatório de forma rápida para que possa otimizar seu tempo de trabalho. 
 
 ## Histórias de Usuários
 
@@ -28,76 +18,69 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|Manoela Silva, auxiliar financeiro.  | Uma ferramenta automatizada que seja capaz de realizar o cálculo das comissões.           | Para ter acesso e controle de todos os dados em uma única plataforma e evitar o trabalho manual.               |
+|Manoela Silva, auxiliar financeiro.       | Otimizar o tempo gasto na  tarefa.                 | Para poder focar em outras atividades inerentes ao meu setor. |
+|Manoela Silva, auxiliar financeiro.  | Garantir a somatória das comissões de uma maneira mais eficaz.           | Para diminuir a probabilidade de erros e de retrabalho na tarefa tornando-a mais transparente e eficiente               |
+|Rafael Cardoso, expedidor.  | Quero uma automatização no relatório de entregas concluídas repassado ao setor financeiro.           | Não precisar repassar manualmente as informações.              |
+|Rafael Cardoso, expedidor.  | Cadastrar no sistema as entregas realizadas.           | Evitar o acúmulo desnecessário de papéis.               |
+|Rafael Cardoso, expedidor.  | Otimizar o tempo gasto na  tarefa.           | Para poder focar em outras atividades inerentes ao meu setor.               |
+|Gabriela Andrade, vendedora. | Quero agilidade no pagamento das comissões e receber os valores corretos.           | Para garantir a motivação no meu trabalho e não ter frustrações com atrasos ou erros nos valores recebidos.               |
+|Gabriela Andrade,vendedora.  | Quero consultar os valores que tenho a receber das minhas vendas.           | Para poder realizar meu controle financeiro prévio de vendas realizadas.              |
+|Gabriela Andrade, vendedora.  | Quero cadastrar as vendas e o recibo da venda.          | Para informar de forma rápida a venda realizada.               |
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
-
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
+O escopo funcional do projeto é definido por meio dos requisitos funcionais que descrevem as possibilidades interação dos usuários, bem como os requisitos não funcionais que descrevem os aspectos que o sistema deverá apresentar de maneira geral. Estes requisitos são apresentados a seguir.
 
 ### Requisitos Funcionais
 
+A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade em que os mesmos devem ser entregues.
+
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| A aplicação deve possibilitar ao usuário realizar login mediante a validação de usuário e senha. | ALTA | 
+|RF-002| A aplicação deve mostrar para o vendedor o valor das comissões recebidas e a receber.  | MÉDIA |
+|RF-003| A aplicação deve permitir  que o expedidor cadastre  as entregas realizadas . | ALTA |
+|RF-004| A aplicação deve realizar a soma das comissões de cada vendedor separadamente.  | ALTA |
+|RF-005| A aplicação deve permitir ao vendedor realizar o cadastro das vendas realizadas junto ao comprovante de venda. | ALTA |
+|RF-006| A aplicação deve permitir ao setor financeiro cadastrar usuário. | ALTA |
 
 ### Requisitos não Funcionais
 
-|ID     | Descrição do Requisito  |Prioridade |
-|-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+A tabela a seguir apresenta os requisitos não funcionais que o projeto deverá atender.
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+|ID          | Descrição do Requisito  |Prioridade |
+|------------|-------------------------|----|
+|RNF-001| A aplicação deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku);  | ALTA | 
+|RNF-002| A aplicação deverá ser responsiva permitindo a visualização em um celular de forma adequada. |  ALTA | 
+|RNF-003| A aplicação deve gerar o relatório de comissões de forma rápida, não demorando mais que 5s. | MÉDIA | 
+|RNF-004| A aplicação deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge). | ALTA | 
+|RNF-005| A aplicação deve proporcionar uma alta disponibilidade.  | ALTA | 
+|RNF-006| A aplicação  deve ter bom nível de contraste entre os elementos da tela em conformidade. | MÉDIA | 
+|RNF-007| O sistema deverá se comunicar com o banco MySQL. | ALTA | 
+|RNF-008| O sistema só pode ser acessado por: Auxiliar Financeiro, Expedidor e Vendedora. | ALTA | 
+|RNF-009| A solução deve ser intuitiva e fácil de usar, garantindo uma curva de aprendizado rápida. | MÉDIA | 
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+|01| O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 26/06/2023. |
+|02| A equipe não pode subcontratar o desenvolvimento do trabalho.       |
+|01| O projeto não poderá ser entregue sem que as funcionalidades essenciais estejam prontas. |
+|01| O projeto deve ser desenvolvido utilizando a linguagem de programação C#. |
 
 ## Diagrama de Casos de Uso
 
-O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
+A imagem a seguir reprersenta o diagrama de casos de uso do projeto em desenvolvimento:
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
+![WhatsApp Image 2023-03-16 at 21 37 55](https://user-images.githubusercontent.com/89876269/226137909-dfc7fd49-3947-48ad-b20e-bf3dd4b44483.jpeg)
 
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
+## Vídeo de apresentação do projeto
+
+No vídeo a seguir há uma breve apresentação da proposta do projeto em desenvolvimento.
+
