@@ -71,8 +71,8 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 26/06/2023. |
 |02| A equipe não pode subcontratar o desenvolvimento do trabalho.       |
-|01| O projeto não poderá ser entregue sem que as funcionalidades essenciais estejam prontas. |
-|01| O projeto deve ser desenvolvido utilizando a linguagem de programação C#. |
+|03| O projeto não poderá ser entregue sem que as funcionalidades essenciais estejam prontas. |
+|04| O projeto deve ser desenvolvido utilizando a linguagem de programação C#. |
 
 ## Diagrama de Casos de Uso
 
