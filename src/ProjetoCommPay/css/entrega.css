@@ -87,8 +87,22 @@ input[type="file"]{
     color: #A6A6A6;
     font-size:15px ;
 }
+/* conteudo do site
+----------------------------------*/
+.conteudo-conteiner{
+    width: 1080px;
+    margin: 0 auto;
+}
+#conteudo{
+    font-size: 13px;
+    margin-top: 20px;
+}
+#caixa-de-dados{
+    background-color: #ffffff;
+    border-radius: 10px;
+}
 
-/* Cabeçalho 
+/* Rodape
 ----------------------------------*/
 footer {
     background-color: #0E2A50;
