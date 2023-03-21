@@ -15,14 +15,32 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
 	<![endif]--> 
 </head>
-<body >
+<body class="entrega">
     
     <header><!--Início header-->
-        <a>CommPay</a>
+        <a id="logo">CommPay</a>
+
+        <div class="dados-usuario"><!--Início dados do usuario-->
+            <h1>Olá,</h1>
+            <p>ID:</p>
+        </div><!--/fim dados do usuario-->
+    
+        <nav><!--Início nav-->
+            <ul id="navegacao">
+                <li><img src="./imagem/cedula.png"><a id="entrega" href="entrega.html">Entrega</a></li>
+            </ul>
+        </nav><!--/fim nav-->
+        <div class="avatar-container"><!--Início avatar-->
+            <img src="./imagem/usuario-do-circulo.png" alt="avatar">
+            <input type="file" id="avatar-upload" accept="image/*">
+            <label for="avatar-upload"></label>
+        </div><!--/fim avatar-->
     </header><!--/fim header-->
 
     
-        
+
+    <div class="conteudo">
+        conteudo 1
     </div>
     
     <footer>
