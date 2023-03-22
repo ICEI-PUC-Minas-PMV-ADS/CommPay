@@ -39,22 +39,21 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 
 ### Divisão de Papéis
 
+Divisão de Papéis
 A equipe utiliza metodologias ágeis, tendo escolhido o Scrum como base para definição do processo de desenvolvimento.
 
 A equipe está organizada da seguinte maneira:
 
-Scrum Master: Marllon Santos.
-Product Owner: Pablo Alves.
+  - Scrum Master: Marllon Santos.
+  - Product Owner: Pablo Alves.
 
-Equipe de Desenvolvimento:
+  - Equipe de Desenvolvimento:
+    - Geison Amorim. 
+    - Lucas Reis.
 
-Geison Amorim.
-Lucas Reis.
-
-Equipe de Desing:
-
-Amanda Brito.
-Victor Kingma.
+  - Equipe de Design:
+    - Amanda Brito. 
+    - Victor Kingma.
 
 
 > **Links Úteis**:
