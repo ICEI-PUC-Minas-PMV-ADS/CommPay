@@ -15,9 +15,11 @@ Como objetivos específicos, podemos ressaltar:
 
 ## Justificativa
 
-Segundo eSales em uma publicação de 2020 no blog de sua empresa, discorrer que a burocracia nas empresas é um dos principais motivos que levam à perda de eficiência e produtividade. Em nome da boa gestão e da governança, muitas organizações instituíram na rotina diversos elementos que prejudicam a performance dos funcionários. 
-Já Deivison Pedroza Diretor de Marketing, em sua rede do Linkedin 2023, diz que todas as empresas devem seguir a onda de “desburocratização” e deixarem de ser ultrapassadas, obsoletas e arcaicas e passarem a serem eficiente e produtiva, implementando uma gestão acelerada em seus processos e procedimentos.
-Além da burocracia nos processos, a realização de processos manuais também estão diretamente ligados à queda na produtividade e a possíveis erros. A automatização de processos como o de comissionamento de vendedores têm grande impacto no desempenho desses funcionários. Com a automatização do processo o tempo gasto para somar as comissões e a taxa de erros são reduzidos drasticamente gerando maior satisfação e otimização de tempo por parte dos funcionários ligados ao processo. A implementação de uma funcionalidade que automatize tal processo além dos benefícios citados acima traria consigo os seguintes benefícios:      
+Segundo eSales em uma publicação de 2020 no blog de sua empresa, a burocracia nas empresas é um dos principais motivos que levam à perda de eficiência e produtividade. Em nome da boa gestão e da governança, muitas organizações instituíram na rotina diversos elementos que prejudicam a performance dos funcionários.  
+
+Já Deivison Pedroza Diretor de Marketing, em sua rede do Linkedin 2023, diz que todas as empresas devem seguir a onda de “desburocratização” e deixarem de ser ultrapassadas, obsoletas e arcaicas e passarem a serem eficiente e produtiva, implementando uma gestão acelerada em seus processos e procedimentos. 
+
+Além da burocracia nos processos, a realização de processos manuais também está diretamente ligada à queda na produtividade e a possíveis erros. A automatização de processos como o de comissionamento de vendedores têm grande impacto no desempenho desses funcionários. Com a automatização do processo o tempo gasto para somar as comissões e a taxa de erros são reduzidos drasticamente gerando maior satisfação e otimização de tempo por parte dos funcionários ligados ao processo. A implementação de uma funcionalidade que automatize tal processo além dos benefícios citados acima traria consigo os seguintes benefícios:       
 * redução da quantidade de documentos em papel;
 * melhora na troca de informação entre os funcionários;
 * controlar os processos com mais precisão;
