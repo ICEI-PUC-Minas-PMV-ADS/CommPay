@@ -1,7 +1,8 @@
 # Introdução
 
-Nos dias atuais, a tecnologia está avançando rapidamente, e muitas empresas têm adotado processos digitais como uma forma de tornar suas operações mais eficientes. A extinção dos processos manuais é uma consequência inevitável dessa tendência. Porém, ainda existem algumas vantagens que vem com os processos manuais. Por exemplo, eles oferecem maior flexibilidade para se adaptar às necessidades do cliente e aplicações específicas. No entanto, os processos digitais são muito mais rápidos e permitem que as tarefas sejam concluídas de forma mais precisa. Além disso, eles eliminam erros humanos, melhoram o controle de custos e reduzem o tempo gasto em tarefas manuais que podem ser feitas automaticamente por computadores. 
-Em suma, a extinção dos processos manuais é um passo necessário para tornar as empresas modernas mais produtivas e rentáveis.
+Nos dias atuais, com o rápido avanço da tecnologia, muitas empresas têm adotado processos digitais como uma forma de tornar suas operações mais eficientes. A extinção dos processos manuais é uma consequência inevitável dessa tendência. Porém, ainda existem algumas vantagens que vem com os processos manuais. Por exemplo, eles oferecem maior flexibilidade para se adaptar às necessidades do cliente e aplicações específicas. No entanto, os processos digitais são muito mais rápidos e permitem que as tarefas sejam concluídas de forma mais precisa. Além disso, eles eliminam erros humanos, melhoram o controle de custos e reduzem o tempo gasto em tarefas manuais que podem ser feitas automaticamente por computadores.  
+
+Em suma, a extinção dos processos manuais é um passo necessário para tornar as empresas modernas mais produtivas e rentáveis. 
 
 ## Problema
 O que se busca resolver com esse projeto é a melhoria da gestão  do comissionamento pago sobre as vendas de móveis concluídos visando sanar o problema de tempo gasto  e possíveis erros na somatória das comissões.
