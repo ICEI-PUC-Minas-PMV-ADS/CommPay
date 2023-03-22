@@ -31,4 +31,4 @@ Além da burocracia nos processos, a realização de processos manuais também e
 
 ## Público-Alvo
 
-O público alvo deste trabalho são trabalhadores do setor de vendas, expedição e financeiro de empresas do setor de vendas.
+O público-alvo deste trabalho são trabalhadores do setor de vendas, expedição e financeiro de empresas do setor de vendas.
