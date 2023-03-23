@@ -57,13 +57,21 @@ A equipe está organizada da seguinte maneira:
 
 ### Processo
 
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
- 
-> **Links Úteis**:
-> - [Project management, made simple](https://github.com/features/project-management/)
-> - [Sobre quadros de projeto](https://docs.github.com/pt/github/managing-your-work-on-github/about-project-boards)
-> - [Como criar Backlogs no Github](https://www.youtube.com/watch?v=RXEy6CFu9Hk)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
+Para organização e distribuição das tarefas do projeto, a equipe está utilizando o Trello estruturado com as seguintes listas:
+
+● Backlog: Recebe as tarefas a serem trabalhadas e representa o Product Backlog. Todas as atividades identificadas no decorrer do projeto também devem ser incorporadas a esta lista.
+
+● Em andamento: Esta lista representa o Sprint Backlog. Este é o Sprint atual que estamos trabalhando.
+
+● Fase de teste: Nesta lista estão dispostos os testes de software e testes de usabilidade. 
+
+● Revisão: Antes de mover para a lista de concluído, revisamos o que foi feito para ver se existe algum erro.
+
+● Concluído: nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias, ele está agendado e pronto para a ação.
+
+A imagem a seguir mostra o esboço de como será a disposição das listas no quadro Kanban:
+
+![WhatsApp Image 2023-03-22 at 20 53 01](https://user-images.githubusercontent.com/89876269/227064291-291f9b6d-e460-4d16-871d-9589fbd0d841.jpeg)
 
 ### Ferramentas
 
