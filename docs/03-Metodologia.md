@@ -69,7 +69,7 @@ Para organização e distribuição das tarefas do projeto, a equipe está utili
 
 ● Concluído: nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias, ele está agendado e pronto para a ação.
 
-O quadro kanban do grupo desenvolvido na ferramenta de gerenciamento de projetos está disponível através da URL (https://trello.com/b/P67tM0rL/kanban-commpay) e é apresentado, no estado atual, na figura abaixo:
+A imagem a seguir mostra o esboço de como será a disposição das listas no quadro Kanban:
 
 ![WhatsApp Image 2023-03-22 at 20 53 01](https://user-images.githubusercontent.com/89876269/227064291-291f9b6d-e460-4d16-871d-9589fbd0d841.jpeg)
 
@@ -82,6 +82,7 @@ As ferramentas empregadas no projeto são:
 |**Repositório de Código Fonte**|**GitHub**|https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t1-pmv-ads-2023-1-e2-proj-int-t1-time5-log|
 |**Projeto de Interface - Wireframe**|**Canva**|https://www.canva.com/design/DAFdNLd2Ry0/ft0i99YFpUBafAde4vbYwA/edit?utm_source=shareButton&utm_medium=email&utm_campaign=designshare)|
 |**Editor de Código**|**Visual Studio 2022**|https://visualstudio.microsoft.com/pt-br/downloads/|
+|**Codificação do Front End**|**Visual Studio Code**|https://code.visualstudio.com/docs/?dv=win|
 |**Documentação de projeto**|**GitHub**|https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t1-pmv-ads-2023-1-e2-proj-int-t1-time5-log|
 |**Ferramentas de Comunição**|**Microsoft Teams**|https://teams.microsoft.com/l/channel/19%3a69d69ba1437549ca8a01dbf9c3247eef%40thread.tacv2/Grupo%25205%2520-%2520Quinta%252020h30%2520Log%25C3%25ADstica%2520entrega%2520de%2520m%25C3%25B3veis?groupId=278e57a8-42bb-4c89-b8a7-519c37a19531&tenantId=14cbd5a7-ec94-46ba-b314-cc0fc972a161|
 |**Acompanhamentos semanal do andamento de atividades**|**WhatsApp**|https://chat.whatsapp.com/BUJQ5WOkPyVBpQvPSpn8Y6|
