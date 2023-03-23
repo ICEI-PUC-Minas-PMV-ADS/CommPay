@@ -44,7 +44,7 @@ A equipe utiliza metodologias ágeis, tendo escolhido o Scrum como base para def
 
 A equipe está organizada da seguinte maneira:
 
-  - Scrum Master: Marllon Santos.
+  - Scrum Master: Marlon Santos.
   - Product Owner: Pablo Alves.
 
   - Equipe de Desenvolvimento:
