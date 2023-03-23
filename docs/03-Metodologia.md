@@ -69,7 +69,7 @@ Para organização e distribuição das tarefas do projeto, a equipe está utili
 
 ● Concluído: nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias, ele está agendado e pronto para a ação.
 
-A imagem a seguir mostra o esboço de como será a disposição das listas no quadro Kanban:
+O quadro kanban do grupo desenvolvido na ferramenta de gerenciamento de projetos está disponível através da URL (https://trello.com/invite/b/P67tM0rL/ATTI829e67da82b5eba5b2126a6173f447a1AFFB2E1A/kanban-commpay) e é apresentado, no estado atual, na figura abaixo:
 
 ![WhatsApp Image 2023-03-22 at 20 53 01](https://user-images.githubusercontent.com/89876269/227064291-291f9b6d-e460-4d16-871d-9589fbd0d841.jpeg)
 
