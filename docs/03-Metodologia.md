@@ -77,6 +77,7 @@ As ferramentas empregadas no projeto são:
 |**Documentação de projeto**|**GitHub**|https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t1-pmv-ads-2023-1-e2-proj-int-t1-time5-log|
 |**Ferramentas de Comunição**|**Microsoft Teams**|https://teams.microsoft.com/l/channel/19%3a69d69ba1437549ca8a01dbf9c3247eef%40thread.tacv2/Grupo%25205%2520-%2520Quinta%252020h30%2520Log%25C3%25ADstica%2520entrega%2520de%2520m%25C3%25B3veis?groupId=278e57a8-42bb-4c89-b8a7-519c37a19531&tenantId=14cbd5a7-ec94-46ba-b314-cc0fc972a161|
 |**Acompanhamentos semanal do andamento de atividades**|**WhatsApp**|https://chat.whatsapp.com/BUJQ5WOkPyVBpQvPSpn8Y6|
+|**Banco de Dados Relacional**|**SQL Server**|
 
 Para o repositório de código fonte, gerenciamento do projeto, bem como para armazenamento e alteração dos documentos do projeto será utilizado o GitHub, instrumento robusto e amplamente usado no mercado. Para o projeto de interface e Wireframes, será utilizado o Figma, um editor online de gráficos com ênfase em prototipagem. Além disso, a comunicação ágil do grupo para acompanhamento diário das atividades se dará pelo uso da rede WhatsApp, enquanto as reuniões de discussão serão pelo Microsoft Teams.
 
