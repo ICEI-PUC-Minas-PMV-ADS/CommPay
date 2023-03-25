@@ -5,6 +5,7 @@ Nessa seção serão apresentados os processos e ferramentas definidos pela equi
 
 ## Controle de Versão
 
+Para a gestão do código fonte será utilizado o modelo de processo baseado no Git Flow.
 A ferramenta de controle de versão adotada no projeto foi o
 [Git](https://git-scm.com/), sendo que o [Github](https://github.com)
 foi utilizado para hospedagem do repositório.
