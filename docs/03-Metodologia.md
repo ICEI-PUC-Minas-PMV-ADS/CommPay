@@ -1,9 +1,7 @@
 
 # Metodologia
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
-
-A metodologia contempla as definições de ferramental utilizado pela equipe tanto para a manutenção dos códigos e demais artefatos quanto para a organização do time na execução das tarefas do projeto.
+Nessa seção serão apresentados os processos e ferramentas definidos pela equipe para o desenvolvimento da aplicação para otimizar e organizar todo o processo de desenvolvimento visando o melhor desempenho da equipe e da aplicação.
 
 ## Controle de Versão
 
