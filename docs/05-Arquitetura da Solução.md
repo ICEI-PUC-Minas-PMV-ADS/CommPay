@@ -1,7 +1,5 @@
 # Arquitetura da Solução
 
-<span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>
-
 Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
 
 ## Diagrama de Classes
@@ -13,26 +11,30 @@ Abaixo se encontra o diagrama de classes que orienta nosso projeto:
 
 ## Modelo ER (Projeto Conceitual)
 
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
+A imagem abaixo representa o modelo conceitual do banco de dados da aplicação:
 
-Sugestão de ferramentas para geração deste artefato: LucidChart e Draw.io.
-
-
-A referência abaixo irá auxiliá-lo na geração do artefato “Modelo ER”.
-
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
+![MER - Commpay_page-0001](https://user-images.githubusercontent.com/89876269/229912360-05ccdd46-0af7-432b-bda8-b1a65421b0b9.jpg)
 
 ## Projeto da Base de Dados
 
-O projeto da base de dados corresponde à representação das entidades e relacionamentos identificadas no Modelo ER, no formato de tabelas, com colunas e chaves primárias/estrangeiras necessárias para representar corretamente as restrições de integridade.
- 
-Para mais informações, consulte o microfundamento "Modelagem de Dados".
+Na imagem a seguir encontra-se o modelo da base de dados contendo os relacionamento entre as tabelas do banco a ser desenvolvido.
+
+![DER - CommPay_page-0001](https://user-images.githubusercontent.com/89876269/229911930-c32558d7-734c-44ac-a4d6-e9917b15342a.jpg)
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
+Linguagem de programação utilizada:
+* C#: Linguagem de progamação utilizada para desenvolvimento do backend da aplicação.
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+Outras linguagens:
+* HTML: Linguagem de marcação utilizada para a construção das páginas web.
+* CSS: Linguagem de folhas de estilos utilizada para aplicar estilos nos elementos HTML.
+
+IDE:
+* Foi utilizado o Visual Studio Community 2022, escolhido pela intregação com a ferramenta utilizada na aplicação o SQL server.
+
+Banco de dados:
+* O sistema que irá gerenciar o banco de dados da aplicação será o SQL Server, escolhido por sua boa integração com o editor de código e para facilitar a migração do banco de dados para o serviço de hospedagem nas fases mais avançadas do projeto.
 
 ## Hospedagem
 
