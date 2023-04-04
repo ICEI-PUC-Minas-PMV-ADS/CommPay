@@ -31,7 +31,7 @@ Outras linguagens:
 * CSS: Linguagem de folhas de estilos utilizada para aplicar estilos nos elementos HTML.
 
 IDE:
-* Foi utilizado o Visual Studio Community 2022, escolhido pela intregação com a ferramenta utilizada na aplicação o SQL server.
+* Foi utilizada a IDE Visual Studio Community 2022, escolhido pela intregação com a ferramenta utilizada na aplicação o SQL server.
 
 Banco de dados:
 * O sistema que irá gerenciar o banco de dados da aplicação será o SQL Server, escolhido por sua boa integração com o editor de código e para facilitar a migração do banco de dados para o serviço de hospedagem nas fases mais avançadas do projeto.
