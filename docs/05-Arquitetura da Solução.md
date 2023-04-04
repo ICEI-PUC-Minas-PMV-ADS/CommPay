@@ -13,7 +13,8 @@ Abaixo se encontra o diagrama de classes que orienta nosso projeto:
 
 A imagem abaixo representa o modelo conceitual do banco de dados da aplicação:
 
-![MER - Commpay_page-0001](https://user-images.githubusercontent.com/89876269/229912360-05ccdd46-0af7-432b-bda8-b1a65421b0b9.jpg)
+![MER - Commpay_page-0001](https://user-images.githubusercontent.com/89876269/229934476-41539fc9-fdd0-445f-b614-88b9c6b1f821.jpg)
+
 
 ## Projeto da Base de Dados
 
