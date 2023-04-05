@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Normalise CSS -->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <title>CommPay</title>
+
+    <!-- Estilo customizado -->
+    <link rel="stylesheet" type="text/css" href="css/venda.css">
+
+    <!--[if lt IE 9]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+	<![endif]-->
+</head>
+
+<body class="entrega">
+
+    <header><!--Início header-->
+        <a id="logo">CommPay</a>
+
+        <div class="dados-usuario"><!--Início dados do usuario-->
+            <h1>Olá,</h1>
+            <p>ID:</p>
+        </div><!--/fim dados do usuario-->
+
+        <nav><!--Início nav-->
+            <ul id="navegacao">
+                <li><img src=""><a id="entrega" href="entrega.html">Nova venda</a></li>
+                <!--Inserir imagem carrinho de compras-->
+                <li><img src="imagem/lista-de-precos.png" id="img_comissoes"><a id="entrega"
+                        href="entrega.html">Comissões</a></li>
+            </ul>
+        </nav><!--/fim nav-->
+        <div class="avatar-container"><!--Início avatar-->
+
+            <input type="file" id="avatar-upload" accept="image/*">
+            <label for="avatar-upload" id="label_avatar">
+                <img src="./imagem/usuario-do-circulo.png" alt="avatar" id="avatar">
+            </label>
+        </div><!--/fim avatar-->
+    </header><!--/fim header-->
+
+
+
+    <div class="conteudo-conteiner"><!--Início conteudo-container-->
+        <div id="conteudo">
+            <h1>Nova venda</h1>
+            <div id="caixa-de-dados"><!--Início caixa-de-dados-->
+                <p><img src="imagem/descricao-do-produto.png" id="venda">Dados da venda</p>
+                <h2>Valor Total R$: <input type="text" id="inp_valor_total" disabled> </h2>
+                <table class="dados-produto-table">
+                    <thead>
+                        <tr>
+                            <th>Data Venda</th>
+                            <th>ID Produto</th>
+                            <th>Descrição</th>
+                            <th>Quantidade</th>
+                            <th>Valor R$</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>05/04/2023</td>
+                            <td><input type="text" id="id_produto"></td>
+                            <td>G.Roupa Canadá 6 pts. 4 gav.</td>
+                            <td><input type="text" id="quantidade"></td>
+                            <td>695,85</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <form>
+                    <img src="imagem/clip.png" id="clip">
+                    <h2>Anexar documento</h2>
+                    <label for="anexo" id="label_anexo">Comprovante PDF</label>
+                    <input type="file" id="anexo" name="anexo" accept="PDF">
+                </form>
+                <div class="botoes">
+                    <button id="btn_adicionar">
+                        <img src="imagem/mais.png" function="" id="img_adicionar">
+                    </button>
+                    <button type="submit" id="btn_salvar" function="">Salvar</button>
+                </div>
+
+            </div><!--/fim caixa-de-dados-->
+        </div>
+    </div><!--/fim conteudo-container-->
+
+    <footer>
+        <div class="logo-container">
+            <img src="./imagem/logob.png" alt="CommPay">
+            <p>&copy; CommPay - Belo Horizonte - Av Amazonas,402 - CEP 32405-240 - CNPJ 54.567.398/0002-80</p>
+        </div>
+        <div class="redes-sociais-container">
+            <a id="linkedin" href=""></a>
+            <a id="instagram" href="#"></a></a>
+        </div>
+    </footer>
+</body>
+
+</html>
