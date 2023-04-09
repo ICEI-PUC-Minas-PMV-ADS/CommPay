@@ -1,15 +1,27 @@
 # Plano de Testes de Usabilidade
 
-Os testes de usabilidade permitem avaliar a qualidade da interface com o usuário da aplicação interativa.
-
-Um plano de teste de usabilidade deverá conter: o detalhamento dos objetivos (em função dos requisitos levantados/implementados), dos critérios que serão utilizados para a seleção dos participantes, dos procedimentos a serem adotados pelos condutores de teste (por exemplo: os testes serão presenciais ou remotos? o método será observação direta, medição ou avaliação?), das tarefas a serem executadas, dos dados a serem coletados (quantidade de cliques, número de erros, tempo etc.), a ordem de execução das tarefas e das etapas da sessão de teste, recursos demandados, métricas coletadas etc.
-
-Para cada voluntário do teste, é fundamental coletar e apresentar todos os dados/métricas previamente definidos, mas não se esqueça: atendendo à LGPD (Lei Geral de Proteção de Dados), nenhum dado sensível, que permita identificar o voluntário, deverá ser apresentado).
-
-As referências abaixo irão auxiliá-lo na geração do artefato "Plano de Testes de Usabilidade".
-
-> **Links Úteis**:
-> - [Teste De Usabilidade: O Que É e Como Fazer Passo a Passo (neilpatel.com)](https://neilpatel.com/br/blog/teste-de-usabilidade/)
-> - [Teste de usabilidade: tudo o que você precisa saber! | by Jon Vieira | Aela.io | Medium](https://medium.com/aela/teste-de-usabilidade-o-que-voc%C3%AA-precisa-saber-39a36343d9a6/)
-> - [Planejando testes de usabilidade: o que (e o que não) fazer | iMasters](https://imasters.com.br/design-ux/planejando-testes-de-usabilidade-o-que-e-o-que-nao-fazer/)
-> - [Ferramentas de Testes de Usabilidade](https://www.usability.gov/how-to-and-tools/resources/templates.html)
+| **Caso de Teste** 	| **CT-01 – Acessível publicamente na internet** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RNF-001 - A aplicação deve ser publicada em um ambiente acessível na Internet (Repl.it, GitHub Pages, Heroku). |
+| Objetivo do Teste 	| Verificar se a aplicação está acessível publicamente na internet. |
+| Passos 	|  1. Acessar o navegador.<br> 2. Informar o endereço da aplicação. <br> 3. Verificar se a página carrega de forma integral. |
+|Critério de Êxito |  A página deve ser carregada sem erros.<br> A página deve ser acessível de qualquer lugar através da internet. |
+|  	|  	|
+| **Caso de Teste** 	| **CT-02 – Verificar se é responsiva** 	|
+|	Requisito Associado 	| RNF-002- A aplicação deverá ser responsiva permitindo a visualização em um dispositivo móvel de forma adequada. |
+| Objetivo do Teste 	| Verificar se a aplicação é responsiva e adequada para visualização em um dispositivo móvel. |
+| Passos 	|  1. Acessar o Navegador em um celular. <br> 2. Informar o endereço da aplicação. <br> 3. Verificar se a página é visualizada corretamente. |
+| Critério de Êxito | - A página deve ser visualizada de forma integral em um dispositivo móvel. |
+|  	|  	|
+| **Caso de Teste**   | **CT-03 – Interação com banco de dados**|
+|  Requisito Associado   | RNF-007- O sistema deverá se comunicar com o banco MySQL |
+| Objetivo do Teste   | Verificar se a aplicação consegue se comunicar com o banco de dados MySQL |
+| Passos   | - Acessar o navegador <br> - Informar o endereço da aplicação |
+|Critério de Êxito | - A conexão com o banco de dados deve ser estabelecida com sucesso <br> - Os dados devem ser recuperados e exibidos corretamente na aplicação <br>
+|  	|  	|
+| **Caso de Teste**   | **CT-04– Acesso ao sistema**   |
+|  Requisito Associado   | RNF-008- O sistema só pode ser acessado por: Auxiliar Financeiro, Expedidor e Vendedor(a). |
+| Objetivo do Teste   | Verificar se o acesso à aplicação está restrito apenas aos usuários autorizados. |
+| Passos   | - Acessar o navegador <br> - Informar o endereço da aplicação<br> - Tentar acessar a aplicação com um usuário não autorizado <br> |
+|Critério de Êxito | - Os usuários autorizados devem conseguir acessar a aplicação normalmente <br> - O acesso deve ser negado para usuários não autorizados |
+|  	|  	|
