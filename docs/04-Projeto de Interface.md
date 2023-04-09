@@ -15,17 +15,13 @@ O sistema é separado por dois tipos de úsuarios, sendo eles o perfil administr
 
 ![Tela de Login](https://user-images.githubusercontent.com/89876269/230788976-1ab789b7-a2d5-4048-a9f0-0f20dbe8eff6.png)
 
-### Cadastro de Usuário
+### Relatório de Comissões
 
-![Tela Cadastro](https://user-images.githubusercontent.com/89876269/230788997-cbdc7b63-73c0-454d-86f7-5f1ec59acb52.png)
+![Relatório de Comissões](https://user-images.githubusercontent.com/89876269/230789109-8af6a00b-e45d-4c32-b4b3-f85d90931777.png)
 
-### Cadastro de Entregas
+### Atualização do Status da Etregas
 
 ![Cadastro de Entrega](https://user-images.githubusercontent.com/89876269/230789026-0d7ba134-074f-4b9b-aeff-f03d0a92ef8e.png)
-
-### Cadastro de Vendas
-
-![Cadastro de venda](https://user-images.githubusercontent.com/89876269/230789040-eda619f8-f0a9-44c7-943e-15a3b5817309.png)
 
 ### Relatório por Vendedor
 
@@ -34,6 +30,7 @@ O sistema é separado por dois tipos de úsuarios, sendo eles o perfil administr
 
 ![Relatório Vendedor](https://user-images.githubusercontent.com/89876269/230789124-fbb28c77-2bc5-45af-9c07-d7c5f5e49644.png)
 
-### Relatório de Comissões
+### Cadastro de Usuário
 
-![Relatório de Comissões](https://user-images.githubusercontent.com/89876269/230789109-8af6a00b-e45d-4c32-b4b3-f85d90931777.png)
+![Tela Cadastro](https://user-images.githubusercontent.com/89876269/230788997-cbdc7b63-73c0-454d-86f7-5f1ec59acb52.png)
+
