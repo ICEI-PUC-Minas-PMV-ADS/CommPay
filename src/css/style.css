@@ -4,14 +4,13 @@ body {
 }
 
 
-@media screen and (max-width: 894px) {
+@media screen and (max-width: 1020px) {
 
     .com-footer {
         justify-content: end;
     }
 
     .com-footer .navbar-brand img {
-        margin-bottom: 10px;
     }
 
     .com-footer .com-footer-text {
@@ -22,18 +21,12 @@ body {
 }
 
 
-
-
 .com-nav {
     background-color: #0E2A50;
     padding: 20px;
 }
-.mt-4{
-    background-color: #ffff !important;
-}
-.mt-5{
-    margin-left: 8%;
-}
+
+
 
 .com-footer {
     padding: 20px;
