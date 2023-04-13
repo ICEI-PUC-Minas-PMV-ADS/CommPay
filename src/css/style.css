@@ -28,6 +28,7 @@ body {
 
 
 
+
 .com-footer {
     padding: 20px;
     position: absolute;
@@ -87,6 +88,9 @@ body {
 .com-user{ 
     padding: 10px;
     border-radius: 10px;
-    border:1px solid #1B152D;
+    border:1px solid #0E2A50;    
+}
+.container{
+    background-color: #ffffff;
 }
 
