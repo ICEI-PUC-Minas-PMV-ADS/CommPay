@@ -2,14 +2,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Commpay.Models
+namespace Commpay.Models.Enums
 {
-    public enum cargo
-    {
-        Expedidor,
-        Vendedor,
-        Financeiro
-    }
+
     [Table("Usuário")]
     public class Usuario
     {
@@ -21,7 +16,7 @@ namespace Commpay.Models
         public string cpf { get; set; }
         [Required(ErrorMessage = "Campo obrigatório!")]
         public string senha { get; set; }
-        public cargo cargo { get; set; }
+        public Cargo cargo { get; set; }
 
         public Usuario(int id, string nome, string cpf, string senha)
         {

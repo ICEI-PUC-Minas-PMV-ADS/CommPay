@@ -1,11 +1,11 @@
 ﻿using System;
-using Commpay.Models;
+using Commpay.Models.Enums;
 
 public class Expedidor : Usuario
 {
-    public Expedidor(int id, string nome, string cpf, string senha, cargo cargo) : base(id, nome, cpf, senha)
+    public Expedidor(int id, string nome, string cpf, string senha, Cargo cargo) : base(id, nome, cpf, senha)
     {
-        this.cargo = cargo.Expedidor;
+        this.cargo = Cargo.Expedidor;
     }
 
     public void AlterarStatusEntrega()
