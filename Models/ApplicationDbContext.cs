@@ -4,8 +4,10 @@ using Microsoft.EntityFrameworkCore;
 
 public class ApplicationDbContext : DbContext
 {
-    ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
 
+    //Criação da tabela.
+    public DbSet <Usuario> Usuarios { get; set; }
 }

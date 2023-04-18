@@ -1,4 +1,6 @@
-﻿namespace Commpay
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Commpay
 {
     public class Startup
     {
@@ -10,6 +12,11 @@
 
         public void ConfigureServices(IServiceCollection services) 
         {
+            //Configurações do Db.
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                ); 
+
             services.AddControllersWithViews();
         }
 
