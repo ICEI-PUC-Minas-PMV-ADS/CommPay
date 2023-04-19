@@ -19,17 +19,13 @@ namespace Commpay.Models
         public string senha { get; set; }
         public Cargo cargo { get; set; }
 
-        public Usuario(int id, string nome, string cpf, string senha)
+        public Usuario(int id, string nome, string cpf, string senha, Cargo cargo)
         {
             this.id = id;
             this.nome = nome;
             this.cpf = cpf;
             this.senha = senha;
-        }
-
-        public void VizualizarRelatorio()
-        {
-
-        }
+            this.cargo = cargo;
+        }       
     }
 }
