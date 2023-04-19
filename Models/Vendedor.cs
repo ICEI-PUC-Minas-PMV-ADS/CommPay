@@ -1,13 +1,6 @@
-﻿using System;
-using Commpay.Models.Enums;
-
-namespace Commpay.Models
+﻿namespace Commpay.Models
 {
-    public class Vendedor
+    public class Vendedor : Usuario
     {
-        public void CadastrarVenda()
-        {
-
-        }
     }
 }

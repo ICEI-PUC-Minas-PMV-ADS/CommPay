@@ -1,13 +1,6 @@
-﻿using System;
-using Commpay.Models.Enums;
-
-namespace Commpay.Models
+﻿namespace Commpay.Models
 {
-    public class Expedidor
+    public class Expedidor : Usuario
     {
-        public void AlterarStatusEntrega()
-        {
-
-        }
     }
 }
