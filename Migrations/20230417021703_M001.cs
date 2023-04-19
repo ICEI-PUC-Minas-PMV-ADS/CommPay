@@ -5,25 +5,25 @@
 namespace Commpay.Migrations
 {
     /// <inheritdoc />
-    public partial class M00 : Migration
+    public partial class M001 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Usuário",
+                name: "Usuario",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    cpf = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    senha = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    cargo = table.Column<int>(type: "int", nullable: false)
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cpf = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Senha = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cargo = table.Column<int>(type: "int", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Usuário", x => x.id);
+                    table.PrimaryKey("PK_Usuario", x => x.Id);
                 });
         }
 
@@ -31,7 +31,7 @@ namespace Commpay.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Usuário");
+                name: "Usuario");
         }
     }
 }
