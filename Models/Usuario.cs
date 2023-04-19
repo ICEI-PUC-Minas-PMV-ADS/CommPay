@@ -26,6 +26,10 @@ namespace Commpay.Models
             this.cpf = cpf;
             this.senha = senha;
             this.cargo = cargo;
-        }       
+        }
+
+        public Usuario()
+        {
+        }
     }
 }
