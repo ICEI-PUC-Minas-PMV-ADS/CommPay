@@ -2,94 +2,94 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Commpay.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Commpay.Models;
 
 namespace Commpay.Controllers
 {
-    public class UsuariosController : Controller
+    public class FinanceirosController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public UsuariosController(ApplicationDbContext context)
+        public FinanceirosController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Usuarios
+        // GET: Financeiros
         public async Task<IActionResult> Index()
         {
-              return _context.Usuarios != null ? 
-                          View(await _context.Usuarios.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Usuarios'  is null.");
+              return _context.Financeiros != null ? 
+                          View(await _context.Financeiros.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Financeiros'  is null.");
         }
 
-        // GET: Usuarios/Details/5
+        // GET: Financeiros/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Usuarios == null)
+            if (id == null || _context.Financeiros == null)
             {
                 return NotFound();
             }
 
-            var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (usuario == null)
+            var financeiro = await _context.Financeiros
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (financeiro == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(financeiro);
         }
 
-        // GET: Usuarios/Create
+        // GET: Financeiros/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Usuarios/Create
+        // POST: Financeiros/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,nome,cpf,senha,cargo")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Senha,Cargo")] Financeiro financeiro)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(usuario);
+                _context.Add(financeiro);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return View(financeiro);
         }
 
-        // GET: Usuarios/Edit/5
+        // GET: Financeiros/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Usuarios == null)
+            if (id == null || _context.Financeiros == null)
             {
                 return NotFound();
             }
 
-            var usuario = await _context.Usuarios.FindAsync(id);
-            if (usuario == null)
+            var financeiro = await _context.Financeiros.FindAsync(id);
+            if (financeiro == null)
             {
                 return NotFound();
             }
-            return View(usuario);
+            return View(financeiro);
         }
 
-        // POST: Usuarios/Edit/5
+        // POST: Financeiros/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,nome,cpf,senha,cargo")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Senha,Cargo")] Financeiro financeiro)
         {
-            if (id != usuario.id)
+            if (id != financeiro.Id)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace Commpay.Controllers
             {
                 try
                 {
-                    _context.Update(usuario);
+                    _context.Update(financeiro);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UsuarioExists(usuario.id))
+                    if (!FinanceiroExists(financeiro.Id))
                     {
                         return NotFound();
                     }
@@ -114,49 +114,49 @@ namespace Commpay.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return View(financeiro);
         }
 
-        // GET: Usuarios/Delete/5
+        // GET: Financeiros/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Usuarios == null)
+            if (id == null || _context.Financeiros == null)
             {
                 return NotFound();
             }
 
-            var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (usuario == null)
+            var financeiro = await _context.Financeiros
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (financeiro == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(financeiro);
         }
 
-        // POST: Usuarios/Delete/5
+        // POST: Financeiros/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Usuarios == null)
+            if (_context.Financeiros == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Usuarios'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Financeiros'  is null.");
             }
-            var usuario = await _context.Usuarios.FindAsync(id);
-            if (usuario != null)
+            var financeiro = await _context.Financeiros.FindAsync(id);
+            if (financeiro != null)
             {
-                _context.Usuarios.Remove(usuario);
+                _context.Financeiros.Remove(financeiro);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UsuarioExists(int id)
+        private bool FinanceiroExists(int id)
         {
-          return (_context.Usuarios?.Any(e => e.id == id)).GetValueOrDefault();
+          return (_context.Financeiros?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
