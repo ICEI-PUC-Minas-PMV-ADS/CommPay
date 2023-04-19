@@ -23,5 +23,9 @@ namespace Commpay.Models
             this.Descricao = descricao;
             this.Valor = valor;
         }
+
+        public Produto()
+        {
+        }
     }
 }
