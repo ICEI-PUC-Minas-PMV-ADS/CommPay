@@ -3,11 +3,11 @@ using Commpay.Models.Enums;
 
 namespace Commpay.Models
 {
-    public class Financeiro : Usuario
-    {
-        public Financeiro(int id, string nome, string cpf, string senha, Cargo cargo) : base(id, nome, cpf, senha)
+    public class Financeiro
+    { 
+        public void CadastrarUsuario()
         {
-            this.cargo = Cargo.Financeiro;
+
         }
     }
 }
