@@ -1,15 +1,18 @@
 ﻿using System;
 using Commpay.Models.Enums;
 
-public class Vendedor : Usuario
+namespace Commpay.Models
 {
-    public Vendedor(int id, string nome, string cpf, string senha, Cargo cargo) : base(id, nome, cpf, senha)
+    public class Vendedor : Usuario
     {
-        this.cargo = Cargo.Vendedor;       
-    }
+        public Vendedor(int id, string nome, string cpf, string senha, Cargo cargo) : base(id, nome, cpf, senha)
+        {
+            this.cargo = Cargo.Vendedor;
+        }
 
-    public void CadastrarVenda()
-    {
+        public void CadastrarVenda()
+        {
 
+        }
     }
 }

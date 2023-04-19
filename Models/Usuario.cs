@@ -1,8 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Commpay.Models.Enums;
 
-namespace Commpay.Models.Enums
+namespace Commpay.Models
 {
 
     [Table("Usuário")]
