@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Commpay.Models
 {
     [Table("Usuario")] //Criação da Tabela.
-    public abstract class Usuario //Classe base de Usuário.
+    public class Usuario //Classe base de Usuário.
     {
         [Key] // Primary Key
         public int Id { get; set; }
@@ -17,6 +17,7 @@ namespace Commpay.Models
         public string Cpf { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
+        [DataType(DataType.Password)]
         public string Senha { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")]

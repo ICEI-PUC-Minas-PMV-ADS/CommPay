@@ -13,6 +13,43 @@ namespace Commpay.Controllers
             _context = context;
         }
 
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login([Bind("Nome, Senha")] Expedidor expedidor)
+        {
+            //VERIFICAÇÃO NO BANCO DE DADOS
+            var user = await _context.Usuario
+                .FirstOrDefaultAsync(m => m.Nome == expedidor.Nome);
+
+            if (user == null)
+            {
+                ViewBag.Message = "Usuario e/ou Senha inválidos!";
+                return View();
+            }
+
+            //VALIDANDO CRIPTOGRAFIA DA SENHA
+            bool isSenhaOk = BCrypt.Net.BCrypt.Verify(expedidor.Senha, user.Senha);
+
+            //SE SENHA OK, LOGAR NO SISTEMA
+            if (isSenhaOk)
+            {
+                ViewBag.Message = "Usuario OK";
+                return View();
+            }
+
+
+            ViewBag.Message = "Usuario e/ou Senha inválidos!";
+            return View();
+        }
+
+
+
+
         // GET: Expedidores
         public async Task<IActionResult> Index()
         {
@@ -54,6 +91,7 @@ namespace Commpay.Controllers
         {
             if (ModelState.IsValid)
             {
+                expedidor.Senha = BCrypt.Net.BCrypt.HashPassword(expedidor.Senha);
                 _context.Add(expedidor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -93,6 +131,7 @@ namespace Commpay.Controllers
             {
                 try
                 {
+                    expedidor.Senha = BCrypt.Net.BCrypt.HashPassword(expedidor.Senha);
                     _context.Update(expedidor);
                     await _context.SaveChangesAsync();
                 }
