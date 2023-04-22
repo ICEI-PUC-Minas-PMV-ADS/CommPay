@@ -123,19 +123,19 @@ namespace Commpay.Controllers
         // GET: Expedidores/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Expedidores == null)
+            if (id == null || _context.Usuario == null)
             {
                 return NotFound();
             }
 
-            var expedidor = await _context.Expedidores
+            var usuario = await _context.Usuario
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (expedidor == null)
+            if (usuario == null)
             {
                 return NotFound();
             }
 
-            return View(expedidor);
+            return View(usuario);
         }
 
         // POST: Expedidores/Delete/5
@@ -143,14 +143,14 @@ namespace Commpay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Expedidores == null)
+            if (_context.Usuario == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Expedidores'  is null.");
             }
-            var expedidor = await _context.Expedidores.FindAsync(id);
-            if (expedidor != null)
+            var usuario = await _context.Usuario.FindAsync(id);
+            if (usuario != null)
             {
-                _context.Expedidores.Remove(expedidor);
+                _context.Usuario.Remove(usuario);
             }
             
             await _context.SaveChangesAsync();
@@ -159,7 +159,7 @@ namespace Commpay.Controllers
 
         private bool ExpedidorExists(int id)
         {
-          return (_context.Expedidores?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Usuario?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
