@@ -5,6 +5,5 @@
         Expedidor = 1,
         Vendedor,
         Financeiro,
-        Admin
     }
 }

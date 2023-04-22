@@ -14,12 +14,19 @@ namespace Commpay.Controllers
         }
 
         // GET: Expedidores
+        //public async Task<IActionResult> Index()
+        //{
+        //      return _context.Expedidores != null ? 
+        //                  View(await _context.Expedidores.ToListAsync()) :
+        //                  Problem("Entity set 'ApplicationDbContext.Expedidores'  is null.");
+        //}
+
         public async Task<IActionResult> Index()
         {
-              return _context.Expedidores != null ? 
-                          View(await _context.Expedidores.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Expedidores'  is null.");
+            var usuarios = await _context.Usuario.ToListAsync();
+            return View(usuarios);
         }
+
 
         // GET: Expedidores/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -54,6 +61,7 @@ namespace Commpay.Controllers
         {
             if (ModelState.IsValid)
             {
+                expedidor.Senha = BCrypt.Net.BCrypt.HashPassword(expedidor.Senha);
                 _context.Add(expedidor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

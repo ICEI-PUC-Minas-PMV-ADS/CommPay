@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Contracts;
 using Commpay.Models.Enums;
+using Commpay.Models;
 
 namespace Commpay.Models
 {
@@ -36,5 +37,7 @@ namespace Commpay.Models
                 .HasMaxLength(100);
 
         }
+
+        public DbSet<Commpay.Models.Usuario>? Usuario { get; set; }
     }
 }
