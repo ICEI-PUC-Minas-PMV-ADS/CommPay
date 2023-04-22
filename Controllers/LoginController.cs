@@ -27,54 +27,7 @@ namespace Commpay.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Login([Bind("Nome, Senha")] Usuario dadosuser)
-        //{
-        //    //VERIFICAÇÃO NO BANCO DE DADOS
-        //    var user = await _context.Usuario
-        //        .FirstOrDefaultAsync(m => m.Nome == dadosuser.Nome);
-
-        //    if (user == null)
-        //    {
-        //        ViewBag.Message = "Usuario e/ou Senha inválidos!";
-        //        return View();
-        //    }
-
-        //    //VALIDANDO CRIPTOGRAFIA DA SENHA
-        //    bool isSenhaOk = BCrypt.Net.BCrypt.Verify(dadosuser.Senha, user.Senha);
-
-        //    //SE SENHA OK, EXIBE NA TELA
-        //    if (isSenhaOk)
-        //    {
-        //        var claims = new List<Claim>
-        //        {
-        //            new Claim(ClaimTypes.Name, user.Nome),
-        //            new Claim(ClaimTypes.NameIdentifier, user.Nome),
-        //            new Claim(ClaimTypes.Role, user.Cargo.ToString())
-        //        };
-
-        //        ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-
-        //        var userIdentity = new ClaimsIdentity(claims, "login");
-
-        //        var props = new AuthenticationProperties
-        //        {
-        //            AllowRefresh = true,
-        //            ExpiresUtc = DateTime.Now.ToLocalTime().AddDays(7),
-        //            IsPersistent = true,
-        //        };
-
-
-        //        await HttpContext.SignInAsync(principal, props);
-
-        //        return Redirect("/");
-
-        //    };
-
-
-        //    ViewBag.Message = "Usuario e/ou Senha inválidos!";
-        //    return View();
-        //}
+       
 
 
 

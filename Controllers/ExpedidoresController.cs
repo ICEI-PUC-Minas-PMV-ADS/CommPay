@@ -1,6 +1,8 @@
 ﻿using Commpay.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace Commpay.Controllers
 {
@@ -13,13 +15,75 @@ namespace Commpay.Controllers
             _context = context;
         }
 
-        // GET: Expedidores
-        //public async Task<IActionResult> Index()
-        //{
-        //      return _context.Expedidores != null ? 
-        //                  View(await _context.Expedidores.ToListAsync()) :
-        //                  Problem("Entity set 'ApplicationDbContext.Expedidores'  is null.");
-        //}
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login([Bind("Nome,Senha")]Usuario dadoslogin)
+        {
+            var user = await _context.Usuario
+                .FirstOrDefaultAsync(m => m.Nome == dadoslogin.Nome);
+
+            if (user == null)
+            {
+                ViewBag.Message = "Usuário e/ou Senha inválidos!";
+                return View();
+            }
+
+            bool isSenhaOk = BCrypt.Net.BCrypt.Verify(dadoslogin.Senha, user.Senha);
+
+            if (isSenhaOk) 
+            {
+                var claims = new List<Claim>
+                {
+                        new Claim(ClaimTypes.Name, user.Nome),
+                        new Claim(ClaimTypes.NameIdentifier, user.Nome),
+                        new Claim(ClaimTypes.Role, user.Cargo.ToString())
+                };
+
+                var userIdentity = new ClaimsIdentity(claims, "login");
+
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+
+                var props = new AuthenticationProperties
+                {
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTime.Now.ToLocalTime().AddDays(7),
+                    IsPersistent = true
+                };
+
+
+                await HttpContext.SignInAsync(principal, props);
+
+                return Redirect("/");
+
+            };
+
+            ViewBag.Message = "Usuário e/ou Senha inválidos!";
+            return View();
+
+        }
+
+
+
+        public IActionResult AcessDenied()
+        {
+            return View();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
         public async Task<IActionResult> Index()
         {
@@ -72,7 +136,7 @@ namespace Commpay.Controllers
         // GET: Expedidores/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Expedidores == null)
+            if (id == null || _context.Usuario == null)
             {
                 return NotFound();
             }
@@ -101,6 +165,7 @@ namespace Commpay.Controllers
             {
                 try
                 {
+                    expedidor.Senha = BCrypt.Net.BCrypt.HashPassword(expedidor.Senha);
                     _context.Update(expedidor);
                     await _context.SaveChangesAsync();
                 }

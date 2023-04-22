@@ -1,4 +1,5 @@
 ﻿using Commpay.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 namespace Commpay
@@ -21,6 +22,22 @@ namespace Commpay
             );
 
 
+            //COOKIES service
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            //Auth service
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.AccessDeniedPath = "/Expedidores/AcessDenied";
+                    options.LoginPath = "/Expedidores/Login/";
+                });
+
+
             services.AddControllersWithViews();
         }
 
@@ -39,11 +56,16 @@ namespace Commpay
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
+
+            app.UseCookiePolicy();
 
             app.UseEndpoints(endpoints =>
             {
