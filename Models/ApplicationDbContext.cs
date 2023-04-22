@@ -26,6 +26,7 @@ namespace Commpay.Models
             modelBuilder.Entity<Usuario>()
                 .ToTable("Usuario")
                 .HasDiscriminator(u => u.Cargo)
+                .HasValue<Usuario>(0)
                 .HasValue<Expedidor>(Cargos.Expedidor)
                 .HasValue<Financeiro>(Cargos.Financeiro)
                 .HasValue<Vendedor>(Cargos.Vendedor);
