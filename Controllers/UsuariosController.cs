@@ -9,9 +9,11 @@ using Commpay.Models;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 using Microsoft.Identity.Client;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Commpay.Controllers
 {
+    [Authorize]
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -21,13 +23,15 @@ namespace Commpay.Controllers
             _context = context;
         }
 
-
+        // GET DA PAGINA DE LOGIN
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
 
-
+        // POST DA PAGINA DE LOGIN
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login([Bind("Nome,Senha")] Usuario dadoslogin)
         {
@@ -78,18 +82,19 @@ namespace Commpay.Controllers
 
         }
 
+
+        // FAZ O LOGOUT DO SISTEMA
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Login", "Usuarios");
         }
 
-        public IActionResult AcessDenied()
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
         {
             return View();
         }
-
-
 
 
 

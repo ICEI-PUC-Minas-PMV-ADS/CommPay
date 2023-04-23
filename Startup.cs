@@ -33,8 +33,9 @@ namespace Commpay
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
-                    options.AccessDeniedPath = "/Expedidores/AcessDenied";
-                    options.LoginPath = "/Expedidores/Login/";
+                    // REDIRECIONAMENTOS SEM AUTENTICAÇÃO
+                    options.AccessDeniedPath = "/Usuarios/AccessDenied/";
+                    options.LoginPath = "/Usuarios/Login/";
                 });
 
 
@@ -61,11 +62,13 @@ namespace Commpay
 
             app.UseRouting();
 
-            app.UseAuthorization();
+
+            app.UseCookiePolicy();
 
             app.UseAuthentication();
 
-            app.UseCookiePolicy();
+            app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {

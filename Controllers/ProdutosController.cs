@@ -6,9 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Commpay.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Commpay.Controllers
 {
+
+
+
+    [Authorize(Roles = "Expedidor")]
     public class ProdutosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -17,6 +22,10 @@ namespace Commpay.Controllers
         {
             _context = context;
         }
+
+
+
+
 
         // GET: Produtos
         public async Task<IActionResult> Index()
