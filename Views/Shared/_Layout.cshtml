@@ -41,7 +41,7 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                Olá, @User.Identity.Name
+                                Olá, @User.Identity.Name <a class="btn btn-warning text-dark" asp-controller="Usuarios" asp-action="Logout">Sair</a>
                             </li>
                         }
 

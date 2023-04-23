@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Commpay.Models;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
+using Microsoft.Identity.Client;
 
 namespace Commpay.Controllers
 {
@@ -39,10 +40,14 @@ namespace Commpay.Controllers
                 return View();
             }
 
+            //COMPARA SENHAS QUE ELE ENVIOU COM A DO BANCO DE DADOS
             bool isSenhaOk = BCrypt.Net.BCrypt.Verify(dadoslogin.Senha, user.Senha);
+
 
             if (isSenhaOk)
             {
+
+                //CONFIGURAÇÃO DAS CREDENCIAIS
                 var claims = new List<Claim>
                 {
                         new Claim(ClaimTypes.Name, user.Nome),
@@ -57,7 +62,7 @@ namespace Commpay.Controllers
                 var props = new AuthenticationProperties
                 {
                     AllowRefresh = true,
-                    ExpiresUtc = DateTime.Now.ToLocalTime().AddSeconds(10),
+                    ExpiresUtc = DateTime.Now.ToLocalTime().AddDays(10),
                     IsPersistent = true
                 };
 
@@ -71,6 +76,12 @@ namespace Commpay.Controllers
             ViewBag.Message = "Usuário e/ou Senha inválidos!";
             return View();
 
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login", "Usuarios");
         }
 
         public IActionResult AcessDenied()
