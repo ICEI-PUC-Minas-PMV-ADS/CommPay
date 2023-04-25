@@ -38,7 +38,7 @@ namespace Commpay.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Produto");
+                    b.ToTable("Produto", (string)null);
                 });
 
             modelBuilder.Entity("Commpay.Models.Usuario", b =>
@@ -78,7 +78,7 @@ namespace Commpay.Migrations
                 {
                     b.HasBaseType("Commpay.Models.Usuario");
 
-                    b.ToTable("Usuario");
+                    b.ToTable("Usuario", (string)null);
 
                     b.HasDiscriminator().HasValue(1);
                 });
@@ -87,7 +87,7 @@ namespace Commpay.Migrations
                 {
                     b.HasBaseType("Commpay.Models.Usuario");
 
-                    b.ToTable("Usuario");
+                    b.ToTable("Usuario", (string)null);
 
                     b.HasDiscriminator().HasValue(3);
                 });
@@ -96,7 +96,7 @@ namespace Commpay.Migrations
                 {
                     b.HasBaseType("Commpay.Models.Usuario");
 
-                    b.ToTable("Usuario");
+                    b.ToTable("Usuario", (string)null);
 
                     b.HasDiscriminator().HasValue(2);
                 });

@@ -38,8 +38,11 @@ namespace Commpay.Models
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
         public Cargos Cargo { get; set; }
 
-       // [ForeignKey("Usuario")]
-       // public int Id_Usuario { get; set; }
-       // public virtual Usuario Usuario { get; set; }
+        public ICollection<Venda> Vendas { get; set; }
+
+
+        // [ForeignKey("Usuario")]
+        // public int Id_Usuario { get; set; }
+        // public virtual Usuario Usuario { get; set; }
     }
 }
