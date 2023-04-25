@@ -54,6 +54,7 @@ namespace Commpay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Senha,Cargo")] Expedidor expedidor)
         {
+
             if (ModelState.IsValid)
             {
                 expedidor.Senha = BCrypt.Net.BCrypt.HashPassword(expedidor.Senha);
@@ -61,6 +62,7 @@ namespace Commpay.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(expedidor);
         }
 
