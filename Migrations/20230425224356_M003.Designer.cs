@@ -4,6 +4,7 @@ using Commpay.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Commpay.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230425224356_M003")]
+    partial class M003
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +47,7 @@ namespace Commpay.Migrations
 
                     b.HasIndex("ProdutoId");
 
-                    b.ToTable("Produto", (string)null);
+                    b.ToTable("Produto");
                 });
 
             modelBuilder.Entity("Commpay.Models.Usuario", b =>
@@ -85,7 +88,7 @@ namespace Commpay.Migrations
                 {
                     b.HasBaseType("Commpay.Models.Usuario");
 
-                    b.ToTable("Usuario", (string)null);
+                    b.ToTable("Usuario");
 
                     b.HasDiscriminator().HasValue(1);
                 });
@@ -94,7 +97,7 @@ namespace Commpay.Migrations
                 {
                     b.HasBaseType("Commpay.Models.Usuario");
 
-                    b.ToTable("Usuario", (string)null);
+                    b.ToTable("Usuario");
 
                     b.HasDiscriminator().HasValue(3);
                 });
@@ -103,7 +106,7 @@ namespace Commpay.Migrations
                 {
                     b.HasBaseType("Commpay.Models.Usuario");
 
-                    b.ToTable("Usuario", (string)null);
+                    b.ToTable("Usuario");
 
                     b.HasDiscriminator().HasValue(2);
                 });
