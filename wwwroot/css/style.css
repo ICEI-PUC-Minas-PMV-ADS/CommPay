@@ -1,0 +1,89 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #D9D9D9;
+}
+
+
+@media screen and (max-width: 1020px) {
+
+    .com-footer {
+        justify-content: end;
+    }
+
+        .com-footer .navbar-brand img {
+        }
+
+        .com-footer .com-footer-text {
+            visibility: hidden;
+        }
+}
+
+
+.com-nav {
+    background-color: #0E2A50;
+    padding: 20px;
+}
+
+
+
+
+.com-footer {
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+    background-color: #0E2A50;
+}
+
+
+/* BOTAO PRIMARIO*/
+.com-btn-primary {
+    color: white;
+    background-color: #0E2A50;
+}
+
+    .com-btn-primary:hover {
+        background-color: #1ADCFF;
+    }
+
+/* BOTAO DE REMOVER */
+.com-btn-remove {
+    color: whitesmoke;
+    background-color: rgb(206, 4, 4);
+}
+
+    .com-btn-remove:hover {
+        color: whitesmoke;
+        background-color: rgb(143, 0, 0);
+    }
+
+
+/* BOTAO DE NAVEGAÇÃO */
+
+.com-btn-select {
+    border-radius: 100px;
+    border: 2px solid #0E2A50;
+}
+
+    .com-btn-select:hover {
+        background-color: #0E2A50;
+        color: white;
+    }
+
+    .com-btn-select.active {
+        border: 2px solid #0E2A50;
+        background-color: #0E2A50;
+        color: white;
+    }
+
+/* LISTA COM USUARIOS */
+
+
+.com-user li {
+    list-style-type: none;
+}
+
+.com-user {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #0E2A50;
+}
