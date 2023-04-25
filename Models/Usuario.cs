@@ -7,7 +7,7 @@ namespace Commpay.Models
     [Table("Usuario")] //Criação da Tabela.
     public class Usuario //Classe base de Usuário.
     {
-        [Key] 
+        [Key] // Primary Key
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
