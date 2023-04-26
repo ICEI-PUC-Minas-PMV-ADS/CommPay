@@ -27,7 +27,7 @@ namespace Commpay.Models
         public Produto()
         {
         }
-        public ICollection<Produto> Produtos { get; set; }
+  
 
     }
 }
