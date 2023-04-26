@@ -365,3 +365,4 @@ FodyWeavers.xsd
 
 # IMPORTANTE!! 
 appsettings.json
+appsettings.Development.json
