@@ -22,7 +22,7 @@
 </head>
 
 <body>
-
+    <header>
     <nav class="navbar com-nav">
         <div class="container-fluid justify-content-center">
             <div class="navbar-brand" href="#">
@@ -30,8 +30,11 @@
             </div>
         </div>
     </nav>
+    </header>
 
-    <div class="container d-flex flex-column align-items-center mt-4">
+
+    <main>
+    <div class="container mb-5 d-flex flex-column align-items-center mt-4">
 
 
         <img src="/src/login-bb.svg" width="250">
@@ -62,25 +65,31 @@
                     <input type="submit" value="Entrar" class="btn com-btn-primary col-12" />
              </div>
 
+
+
         </form>
 
-            @if (!string.IsNullOrEmpty(ViewBag.Message))
-            {
-                <div class="alert alert-primary text-center" role="alert">
-                    @ViewBag.Message
-                </div>
-            }
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert alert-primary text-center" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            
             
     </div>
+            
        
     </div>
+    </main>
 
 
 
-    <footer class="navbar com-footer position-absolute bottom-0 start-0">
-        <div class="container-fluid d-flex align-items-center text-light justify-content-between">
+   <!-- <footer class="container-fluid com-footer position-absolute bottom-0">
+        <div class="d-flex align-items-center text-light justify-content-between">
+
             <div class="d-flex align-items-center">
-                <div class="navbar-brand" href="#">
+                <div class="navbar-brand me-2">
                     <img src="/src/logo_b.svg" width="80">
                 </div>
                 <span class="com-footer-text">
@@ -94,6 +103,8 @@
             </div>
         </div>
     </footer>
+     -->
+ 
 
 
 
