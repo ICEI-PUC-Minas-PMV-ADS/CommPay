@@ -40,5 +40,7 @@ namespace Commpay.Models
         }
 
         public DbSet<Commpay.Models.Usuario>? Usuario { get; set; }
+
+        public DbSet<ItemVenda> ItemVendas { get; set; }
     }
 }

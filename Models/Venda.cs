@@ -28,9 +28,11 @@ namespace Commpay.Models
         [DataType(DataType.Date)]
         public DateTime Data_Entrega { get; set; }
 
+        public ICollection <Venda> Vendas { get; set; }
+
         //[Required(ErrorMessage = "Preenchimento obrigatório!")]
         //public StatusEntrega Status_Entrega { get; set; }
 
-        
+
     }
 }

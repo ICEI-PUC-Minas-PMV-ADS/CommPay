@@ -19,7 +19,7 @@ namespace Commpay.Models
 
         public Produto(int id, string descricao, float valor)
         {
-            this.Id = id;
+            this.Id = Id;
             this.Descricao = descricao;
             this.Valor = valor;
         }
@@ -28,6 +28,7 @@ namespace Commpay.Models
         {
         }
   
+        public ICollection<Produto> Produtos { get;}
 
     }
 }
