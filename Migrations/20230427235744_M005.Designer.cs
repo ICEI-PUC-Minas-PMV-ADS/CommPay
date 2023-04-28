@@ -4,6 +4,7 @@ using Commpay.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Commpay.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230427235744_M005")]
+    partial class M005
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,12 +133,15 @@ namespace Commpay.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UsuarioId")
+                    b.Property<int>("Id_Usuario")
                         .HasColumnType("int");
 
                     b.Property<string>("Valor_Total")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("VendaId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Vendedor")
                         .IsRequired()
@@ -143,7 +149,9 @@ namespace Commpay.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("Id_Usuario");
+
+                    b.HasIndex("VendaId");
 
                     b.ToTable("Venda");
                 });
@@ -212,9 +220,13 @@ namespace Commpay.Migrations
                 {
                     b.HasOne("Commpay.Models.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("UsuarioId")
+                        .HasForeignKey("Id_Usuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Commpay.Models.Venda", null)
+                        .WithMany("Vendas")
+                        .HasForeignKey("VendaId");
 
                     b.Navigation("Usuario");
                 });
@@ -227,6 +239,11 @@ namespace Commpay.Migrations
             modelBuilder.Entity("Commpay.Models.Usuario", b =>
                 {
                     b.Navigation("Usuarios");
+                });
+
+            modelBuilder.Entity("Commpay.Models.Venda", b =>
+                {
+                    b.Navigation("Vendas");
                 });
 #pragma warning restore 612, 618
         }

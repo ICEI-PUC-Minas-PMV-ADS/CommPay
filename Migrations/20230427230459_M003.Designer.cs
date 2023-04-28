@@ -4,6 +4,7 @@ using Commpay.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Commpay.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230427230459_M003")]
+    partial class M003
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,12 +101,7 @@ namespace Commpay.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Usuario", (string)null);
 
@@ -130,12 +128,12 @@ namespace Commpay.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Valor_Total")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("VendaId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Vendedor")
                         .IsRequired()
@@ -143,7 +141,7 @@ namespace Commpay.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("VendaId");
 
                     b.ToTable("Venda");
                 });
@@ -201,22 +199,11 @@ namespace Commpay.Migrations
                         .HasForeignKey("ProdutoId");
                 });
 
-            modelBuilder.Entity("Commpay.Models.Usuario", b =>
-                {
-                    b.HasOne("Commpay.Models.Usuario", null)
-                        .WithMany("Usuarios")
-                        .HasForeignKey("UsuarioId");
-                });
-
             modelBuilder.Entity("Commpay.Models.Venda", b =>
                 {
-                    b.HasOne("Commpay.Models.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Usuario");
+                    b.HasOne("Commpay.Models.Venda", null)
+                        .WithMany("Vendas")
+                        .HasForeignKey("VendaId");
                 });
 
             modelBuilder.Entity("Commpay.Models.Produto", b =>
@@ -224,9 +211,9 @@ namespace Commpay.Migrations
                     b.Navigation("Produtos");
                 });
 
-            modelBuilder.Entity("Commpay.Models.Usuario", b =>
+            modelBuilder.Entity("Commpay.Models.Venda", b =>
                 {
-                    b.Navigation("Usuarios");
+                    b.Navigation("Vendas");
                 });
 #pragma warning restore 612, 618
         }
