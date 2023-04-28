@@ -38,7 +38,6 @@ namespace Commpay.Models
             modelBuilder.Entity<Usuario>()
                 .Property(u => u.Cargo)
                 .HasMaxLength(100);
-
         }
 
         public DbSet<Commpay.Models.Usuario>? Usuario { get; set; }
