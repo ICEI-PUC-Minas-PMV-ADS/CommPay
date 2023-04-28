@@ -1,14 +1,15 @@
 ﻿using Commpay.Models.Enums;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Commpay.Models
 {
-    [Table("Venda")] //Criação da Tabela.
-    public class Venda //Classe base de Usuário.
+    [Table("Venda")]
+    public class Venda
     {
-        [Key] // Primary Key
+        [Key]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
@@ -28,11 +29,8 @@ namespace Commpay.Models
         [DataType(DataType.Date)]
         public DateTime Data_Entrega { get; set; }
 
-        public ICollection <Venda> Vendas { get; set; }
-
-        //[Required(ErrorMessage = "Preenchimento obrigatório!")]
-        //public StatusEntrega Status_Entrega { get; set; }
-
-
+        [ForeignKey("Usuario")]
+        public int UsuarioId { get; set; }
+        public Usuario Usuario { get; set; }
     }
 }
