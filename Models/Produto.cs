@@ -15,8 +15,20 @@ namespace Commpay.Models
         public string Descricao { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")] //Mensagem de obrigatoriedade!
-        public float Valor { get; set; } 
-        
+        public float Valor { get; set; }
+
+        public Produto(int id, string descricao, float valor)
+        {
+            this.Id = Id;
+            this.Descricao = descricao;
+            this.Valor = valor;
+        }
+
+        public Produto()
+        {
+        }
+  
+        public ICollection<Produto> Produtos { get;}
 
     }
 }

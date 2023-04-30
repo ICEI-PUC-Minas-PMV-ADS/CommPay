@@ -10,11 +10,12 @@ namespace Commpay.Models
         [Key]
         public int Id { get; set; }
 
+        public int Quantidade { get; set; }
+
         [Required(ErrorMessage = "Obrigatório o Preenchimento da quantidade!")]
-        public int Quantidade { get; set; }        
 
         [ForeignKey("Venda")]
-        public int VendaId { get; set; }       
+        public int VendaID { get; set; }       
 
         public Venda Venda { get; set; }
 

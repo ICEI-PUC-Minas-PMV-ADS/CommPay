@@ -45,7 +45,7 @@ namespace Commpay.Migrations
 
                     b.HasIndex("Id_Venda");
 
-                    b.ToTable("ItemVenda", (string)null);
+                    b.ToTable("ItemVenda");
                 });
 
             modelBuilder.Entity("Commpay.Models.Produto", b =>
@@ -70,7 +70,7 @@ namespace Commpay.Migrations
 
                     b.HasIndex("ProdutoId");
 
-                    b.ToTable("Produto", (string)null);
+                    b.ToTable("Produto");
                 });
 
             modelBuilder.Entity("Commpay.Models.Usuario", b =>
@@ -145,14 +145,14 @@ namespace Commpay.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("Venda", (string)null);
+                    b.ToTable("Venda");
                 });
 
             modelBuilder.Entity("Commpay.Models.Expedidor", b =>
                 {
                     b.HasBaseType("Commpay.Models.Usuario");
 
-                    b.ToTable("Usuario", (string)null);
+                    b.ToTable("Usuario");
 
                     b.HasDiscriminator().HasValue(1);
                 });
@@ -161,7 +161,7 @@ namespace Commpay.Migrations
                 {
                     b.HasBaseType("Commpay.Models.Usuario");
 
-                    b.ToTable("Usuario", (string)null);
+                    b.ToTable("Usuario");
 
                     b.HasDiscriminator().HasValue(3);
                 });
@@ -170,7 +170,7 @@ namespace Commpay.Migrations
                 {
                     b.HasBaseType("Commpay.Models.Usuario");
 
-                    b.ToTable("Usuario", (string)null);
+                    b.ToTable("Usuario");
 
                     b.HasDiscriminator().HasValue(2);
                 });
