@@ -30,7 +30,7 @@ namespace Commpay.Models
         public DateTime Data_Entrega { get; set; }
 
         [ForeignKey("Usuario")]
-        public int UsuarioId { get; set; }
+        public int IdUsuario { get; set; }
         public Usuario Usuario { get; set; }
     }
 }

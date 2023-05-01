@@ -18,13 +18,7 @@ namespace Commpay.Migrations
                 maxLength: 11,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
-
-            migrationBuilder.AddColumn<int>(
-                name: "ProdutoId",
-                table: "Produto",
-                type: "int",
-                nullable: true);
+                oldType: "nvarchar(max)");           
 
             migrationBuilder.CreateTable(
                 name: "Venda",
@@ -76,10 +70,7 @@ namespace Commpay.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Produto_ProdutoId",
-                table: "Produto",
-                column: "ProdutoId");
+            
 
             migrationBuilder.CreateIndex(
                 name: "IX_ItemVenda_Id_Produto",
@@ -95,36 +86,19 @@ namespace Commpay.Migrations
                 name: "IX_Venda_VendaId",
                 table: "Venda",
                 column: "VendaId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Produto_Produto_ProdutoId",
-                table: "Produto",
-                column: "ProdutoId",
-                principalTable: "Produto",
-                principalColumn: "Id");
+      
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Produto_Produto_ProdutoId",
-                table: "Produto");
+        {          
 
             migrationBuilder.DropTable(
                 name: "ItemVenda");
 
             migrationBuilder.DropTable(
-                name: "Venda");
-
-            migrationBuilder.DropIndex(
-                name: "IX_Produto_ProdutoId",
-                table: "Produto");
-
-            migrationBuilder.DropColumn(
-                name: "ProdutoId",
-                table: "Produto");
-
+                name: "Venda");      
+                
             migrationBuilder.AlterColumn<string>(
                 name: "Cpf",
                 table: "Usuario",
