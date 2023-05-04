@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Commpay.Models.Venda>
+@using Commpay.Models.Enums
+
+
+@{
+    ViewData["Title"] = "Entregas";
+}
+
+<h1>Entregas</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedor)
+            </th>
+            <th>
+                Data da Compra
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entregador)
+            </th>
+            <th>
+                Previsão de Entrega
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_Compra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entregador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_Entrega)
+            </td>
+
+                <td>
+                    @if (item.status == null || item.status == Status.Pendente)
+                    {
+                        <span class="badge bg-danger">Pendente</span>
+                    }
+                    else if (item.status == Status.Andamento)
+                    {
+                        <span class="badge bg-warning">Em Andamento</span>
+                    }
+                    else if (item.status == Status.Entregue)
+                    {
+                        <span class="badge bg-success">Entregue</span>
+                    }
+                </td>
+
+
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                    <button class="btn com-btn-primary edit" data-id="@item.Id"><i class="bi bi-truck"></i></button>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+
+
+@section scripts{
+    <script>
+        $(function () {
+            $(".details").click(function () {
+                var id = $(this).attr("data-id");
+                $("#modal").load("Details?id=" + id, function () {
+                    $("#modal").modal();
+                })
+            });
+        })
+    </script>
+}
+
+

@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\LoginController.cs" />
+    <Compile Remove="Models\Enums\Class.cs" />
   </ItemGroup>
 
   <ItemGroup>

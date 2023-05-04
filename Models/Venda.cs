@@ -29,6 +29,8 @@ namespace Commpay.Models
         [DataType(DataType.Date)]
         public DateTime Data_Entrega { get; set; }
 
+        public Status? status { get; set; }
+
         [ForeignKey("Usuario")]
         public int IdUsuario { get; set; }
         public Usuario Usuario { get; set; }

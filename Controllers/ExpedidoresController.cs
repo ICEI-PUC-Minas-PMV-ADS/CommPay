@@ -22,6 +22,12 @@ namespace Commpay.Controllers
             return View(usuarios);
         }
 
+        public async Task<IActionResult> Entregas()
+        {
+            var entregas = await _context.Vendas.ToListAsync();
+            return View(entregas);
+        }
+
 
         // GET: Expedidores/Details/5
         public async Task<IActionResult> Details(int? id)
