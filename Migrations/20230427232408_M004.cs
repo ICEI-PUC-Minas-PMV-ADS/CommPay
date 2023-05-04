@@ -1,8 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-
 #nullable disable
-
 namespace Commpay.Migrations
 {
     /// <inheritdoc />
@@ -18,7 +16,14 @@ namespace Commpay.Migrations
                 maxLength: 11,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");           
+                oldType: "nvarchar(max)");
+
+            migrationBuilder.AddColumn<int>(
+                name: "ProdutoId",
+                table: "Produto",
+                type: "int",
+                nullable: true);
+
 
             migrationBuilder.CreateTable(
                 name: "Venda",
@@ -42,7 +47,6 @@ namespace Commpay.Migrations
                         principalTable: "Venda",
                         principalColumn: "Id");
                 });
-
             migrationBuilder.CreateTable(
                 name: "ItemVenda",
                 columns: table => new
@@ -70,43 +74,67 @@ namespace Commpay.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            
+            migrationBuilder.CreateIndex(
+                name: "IX_Produto_ProdutoId",
+                table: "Produto",
+                column: "ProdutoId");
+
 
             migrationBuilder.CreateIndex(
                 name: "IX_ItemVenda_Id_Produto",
                 table: "ItemVenda",
                 column: "Id_Produto");
-
             migrationBuilder.CreateIndex(
                 name: "IX_ItemVenda_Id_Venda",
                 table: "ItemVenda",
                 column: "Id_Venda");
-
             migrationBuilder.CreateIndex(
                 name: "IX_Venda_VendaId",
                 table: "Venda",
                 column: "VendaId");
-      
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Produto_Produto_ProdutoId",
+                table: "Produto",
+                column: "ProdutoId",
+                principalTable: "Produto",
+                principalColumn: "Id");
+
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
-        {          
+        {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Produto_Produto_ProdutoId",
+                table: "Produto");
+            {
 
-            migrationBuilder.DropTable(
-                name: "ItemVenda");
+                migrationBuilder.DropTable(
+                    name: "ItemVenda");
 
-            migrationBuilder.DropTable(
-                name: "Venda");      
-                
-            migrationBuilder.AlterColumn<string>(
-                name: "Cpf",
-                table: "Usuario",
-                type: "nvarchar(max)",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(11)",
-                oldMaxLength: 11);
+                migrationBuilder.DropTable(
+                    name: "Venda");
+
+                migrationBuilder.DropIndex(
+                    name: "IX_Produto_ProdutoId",
+                    table: "Produto");
+
+                migrationBuilder.DropColumn(
+                    name: "ProdutoId",
+                    table: "Produto");
+
+
+
+                migrationBuilder.AlterColumn<string>(
+                    name: "Cpf",
+                    table: "Usuario",
+                    type: "nvarchar(max)",
+                    nullable: false,
+                    oldClrType: typeof(string),
+                    oldType: "nvarchar(11)",
+                    oldMaxLength: 11);
+            }
         }
     }
 }
