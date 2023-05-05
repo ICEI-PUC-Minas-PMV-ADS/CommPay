@@ -2,6 +2,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.label-title{
+    font-weight: 300;
+    font-size: 14px;
+}
 
 @media screen and (max-width: 1020px) {
 

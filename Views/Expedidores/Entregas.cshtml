@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<Commpay.Models.Venda>
 @using Commpay.Models.Enums
 
-
 @{
     ViewData["Title"] = "Entregas";
 }
@@ -48,25 +47,114 @@
             </td>
 
                 <td>
-                    @if (item.status == null || item.status == Status.Pendente)
+                    @if (item.Status == null || item.Status == Status.Pendente)
                     {
-                        <span class="badge bg-danger">Pendente</span>
+                        <span class="badge bg-danger"><i class="bi bi-exclamation-triangle-fill"></i>  Pendente</span>
                     }
-                    else if (item.status == Status.Andamento)
+                    else if (item.Status == Status.Andamento)
                     {
-                        <span class="badge bg-warning">Em Andamento</span>
+                        <span class="badge bg-warning"><i class="bi bi-hourglass-split"></i> Em Andamento</span>
                     }
-                    else if (item.status == Status.Entregue)
+                    else if (item.Status == Status.Entregue)
                     {
-                        <span class="badge bg-success">Entregue</span>
+                        <span class="badge bg-success"><i class="bi bi-check-circle-fill"></i>  Entregue</span>
                     }
                 </td>
 
 
 
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-                    <button class="btn com-btn-primary edit" data-id="@item.Id"><i class="bi bi-truck"></i></button>
+               
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn com-btn-primary" data-bs-toggle="modal" data-bs-target="#editStatus_@item.Id">
+                        <i class="bi bi-truck"></i>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="editStatus_@item.Id" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Informações de Entrega</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                   
+                                        <form asp-action="Edit" asp-route-id="@item.Id" method="post">
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label class="form-label label-title">Nome do Vendedor</label>
+                                            <input class="form-control" type="text" placeholder="@item.Vendedor" disabled>
+                                        </div>
+
+                                        <div class="col">
+                                            <label class="form-label label-title">Data da Compra</label>
+                                            <input class="form-control" type="text" placeholder="@item.Data_Compra" disabled>
+                                        </div>
+                                    </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-6">
+                                                <label class="form-label label-title">Entregador</label>
+                                                <select class="form-select" name="Entregador">
+                                                    <option value="@item.Entregador" selected>@item.Entregador</option>
+                                                </select>
+                                            </div>
+
+                                        <div class="col">
+                                            <label class="form-label label-title">Previsão de Entrega</label>
+                                            <input class="form-control" type="text" placeholder="@item.Data_Entrega" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                            <div class="col">
+                                                <label class="form-label label-title">Status da Entrega</label>
+                                                <select class="form-select" name="Status">
+                                                    @if (item.Status == null || item.Status == Status.Pendente)
+                                                    {
+                                                        <option value="@((int)Status.Pendente)" selected>Pendente</option>
+                                                        <option value="@((int)Status.Andamento)">Em Andamento</option>
+                                                        <option value="@((int)Status.Entregue)">Entregue</option>
+                                                    }
+                                                    else if (item.Status == Status.Andamento)
+                                                    {
+                                                        <option value="@((int)Status.Andamento)" selected>Em Andamento</option>
+                                                        <option value="@((int)Status.Pendente)">Pendente</option>
+                                                        <option value="@((int)Status.Entregue)">Entregue</option>
+                                                    }
+                                                    else if (item.Status == Status.Entregue)
+                                                    {
+                                                        <option value="@((int)Status.Entregue)" selected>Entregue</option>
+                                                        <option value="@((int)Status.Andamento)">Em Andamento</option>
+                                                        <option value="@((int)Status.Pendente)">Pendente</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer mt-3">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                            <button type="submit" class="btn com-btn-primary">Confirmar</button>
+                                        </div>
+                                        </form>
+                                    </div>
+
+
+                                        
+
+                                    
+
+
+                                </div>
+                                
+
+                                
+
+                            </div>
+                        </div>
+                    
 
             </td>
         </tr>
@@ -78,17 +166,7 @@
 
 
 
-@section scripts{
-    <script>
-        $(function () {
-            $(".details").click(function () {
-                var id = $(this).attr("data-id");
-                $("#modal").load("Details?id=" + id, function () {
-                    $("#modal").modal();
-                })
-            });
-        })
-    </script>
-}
+
+
 
 
