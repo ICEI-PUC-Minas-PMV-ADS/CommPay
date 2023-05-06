@@ -15,6 +15,6 @@ namespace Commpay.Models
         public string Descricao { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")] //Mensagem de obrigatoriedade!
-        public float Valor { get; set; }
+        public decimal Valor { get; set; }
     }
 }
