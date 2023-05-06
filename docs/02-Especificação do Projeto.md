@@ -78,4 +78,5 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 
 A imagem a seguir representa o diagrama de casos de uso do projeto em desenvolvimento:
 
-![WhatsApp Image 2023-03-16 at 21 37 55](https://user-images.githubusercontent.com/89876269/226137909-dfc7fd49-3947-48ad-b20e-bf3dd4b44483.jpeg)
+![Caso de uso_page-0001](https://user-images.githubusercontent.com/89876269/236640931-6909393f-614a-4653-8fdd-5b59958ac4b2.jpg)
+
