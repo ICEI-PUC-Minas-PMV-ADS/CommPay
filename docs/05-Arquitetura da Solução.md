@@ -31,18 +31,11 @@ Outras linguagens:
 * CSS: Linguagem de folhas de estilos utilizada para aplicar estilos nos elementos HTML.
 
 IDE:
-* Foi utilizada a IDE Visual Studio Community 2022, escolhido pela intregação com a ferramenta utilizada na aplicação o MySQL.
+* Foi utilizada a IDE Visual Studio Community 2022, escolhido pela intregação com a ferramenta utilizada na aplicação o SQLServer.
 
 Banco de dados:
-* O sistema que irá gerenciar o banco de dados da aplicação será o MySQL, escolhido por sua boa integração com o editor de código e para facilitar a migração do banco de dados para o serviço de hospedagem nas fases mais avançadas do projeto.
+* O sistema que irá gerenciar o banco de dados da aplicação será o SQLServer, escolhido por sua boa integração com o editor de código e para facilitar a migração do banco de dados para o serviço de hospedagem nas fases mais avançadas do projeto.
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
-
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+A hospegdagem do banco de dados será feito na Microsoft Azure.
