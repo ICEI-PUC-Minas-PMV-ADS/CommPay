@@ -6,7 +6,8 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 Abaixo se encontra o diagrama de classes que orienta nosso projeto:
 
-![Diagrama de classes_page-0001](https://user-images.githubusercontent.com/89876269/236642377-86543cb4-abd8-47a6-aa00-fbc92db15a88.jpg)
+![Diagrama de classes_page-0001 (1)](https://user-images.githubusercontent.com/89876269/236642524-d6b9d1e8-229d-4d49-ac6b-583faab42826.jpg)
+
 
 ## Modelo ER (Projeto Conceitual)
 
