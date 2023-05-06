@@ -77,6 +77,7 @@ As ferramentas empregadas no projeto são:
 |**Acompanhamentos semanal do andamento de atividades**|**WhatsApp**|https://chat.whatsapp.com/BUJQ5WOkPyVBpQvPSpn8Y6 |
 |**Modelo Entidade Relacionamento**|**brModelo**|
 |**Diagrama Entidade Relacionamento**|**StarUML**|
+|**Hospedagem banco de dados SQLServer**|**Azure**|https://portal.azure.com/#@sgapucminasbr.onmicrosoft.com/resource/subscriptions/4721a368-fd60-4efe-994c-1a6216f8d8fa/resourceGroups/CommPay/providers/Microsoft.Sql/servers/commpay-sql-db-server/databases/Commpay_db/overview|
 
 Para o repositório de código fonte, gerenciamento do projeto, bem como para armazenamento e alteração dos documentos do projeto será utilizado o GitHub, instrumento robusto e amplamente usado no mercado. Para o projeto de interface e Wireframes, será utilizado o Figma, um editor online de gráficos com ênfase em prototipagem. Além disso, a comunicação ágil do grupo para acompanhamento diário das atividades se dará pelo uso da rede WhatsApp, enquanto as reuniões de discussão serão pelo Microsoft Teams.
 
