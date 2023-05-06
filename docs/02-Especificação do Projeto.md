@@ -59,7 +59,7 @@ A tabela a seguir apresenta os requisitos não funcionais que o projeto deverá 
 |RNF-004| A aplicação deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge). | ALTA | 
 |RNF-005| A aplicação deve proporcionar uma alta disponibilidade.  | ALTA | 
 |RNF-006| A aplicação  deve ter bom nível de contraste entre os elementos da tela em conformidade. | MÉDIA | 
-|RNF-007| O sistema deverá se comunicar com o banco MySQL. | ALTA | 
+|RNF-007| O sistema deverá se comunicar com o banco SQL Server. | ALTA | 
 |RNF-008| O sistema só pode ser acessado por: Auxiliar Financeiro, Expedidor e Vendedora. | ALTA | 
 |RNF-009| A solução deve ser intuitiva e fácil de usar, garantindo uma curva de aprendizado rápida. | MÉDIA | 
 
