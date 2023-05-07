@@ -1,14 +1,38 @@
 # Registro de Testes de Software
 
-CT-01 – Interação com banco de dados:
+**CT-01 - Realizar Login:
 
-![Design sem nome](https://user-images.githubusercontent.com/114542015/236707043-9e33eae2-a839-4fb4-b4cf-4724956880e4.gif)
+![login](https://user-images.githubusercontent.com/114542015/236707310-93a3b5a2-e8b5-4b01-9885-df05699db353.gif)
+
+**CT-02 – Alterar status entrega:
+
+![entrega](https://user-images.githubusercontent.com/114542015/236707602-9fb99779-debf-4606-87f7-37d55628214a.gif)
+
+
+
 
 
 
 ## Avaliação
 
-Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identificados na solução. Comente como o grupo pretende atacar esses pontos nas próximas iterações. Apresente as falhas detectadas e as melhorias geradas a partir dos resultados obtidos nos testes.
+**CT-01 - Realizar Login:<br>
 
-> **Links Úteis**:
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
+Teste realizado com sucesso e critério de êxito aceito. Foi possível acessar a aplicação e efetuar o login de forma ágil e rápida. Os botões envolvidos são claros e o design facilitou a execução do teste.<br>
+
+Pontos positivos: Clareza na interface envolvida no teste. Tela de login intuitiva<br>
+Pontos negativos: Não tem.<br>
+
+Considerações: Para a equipe de desenvolvedores, a página de login está aprovada após o teste.
+
+**CT-02 – Alterar status entrega:<br>
+
+Teste realizado com sucesso e critério de êxito aceito, com ressalvas. O login foi realizado facilmente conforme teste anterior, porém o usuário teve certa dificuldade em distinguir o botão de alterar o status da entrega.<br> 
+
+Pontos positivos: Tela de login intuitiva. Performance ágil. <br>
+
+Pontos negativos: Falta de clareza no design desta página da aplicação, o que dificultou encontrar o botão para alterar o status da entrega de forma rápida e intuitiva.<br> 
+
+Considerações: O ícone escolhido para o botão de alterar o status da entrega não corresponde ao padrão universal, que é um lápis. Realizar essa mudança para o padrão universalpara facilitar o entendimento do usuário de forma intuitiva. Exemplo de ícone de edição: Lápis. <br>
+
+
+
