@@ -67,14 +67,25 @@
     border: 2px solid #0E2A50;
 }
 
-    .com-btn-select:hover {
+.com-btn-select:hover {
         background-color: #0E2A50;
         color: white;
-    }
+}
 
-    .com-btn-select.active {
+.com-btn-select.active {
         border: 2px solid #0E2A50;
         background-color: #0E2A50;
         color: white;
-    }
+    
+}
+
+.bi.bi-plus-circle-fill {
+    font-size: 32px;        
+}
+
+.bi.bi-pencil-square, .bi.bi-card-list, .bi.bi-trash3-fill{
+    color: black;
+    font-size: 17px
+}
+
 
