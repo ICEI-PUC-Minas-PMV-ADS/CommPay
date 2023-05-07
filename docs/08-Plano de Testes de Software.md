@@ -8,7 +8,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 | Passos 	|  1. Acessar o Navegador. <br> 2. Informar o endereço da aplicação.<br> 3. Informar um usuário válido e senha válida. <br> 4. Clicar no botão “Entrar”. |
 |Critério de Êxito | - Deve ser possível realizar o login na aplicação.<br>  Deve ser possível acessar as funcionalidades da aplicação de acordo com o perfil atribuído ao usuário. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-02 – Cadastrar entregas realizadas** 	|
+| **Caso de Teste** 	| **CT-02 – Alterar status entregas** 	|
 |	Requisito Associado 	| RF-002 - A aplicação deve permitir que o expedidor cadastre as entregas realizadas. |
 | Objetivo do Teste 	| Verificar se é possível cadastrar entregas realizadas na aplicação. |
 | Passos 	|  1.   	Realizar o login na aplicação como expedidor.<br> 2. Acessar a tela de cadastro de entregas. <br> 3. Modificar status da entrega (entregue, pendente).<br> 4. Clicar no botão “Salvar”. |
