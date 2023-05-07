@@ -32,7 +32,7 @@ Pontos positivos: Tela de login intuitiva. Performance ágil. <br>
 
 Pontos negativos: Falta de clareza no design desta página da aplicação, o que dificultou encontrar o botão para alterar o status da entrega de forma rápida e intuitiva.<br> 
 
-Considerações: O ícone escolhido para o botão de alterar o status da entrega não corresponde ao padrão universal, que é um lápis. Realizar essa mudança para o padrão universalpara facilitar o entendimento do usuário de forma intuitiva. Exemplo de ícone de edição: Lápis. <br>
+Considerações: O ícone escolhido para o botão de alterar o status da entrega não corresponde ao padrão universal. Realizar essa mudança para o padrão universalpara facilitar o entendimento do usuário de forma intuitiva. Exemplo de ícone de edição: Lápis. <br>
 
 
 
