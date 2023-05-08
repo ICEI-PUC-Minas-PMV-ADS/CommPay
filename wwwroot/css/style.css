@@ -80,12 +80,30 @@
 }
 
 .bi.bi-plus-circle-fill {
-    font-size: 32px;        
+    font-size: 25px;
+    color:#0E2A50;
 }
 
-.bi.bi-pencil-square, .bi.bi-card-list, .bi.bi-trash3-fill{
-    color: black;
+.bi.bi-pencil-square, .bi.bi-card-list, .bi.bi-trash3-fill {
     font-size: 17px
 }
 
+.bi.bi-pencil-square {
+    color: #0E2A50;
+}
 
+.bi.bi-card-list {
+    color: green;
+}
+
+.bi.bi-trash3-fill {
+    color: red;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.money::before {
+  content: "R$ ";  
+}
