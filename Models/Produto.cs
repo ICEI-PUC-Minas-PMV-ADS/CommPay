@@ -10,13 +10,14 @@ namespace Commpay.Models
     {
         //Atributos da classe.
         [Key] //Primary Key.
-        [DisplayName("Código do Produto")]
+        [DisplayName("Código do Produto")]        
         public int Id { get; set; }
 
         [DisplayName("Descrição")]
         [Required(ErrorMessage = "Preenchimento obrigatório!")] //Mensagem de obrigatoriedade!
         public string Descricao { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:C}")]
         [Required(ErrorMessage = "Preenchimento obrigatório!")] //Mensagem de obrigatoriedade!
         public decimal Valor { get; set; }
     }

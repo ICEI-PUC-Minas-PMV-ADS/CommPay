@@ -19,6 +19,7 @@ namespace Commpay.Models
         [DataType(DataType.Date)]
         public DateTime Data_Compra { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:C}")]
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
         public string Valor_Total { get; set; }
 
