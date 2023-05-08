@@ -1,6 +1,7 @@
 ﻿using Commpay.Models.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,10 +17,12 @@ namespace Commpay.Models
         public string Vendedor { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
+        [DisplayName("Data Compra")]
         [DataType(DataType.Date)]
         public DateTime Data_Compra { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
+        [DisplayName("Valor total")]
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
         public string Valor_Total { get; set; }
 
@@ -27,6 +30,7 @@ namespace Commpay.Models
         public string Entregador { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
+        [DisplayName("Data Entrega")]
         [DataType(DataType.Date)]
         public DateTime Data_Entrega { get; set; }
 
