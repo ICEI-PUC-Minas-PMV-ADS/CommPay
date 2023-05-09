@@ -21,8 +21,9 @@ namespace Commpay.Controllers
         // GET: Vendas
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Vendas.Include(v => v.Usuario);
-            return View(await applicationDbContext.ToListAsync());
+              return _context.Vendas != null ? 
+                          View(await _context.Vendas.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Vendas'  is null.");
         }
 
         // GET: Vendas/Details/5
@@ -34,7 +35,6 @@ namespace Commpay.Controllers
             }
 
             var venda = await _context.Vendas
-                .Include(v => v.Usuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (venda == null)
             {
@@ -47,7 +47,6 @@ namespace Commpay.Controllers
         // GET: Vendas/Create
         public IActionResult Create()
         {
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "Id", "Cpf");
             return View();
         }
 
@@ -56,7 +55,7 @@ namespace Commpay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Vendedor,Data_Compra,Valor_Total,Entregador,Data_Entrega,Status,IdUsuario")] Venda venda)
+        public async Task<IActionResult> Create([Bind("Id,Vendedor,Data_Compra,Valor_Total,Entregador,Data_Entrega,Status")] Venda venda)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +63,6 @@ namespace Commpay.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "Id", "Cpf", venda.IdUsuario);
             return View(venda);
         }
 
@@ -81,45 +79,43 @@ namespace Commpay.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "Id", "Cpf", venda.IdUsuario);
             return View(venda);
         }
 
         // POST: Vendas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("Id,Vendedor,Data_Compra,Valor_Total,Entregador,Data_Entrega,Status,IdUsuario")] Venda venda)
-        //{
-        //    if (id != venda.Id)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Vendedor,Data_Compra,Valor_Total,Entregador,Data_Entrega,Status")] Venda venda)
+        {
+            if (id != venda.Id)
+            {
+                return NotFound();
+            }
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _context.Update(venda);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!VendaExists(venda.Id))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    ViewData["IdUsuario"] = new SelectList(_context.Usuario, "Id", "Cpf", venda.IdUsuario);
-        //    return View(venda);
-        //}
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(venda);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!VendaExists(venda.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(venda);
+        }
 
         // GET: Vendas/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -130,7 +126,6 @@ namespace Commpay.Controllers
             }
 
             var venda = await _context.Vendas
-                .Include(v => v.Usuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (venda == null)
             {

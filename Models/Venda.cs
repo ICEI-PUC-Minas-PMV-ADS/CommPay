@@ -36,8 +36,5 @@ namespace Commpay.Models
 
         public Status? Status { get; set; }
 
-        [ForeignKey("Usuario")]
-        public int IdUsuario { get; set; }
-        public Usuario Usuario { get; set; }
     }
 }
