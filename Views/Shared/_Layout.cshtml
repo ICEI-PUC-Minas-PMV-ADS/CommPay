@@ -28,33 +28,34 @@
                         </li>
 
 
-                        @if(User.Identity.IsAuthenticated)
+                        @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Index">Produtos</a>
-                            </li>
 
                             @if (User.IsInRole("Expedidor"))
-                                        {
+                            {
                                 <li class="nav-item">
-                                  <a class="nav-link text-dark" asp-area="" asp-controller="Expedidores" asp-action="Index">Expedidor(User)</a>
-                               </li>
-
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Index">Produtos</a>
+                                </li>
 
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Expedidores" asp-action="Entregas">Entregas</a>
                                 </li>
+                            }                          
 
-
-
-
+                            @if (User.IsInRole("Vendedor"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Vendas" asp-action="Index">Vendas</a>
+                                </li>
                             }
-                            
 
-                            
+                            @if (User.IsInRole("Financeiro"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Cadastrar Novo Usuário</a>
+                                </li>
+                            }
                         }
-                        
-                       
                     </ul>
 
                     <ul class="navbar-nav">
