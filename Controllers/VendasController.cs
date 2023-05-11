@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Commpay.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Globalization;
 
 namespace Commpay.Controllers
 {
@@ -55,8 +58,15 @@ namespace Commpay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Vendedor,Data_Compra,Valor_Total,Entregador,Data_Entrega,Status")] Venda venda)
+        public async Task<IActionResult> Create([Bind("Id,Data_Compra,Valor_Total,Entregador,Data_Entrega,Status")] Venda venda)
         {
+
+           var vendedor = User.FindFirstValue(ClaimTypes.Name);
+           venda.Vendedor = vendedor;
+           ModelState.Remove("Vendedor");
+
+
+
             if (ModelState.IsValid)
             {
                 _context.Add(venda);
