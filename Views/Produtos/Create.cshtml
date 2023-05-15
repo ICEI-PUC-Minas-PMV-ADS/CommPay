@@ -1,10 +1,14 @@
 ﻿@model Commpay.Models.Produto
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "CommPay | Cadastro de Produtos";   
+    
 }
+<head>    
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
 
-<h1>Create</h1>
+<h1>Cadastro de novo produto</h1>
 
 <h4>Produto</h4>
 <hr />
@@ -29,10 +33,12 @@
     </div>
 </div>
 
-<div>
+<button class="btn_cancelar">
     <a asp-action="Index">Back to List</a>
-</div>
+</button>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
