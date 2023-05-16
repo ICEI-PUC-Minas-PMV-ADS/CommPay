@@ -49,15 +49,15 @@
                 <td>
                     @if (item.Status == null || item.Status == Status.Pendente)
                     {
-                        <span class="badge bg-danger"><i class="bi bi-exclamation-triangle-fill"></i>  Pendente</span>
+                        <span class="shadow-sm badge bg-danger"><i class="bi bi-exclamation-triangle-fill"></i>  Pendente</span>
                     }
                     else if (item.Status == Status.Andamento)
                     {
-                        <span class="badge bg-warning"><i class="bi bi-hourglass-split"></i> Em Andamento</span>
+                        <span class="shadow-sm badge bg-warning"><i class="bi bi-hourglass-split"></i> Em Andamento</span>
                     }
                     else if (item.Status == Status.Entregue)
                     {
-                        <span class="badge bg-success"><i class="bi bi-check-circle-fill"></i>  Entregue</span>
+                        <span class="shadow-sm badge bg-success"><i class="bi bi-check-circle-fill"></i>  Entregue</span>
                     }
                 </td>
 
@@ -67,7 +67,7 @@
                
                     <!-- Button trigger modal -->
                     <button type="button" class="btn com-btn-primary" data-bs-toggle="modal" data-bs-target="#editStatus_@item.Id">
-                        <i class="bi bi-truck"></i>
+                        <i class="bi bi-truck"></i> Alterar Status
                     </button>
 
                     <!-- Modal -->

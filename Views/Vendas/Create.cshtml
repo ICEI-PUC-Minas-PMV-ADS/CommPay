@@ -8,29 +8,24 @@
 
 
 <div class="row"><h4>Cadastro de Pedidos</h4>
-<div class="col-7 me-4">
 
-
-           @foreach (var produto in @Model.Produto)
+    <div class="col-7 me-4">
+        <div class="overflow-auto scrollspy-example" style="max-height: 540px;">
+            @foreach (var produto in @Model.Produto)
             {
-
-            <div class="col mb-3">
-                <div class="input-group">
-                    <input class="form-control" type="text" value="@Html.DisplayFor(modelItem => @produto.Descricao)" readonly>
-                    <span class="input-group-text">@Html.DisplayFor(modelItem => produto.Valor)</span>
-                    <button class="btn btn-danger rm-cart" type="button" data-product-id="@produto.Id">-</button>
-                    <button class="btn btn-primary add-cart" type="button" data-product-id="@produto.Id">+</button>
+                <div class="col mb-3 shadow-sm">
+                    <div class="input-group">
+                        <input class="form-control" type="text" value="@Html.DisplayFor(modelItem => @produto.Descricao)" readonly>
+                        <span class="input-group-text">@Html.DisplayFor(modelItem => produto.Valor)</span>
+                        <button class="btn btn-danger rm-cart" type="button" data-product-id="@produto.Id">-</button>
+                        <button class="btn btn-primary add-cart" type="button" data-product-id="@produto.Id">+</button>
+                    </div>
                 </div>
-            </div>
             }
-       
+        </div>
+    </div>
 
 
-
-
-
-
-</div>
 
     @{
         DateTime dataHoraAtual = DateTime.Now;
@@ -85,6 +80,8 @@
     </form>
 
 </div>
+
+
 
 
 
