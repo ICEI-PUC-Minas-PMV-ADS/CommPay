@@ -68,6 +68,7 @@ namespace Commpay.Controllers
         {
             if (ModelState.IsValid)
             {
+                produto.Descricao = produto.Descricao.ToUpper();
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

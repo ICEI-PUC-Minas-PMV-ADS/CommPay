@@ -47,10 +47,27 @@ namespace Commpay.Controllers
             return View(venda);
         }
 
+
         // GET: Vendas/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var vendaProduto = new VendaProduto() {
+                Venda = new Venda()
+                {
+                    Vendedor = User.FindFirstValue(ClaimTypes.Name),
+                    Data_Compra = DateTime.Now,
+                    Data_Entrega = DateTime.Now.AddDays(10),
+                    Entregador = "Jose",
+
+
+                },
+                Produto = _context.Produtos
+                       .OrderBy(x => x.Descricao)
+                       .AsNoTracking().ToList()
+             };
+
+          return View(vendaProduto);
+
         }
 
         // POST: Vendas/Create
@@ -58,14 +75,15 @@ namespace Commpay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Data_Compra,Valor_Total,Entregador,Data_Entrega,Status")] Venda venda)
+        public async Task<IActionResult> Create(Venda venda)
         {
 
-           var vendedor = User.FindFirstValue(ClaimTypes.Name);
-           venda.Vendedor = vendedor;
-           ModelState.Remove("Vendedor");
+            var vendedor = User.FindFirstValue(ClaimTypes.Name);
+            venda.Vendedor = vendedor;
+            venda.Data_Compra = DateTime.Now;
+            venda.Data_Entrega = DateTime.Now.AddDays(10);
 
-
+            ModelState.Remove("Vendedor");
 
             if (ModelState.IsValid)
             {
@@ -73,7 +91,9 @@ namespace Commpay.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(venda);
+
+
+            return View();
         }
 
         // GET: Vendas/Edit/5
