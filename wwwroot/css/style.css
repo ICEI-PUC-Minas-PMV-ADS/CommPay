@@ -79,13 +79,7 @@
 .com-btn-select.active {
         border: 2px solid #0E2A50;
         background-color: #0E2A50;
-        color: white;
-    
-}
-
-.bi.bi-plus-circle-fill {
-    font-size: 25px;
-    color:#0E2A50;
+        color: white;   
 }
 
 .bi.bi-pencil-square, .bi.bi-card-list, .bi.bi-trash3-fill {
@@ -108,8 +102,17 @@ h1 {
     font-size: 30px;
 }
 
-btn.btn-primary {
+.btn.btn-primary {
     background-color: #0E2A50;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.btn.btn-danger {
+    margin-top: 10px;
+}
+.bi.bi-plus-circle-fill {
+    color: white;
 }
 
 
