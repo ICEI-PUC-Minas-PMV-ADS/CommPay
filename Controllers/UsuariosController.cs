@@ -90,12 +90,13 @@ namespace Commpay.Controllers
             return RedirectToAction("Login", "Usuarios");
         }
 
+
+
         [AllowAnonymous]
         public IActionResult AccessDenied()
         {
             return View();
         }
-
 
 
 

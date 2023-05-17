@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Commpay.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,13 +20,13 @@ namespace Commpay.Controllers
             _context = context;
         }
 
-        // GET: Financeiros
         public async Task<IActionResult> Index()
         {
-              return _context.Financeiros != null ? 
-                          View(await _context.Financeiros.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Financeiros'  is null.");
+            return _context.Usuario != null ?
+                        View(await _context.Usuario.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Usuario'  is null.");
         }
+
 
         // GET: Financeiros/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -50,21 +52,42 @@ namespace Commpay.Controllers
             return View();
         }
 
-        // POST: Financeiros/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+  
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Senha,Cargo")] Financeiro financeiro)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(financeiro);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(financeiro);
+        //}
+
+
+        //CRIAÇÃO DE USUARIOS
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Senha,Cargo")] Financeiro financeiro)
+        public async Task<IActionResult> Create([Bind("Nome,Senha,Cargo,Cpf")] Usuario dadoslogin)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(financeiro);
+               dadoslogin.Senha = BCrypt.Net.BCrypt.HashPassword(dadoslogin.Senha);
+                _context.Add(dadoslogin);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+
             }
-            return View(financeiro);
+
+                return View(dadoslogin);
         }
+
+
+
+
+
 
         // GET: Financeiros/Edit/5
         public async Task<IActionResult> Edit(int? id)
