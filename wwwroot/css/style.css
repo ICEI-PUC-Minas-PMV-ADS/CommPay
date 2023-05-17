@@ -111,9 +111,11 @@ h1 {
 .btn.btn-danger {
     margin-top: 10px;
 }
-.bi.bi-plus-circle-fill {
-    color: white;
+
+.btn.btn-outline-secondary {
+    margin-top: 10px;
 }
+
 
 
 
