@@ -1,12 +1,11 @@
 ﻿@model Commpay.Models.Produto
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "CommPay | Editar Produtos"; 
 }
 
-<h1>Edit</h1>
+<h1>Editar Produto</h1>
 
-<h4>Produto</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -24,16 +23,25 @@
                 <span asp-validation-for="Valor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <input type="button" value="Voltar" class="btn btn-primary" onclick="window.location.href='@Url.Action("Index")'" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+            <script>
+                    $(document).ready(function() {                    
+                        $('#Valor').maskMoney({
+                            prefix: 'R$ ', 
+                            thousands: '.',
+                            decimal: ',', 
+                            precision: 2 
+                        });
+                    });
+            </script>
 }

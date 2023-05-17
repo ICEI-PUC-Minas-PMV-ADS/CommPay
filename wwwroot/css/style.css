@@ -108,8 +108,14 @@ h1 {
     font-size: 30px;
 }
 
-btn.btn-primary {
+.btn.btn-primary {
     background-color: #0E2A50;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.btn.btn-danger {
+    margin-top: 10px;
 }
 
 

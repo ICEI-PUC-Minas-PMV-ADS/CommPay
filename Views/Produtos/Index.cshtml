@@ -36,7 +36,8 @@
         int totalItems = Model.Count();
         int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
     }
-
+    
+    <div class="table-responsive" style="max-height: 300px;">
     <table class="table">
         <thead>
             <tr>
@@ -74,6 +75,8 @@
             }
         </tbody>
     </table>
+    </div>
+    
 
     <div class="pagination">
 

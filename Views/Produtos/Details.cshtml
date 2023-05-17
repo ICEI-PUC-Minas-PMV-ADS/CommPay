@@ -1,13 +1,12 @@
 ﻿@model Commpay.Models.Produto
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "CommPay | Detalhes do Produtos"; 
 }
 
-<h1>Details</h1>
+<h1>Detalhes do produto</h1>
 
-<div>
-    <h4>Produto</h4>
+<div>    
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -24,7 +23,6 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div>    
+    <input type="button" value="Voltar" class="btn btn-primary" onclick="window.location.href='@Url.Action("Index")'" />
 </div>
