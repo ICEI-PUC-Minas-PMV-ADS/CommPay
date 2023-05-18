@@ -105,7 +105,7 @@ h1 {
 .btn.btn-primary {
     background-color: #0E2A50;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .btn.btn-danger {
@@ -115,3 +115,17 @@ h1 {
 .btn.btn-outline-secondary {
     margin-top: 10px;
 }
+
+h1 {
+    text-align: center;
+}
+
+.form-control {
+    margin-bottom: 30px;
+}
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+
