@@ -110,6 +110,7 @@ h1 {
 
 .btn.btn-danger {
     margin-top: 10px;
+    margin-left: 10px;
 }
 
 .btn.btn-outline-secondary {
@@ -123,9 +124,9 @@ h1 {
 .form-control {
     margin-bottom: 30px;
 }
+
 .row {
     display: flex;
     justify-content: center;
 }
-
 
