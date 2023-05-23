@@ -6,10 +6,8 @@
     <title>@ViewData["Title"] - Commpay</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Commpay.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet"  href="/css/style.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
 
 </head>
 <body>
@@ -24,9 +22,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
 
 
                         @if (User.Identity.IsAuthenticated)
@@ -34,21 +29,22 @@
 
                             @if (User.IsInRole("Expedidor"))
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Index">Produtos</a>
-                                </li>
+
 
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Expedidores" asp-action="Entregas">Entregas</a>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Vendas" asp-action="Index">Vendas</a>
-                                </li>
+
                             }                          
 
                             @if (User.IsInRole("Vendedor"))
                             {
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Index">Produtos</a>
+                                </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Vendas" asp-action="Index">Vendas</a>
                                 </li>
@@ -57,8 +53,18 @@
                             @if (User.IsInRole("Financeiro"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Cadastrar Novo Usuário</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuários" asp-action="Index">Usuarios</a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Financeiros" asp-action="Index">Relatórios</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Financeiros" asp-action="Comissoes">Comissões</a>
+                                </li>
+
+
                             }
                         }
                     </ul>
@@ -87,14 +93,17 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+
+    @RenderBody()
+
+    @*<div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
+    </div>*@
 
     
-    <footer class="border-top footer text-muted">
+    <footer class="footer">
         <div class="container-fluid com-footer">
             <img src="/src/logo_b.svg" width="80" />
             <span class="ms-2 text-white">&copy; Belo Horizonte - Av Amazonas,402 - CEP 32405-240 - CNPJ

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Commpay.Models.Venda>
+@using Commpay.Models.Enums
+
+
+@{
+    ViewData["Title"] = "Comissoes";
+}
+
+
+
+<div class="bubble-banner mb-5">
+    <div class="container">
+        <div>
+            <h1>Você deve pagar</h1>
+        </div>
+        <div>
+            <h1>$@Model.Sum(x => x.Valor_Total)</h1>
+        </div>
+        <div class="text-muted">
+            Em comissões aos vendedores
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+        <main role="main" class="pb-3">
+
+
+
+
+
+        <table class="table table-striped">
+            <thead>
+                    <th colspan="2"></th>
+                <tr class="text-muted">
+                    <td>Vendedor</td>
+                    <td>Valor Total</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.GroupBy(x => x.Vendedor))
+                {
+                    <tr>
+                        <td>@item.Key</td>
+                        <td>@item.Sum(x => x.Valor_Total)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+
+        </main>
+    </div>
+
+
+
+
+
+

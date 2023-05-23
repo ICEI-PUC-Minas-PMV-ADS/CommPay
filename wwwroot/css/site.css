@@ -21,8 +21,12 @@ body {
     padding: 0px 0px 60px 0px ;
 }
 
+
+
 .com-footer {
+    bottom: 0;
+    position: absolute;
     background-color: #0E2A50;
     text-align: center;
-    
+    padding: 2vh;
 }

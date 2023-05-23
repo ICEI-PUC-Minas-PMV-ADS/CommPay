@@ -20,12 +20,30 @@ namespace Commpay.Controllers
             _context = context;
         }
 
+
         public async Task<IActionResult> Index()
         {
-            return _context.Usuario != null ?
-                        View(await _context.Usuario.ToListAsync()) :
-                        Problem("Entity set 'ApplicationDbContext.Usuario'  is null.");
+            return _context.Financeiros != null ?
+                        View(await _context.Financeiros.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Financeiros'  is null.");
         }
+
+
+
+
+
+        // GET Comissões
+        public async Task<IActionResult> Comissoes()
+        {
+            return View(await _context.Vendas.ToListAsync());
+
+        }
+
+
+
+
+
+
 
 
         // GET: Financeiros/Details/5

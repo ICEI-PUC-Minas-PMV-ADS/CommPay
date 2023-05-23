@@ -112,7 +112,7 @@
                                     <div class="row mt-3">
                                             <div class="col">
                                                 <label class="form-label label-title">Status da Entrega</label>
-                                                <select class="form-select" name="Status">
+                                                <select class="form-select" name="Status" disabled="@(item.Status == Status.Entregue)">
                                                     @if (item.Status == null || item.Status == Status.Pendente)
                                                     {
                                                         <option value="@((int)Status.Pendente)" selected>Pendente</option>
@@ -128,8 +128,7 @@
                                                     else if (item.Status == Status.Entregue)
                                                     {
                                                         <option value="@((int)Status.Entregue)" selected>Entregue</option>
-                                                        <option value="@((int)Status.Andamento)">Em Andamento</option>
-                                                        <option value="@((int)Status.Pendente)">Pendente</option>
+
                                                     }
                                                 </select>
                                             </div>
