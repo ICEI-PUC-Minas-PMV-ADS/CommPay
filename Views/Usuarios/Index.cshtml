@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<Commpay.Models.Usuario>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Usuários";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a type="button" class="btn com-btn-primary" asp-action="Create"><i class="bi bi-clipboard-check"></i> Cadastrar novo usuário</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -43,9 +42,9 @@
                 @Html.DisplayFor(modelItem => item.Cargo)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
             </td>
         </tr>
 }

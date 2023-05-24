@@ -29,13 +29,9 @@
 
                             @if (User.IsInRole("Expedidor"))
                             {
-
-
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Expedidores" asp-action="Entregas">Entregas</a>
                                 </li>
-
-
                             }                          
 
                             @if (User.IsInRole("Vendedor"))
