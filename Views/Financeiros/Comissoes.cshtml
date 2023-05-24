@@ -27,10 +27,6 @@
 <div class="container">
         <main role="main" class="pb-3">
 
-
-
-
-
         <table class="table table-striped">
             <thead>
                     <th colspan="2"></th>
@@ -44,15 +40,11 @@
                 {
                     <tr>
                         <td>@item.Key</td>
-                        <td>@item.Sum(x => x.Valor_Total)</td>
+                        <td>@item.Sum(x => x.Valor_Total * 0.05m).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
                     </tr>
                 }
             </tbody>
         </table>
-
-
-
-
         </main>
     </div>
 

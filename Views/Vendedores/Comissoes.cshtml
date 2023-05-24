@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Commpay.Models.Venda>
+@using Commpay.Models.Enums
+
+
+@{
+    ViewData["Title"] = "CommPay | Minhas Comissões";
+}
+@{
+    decimal somaComissoes = 0; 
+}
+
+<div class="bubble-banner mb-5">
+    <div class="container">
+        <div>
+            <h1>Você receberá</h1>
+        </div>
+        <div>
+            @foreach (var item in Model.Where(x => x.Vendedor == User.Identity.Name))
+            {
+                decimal comissao = item.Valor_Total * 0.05m;
+                somaComissoes += comissao;                
+            }
+            <h1>@somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</h1>
+        </div>
+        <div class="text-muted">
+            em comissões!
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <main role="main" class="pb-3">
+
+        <table class="table table-striped">
+            <thead>            
+            <tr class="text-muted">
+                <td>Número da venda</td>
+                <td>Valor total</td>
+                <td>Comissão sobre a venda</td>
+            </tr>            
+            <tbody>          
+                   
+                @foreach (var item in Model.Where(x => x.Vendedor == User.Identity.Name))
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Valor_Total.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
+                        <td>
+                            @{
+                                decimal comissao = item.Valor_Total * 0.05m;
+                                somaComissoes += comissao;
+                                string comissaoFormatada = comissao.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
+                            }
+                            @comissaoFormatada
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </main>
+</div>
+
+
+
