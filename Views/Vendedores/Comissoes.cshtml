@@ -32,20 +32,21 @@
     <main role="main" class="pb-3">
 
         <table class="table table-striped">
-            <thead>            
-            <tr class="text-muted">
-                <td>Número da venda</td>
-                <td>Valor total</td>
-                <td>Comissão sobre a venda</td>
-            </tr>            
+            <thead class="thead-dark">            
+            <tr class="dark-row">
+                <th>Número da venda</th>
+                <th class="text-center">Valor total</th>
+                <th class="text-center">Comissão sobre a venda</th>
+            </tr>  
+            </thead>
             <tbody>          
                    
                 @foreach (var item in Model.Where(x => x.Vendedor == User.Identity.Name))
                 {
                     <tr>
-                        <td>@item.Id</td>
-                        <td>@item.Valor_Total.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
-                        <td>
+                        <td >@item.Id</td>
+                        <td class="text-center">@item.Valor_Total.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
+                        <td class="text-center">
                             @{
                                 decimal comissao = item.Valor_Total * 0.05m;
                                 somaComissoes += comissao;
