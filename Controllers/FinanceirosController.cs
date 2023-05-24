@@ -43,9 +43,6 @@ namespace Commpay.Controllers
 
 
 
-
-
-
         // GET: Financeiros/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -124,8 +121,7 @@ namespace Commpay.Controllers
         }
 
         // POST: Financeiros/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Senha,Cargo")] Financeiro financeiro)

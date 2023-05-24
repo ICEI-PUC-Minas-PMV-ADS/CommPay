@@ -19,11 +19,7 @@ namespace Commpay.Controllers
 
 
 
-        public async Task<IActionResult> Index()
-        {
-            var usuarios = await _context.Usuario.ToListAsync();
-            return View(usuarios);
-        }
+      
 
         // GET Expedidores/Entregas
         public async Task<IActionResult> Entregas()
@@ -83,24 +79,7 @@ namespace Commpay.Controllers
             return View();
         }
 
-        // POST: Expedidores/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Senha,Cargo")] Expedidor expedidor)
-        {
-
-            if (ModelState.IsValid)
-            {
-                expedidor.Senha = BCrypt.Net.BCrypt.HashPassword(expedidor.Senha);
-                _context.Add(expedidor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-
-            return View(expedidor);
-        }
+        
 
         // GET: Expedidores/Edit/5
         public async Task<IActionResult> Edit(int? id)

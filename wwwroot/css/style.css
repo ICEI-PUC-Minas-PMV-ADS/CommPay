@@ -100,16 +100,17 @@
     
 }
 
-h1 {
-    font-size: 25px;
+
+
+.custom-link {
+    color: #0E2A50;
+    text-decoration: none;
+    border-width: 0 0 4px; /* Largura da borda: superior 0, direita 0, inferior 2px, esquerda 0 */
+    border-style: none none dotted; /* Estilo da borda: superior nenhum, direita nenhum, inferior pontilhado, esquerda nenhum */
+    cursor: pointer;
 }
 
-.dark-row {
-    background-color: #0E2A50;
-    color: white;
-}
-
-
-
-
-
+    .custom-link:hover {
+        text-decoration: none;
+        color: #0E2A50;
+    }
