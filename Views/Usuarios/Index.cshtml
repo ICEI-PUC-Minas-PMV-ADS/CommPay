@@ -31,30 +31,55 @@
         </a>
     </div>
 
-    <tr class="text-muted">
-        <td>Vendedor</td>
-        <td>Valor Total</td>
-    </tr>
+
+    <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+    <div id="LiveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <script>
+        const toastElList = document.querySelectorAll('.toast');
+        const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl));
+
+        const liveToastBtn = document.getElementById('liveToastBtn');
+        liveToastBtn.addEventListener('click', function () {
+            toastList.forEach(toast => toast.show());
+        });
+    </script>
+
 
 
 
 
     <table class="table table-striped">
     <thead>
-        <tr class="text-muted">
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cpf)
-            </th>
-            <th>
+        <th colspan="2">
+        <td></td>
+        <td></td>
+        <td></td>
+        </th>
 
-            </th>
-            <th>
+        <tr class="text-muted">
+
+            <td>
+                @Html.DisplayNameFor(model => model.Nome)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </td>
+            <td>
+
+            </td>
+            <td>
                 @Html.DisplayNameFor(model => model.Cargo)
-            </th>
-            <th></th>
+            </td>
+            <td></td>
         </tr>
     </thead>
     <tbody>
@@ -162,4 +187,9 @@
         var loadingButton = document.getElementById("loading-button");
         loadingButton.style.display = "inline-block";
     }
+
+
+
+
+
 </script>
