@@ -48,7 +48,7 @@
                 {
                     <tr>
                         <td>@item.Key</td>
-                        <td>@item.Sum(x => x.Valor_Total)</td>
+                        <td>@item.Sum(x => x.Valor_Total * 0.05m).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
                     </tr>
                 }
             </tbody>

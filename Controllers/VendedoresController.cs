@@ -44,6 +44,13 @@ namespace Commpay.Controllers
             return View(vendedor);
         }
 
+        // GET Comissões
+        public async Task<IActionResult> Comissoes()
+        {
+            return View(await _context.Vendas.ToListAsync());
+
+        }
+
         // GET: Vendedores/Create
         public IActionResult Create()
         {
