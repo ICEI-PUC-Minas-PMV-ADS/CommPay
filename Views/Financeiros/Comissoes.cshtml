@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<Commpay.Models.Venda>
 @using Commpay.Models.Enums
 
-@{
-    ViewData["Title"] = "CommPay | Comissões";
 
-    decimal somaComissoes = Model.Sum(x => x.Valor_Total * 0.05m);
+@{
+    ViewData["Title"] = "Comissoes";
 }
+
+
 
 <div class="bubble-banner mb-5">
     <div class="container">
@@ -13,7 +14,7 @@
             <h1>Você deve pagar</h1>
         </div>
         <div>
-            <h1>@somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</h1>
+            <h1>$@Model.Sum(x => x.Valor_Total)</h1>
         </div>
         <div class="text-muted">
             Em comissões aos vendedores
@@ -21,13 +22,17 @@
     </div>
 </div>
 
+
+
 <div class="container">
-    <main role="main" class="pb-3">
+        <main role="main" class="pb-3">
+
         <table class="table table-striped">
             <thead>
-                <tr class="dark-row">
+                    <th colspan="2"></th>
+                <tr class="text-muted">
                     <td>Vendedor</td>
-                    <td class="text-center">Valor total da comissão</td>
+                    <td>Valor Total</td>
                 </tr>
             </thead>
             <tbody>
@@ -35,10 +40,16 @@
                 {
                     <tr>
                         <td>@item.Key</td>
-                        <td class="text-center">@item.Sum(x => x.Valor_Total).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
+                        <td>@item.Sum(x => x.Valor_Total * 0.05m).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
                     </tr>
                 }
             </tbody>
         </table>
-    </main>
-</div>
+        </main>
+    </div>
+
+
+
+
+
+
