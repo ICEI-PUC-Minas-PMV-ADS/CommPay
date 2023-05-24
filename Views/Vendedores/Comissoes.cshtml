@@ -48,8 +48,7 @@
                         <td class="text-center">@item.Valor_Total.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
                         <td class="text-center">
                             @{
-                                decimal comissao = item.Valor_Total * 0.05m;
-                                somaComissoes += comissao;
+                                decimal comissao = item.Valor_Total * 0.05m;                                
                                 string comissaoFormatada = comissao.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
                             }
                             @comissaoFormatada
