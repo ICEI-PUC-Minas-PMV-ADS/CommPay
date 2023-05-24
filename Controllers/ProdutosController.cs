@@ -13,7 +13,7 @@ namespace Commpay.Controllers
 
 
 
-    [Authorize(Roles = "Expedidor")]
+    [Authorize(Roles = "Financeiro")]
     public class ProdutosController : Controller
     {
         private readonly ApplicationDbContext _context;
