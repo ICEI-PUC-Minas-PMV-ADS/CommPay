@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Commpay.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Financeiro")]
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -84,6 +84,7 @@ namespace Commpay.Controllers
 
 
         // FAZ O LOGOUT DO SISTEMA
+        [AllowAnonymous]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
