@@ -2,7 +2,7 @@
 @using Commpay.Models.Enums
 
 @{
-    ViewData["Title"] = "Entregas";
+    ViewData["Title"] = "CommPay | Entregas";
 }
 
 <h1>Entregas</h1>
@@ -31,20 +31,21 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Vendedor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data_Compra)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Entregador)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data_Entrega)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vendedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data_Compra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Entregador)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data_Entrega)
+                </td>
 
                 <td>
                     @if (item.Status == null || item.Status == Status.Pendente)
@@ -61,10 +62,8 @@
                     }
                 </td>
 
+                <td>
 
-
-            <td>
-               
                     <!-- Button trigger modal -->
                     <button type="button" class="btn com-btn-primary" data-bs-toggle="modal" data-bs-target="#editStatus_@item.Id">
                         <i class="bi bi-truck"></i> Alterar Status
@@ -80,20 +79,20 @@
                                 </div>
                                 <div class="modal-body">
 
-                                   
-                                        <form asp-action="Edit" asp-route-id="@item.Id" method="post">
 
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <label class="form-label label-title">Nome do Vendedor</label>
-                                            <input class="form-control" type="text" placeholder="@item.Vendedor" disabled>
-                                        </div>
+                                    <form asp-action="Edit" asp-route-id="@item.Id" method="post">
 
-                                        <div class="col">
-                                            <label class="form-label label-title">Data da Compra</label>
-                                            <input class="form-control" type="text" placeholder="@item.Data_Compra" disabled>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="form-label label-title">Nome do Vendedor</label>
+                                                <input class="form-control" type="text" placeholder="@item.Vendedor" disabled>
+                                            </div>
+
+                                            <div class="col">
+                                                <label class="form-label label-title">Data da Compra</label>
+                                                <input class="form-control" type="text" placeholder="@item.Data_Compra" disabled>
+                                            </div>
                                         </div>
-                                    </div>
 
                                         <div class="row mt-3">
                                             <div class="col-6">
@@ -103,13 +102,13 @@
                                                 </select>
                                             </div>
 
-                                        <div class="col">
-                                            <label class="form-label label-title">Previsão de Entrega</label>
-                                            <input class="form-control" type="text" placeholder="@item.Data_Entrega" disabled>
+                                            <div class="col">
+                                                <label class="form-label label-title">Previsão de Entrega</label>
+                                                <input class="form-control" type="text" placeholder="@item.Data_Entrega" disabled>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="row mt-3">
+                                        <div class="row mt-3">
                                             <div class="col">
                                                 <label class="form-label label-title">Status da Entrega</label>
                                                 <select class="form-select" name="Status" disabled="@(item.Status == Status.Entregue)">
@@ -137,27 +136,14 @@
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                             <button type="submit" class="btn com-btn-primary">Confirmar</button>
                                         </div>
-                                        </form>
-                                    </div>
-
-
-                                        
-
-                                    
-
-
+                                    </form>
                                 </div>
-                                
-
-                                
-
                             </div>
                         </div>
-                    
-
-            </td>
-        </tr>
-}
+                    </div>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 

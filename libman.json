@@ -5,6 +5,10 @@
     {
       "library": "toastr.js@2.1.4",
       "destination": "wwwroot/toastr.js/"
+    },
+    {
+      "library": "bootstrap@5.2.3",
+      "destination": "wwwroot/lib/bootstrap/"
     }
   ]
 }

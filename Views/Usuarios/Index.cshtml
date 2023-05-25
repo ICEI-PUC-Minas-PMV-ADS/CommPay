@@ -4,26 +4,82 @@
     ViewData["Title"] = "Usuários";
 }
 
-<p>
-    <a type="button" class="btn com-btn-primary" asp-action="Create"><i class="bi bi-clipboard-check"></i> Cadastrar novo usuário</a>
-</p>
 
-<table class="table">
+<div class="bubble-banner mb-5">
+    <div class="container">
+        <div>
+            <h1>Cadastre seus colaboradores</h1>
+        </div>
+        <div class="text-muted">
+            Pronto para adicionar seus colaboradores à sua plataforma?
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+
+
+
+    <div class="d-flex mb-4">
+        <a class="me-3 custom-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <b><i class="bi bi-file-earmark-plus-fill"></i> Criar Usuário</b>
+        </a>
+
+        <a class="custom-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <b><i class="bi bi-gear-fill"></i> Suporte</b>
+        </a>
+    </div>
+
+
+    <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+    <div id="LiveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <script>
+        const toastElList = document.querySelectorAll('.toast');
+        const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl));
+
+        const liveToastBtn = document.getElementById('liveToastBtn');
+        liveToastBtn.addEventListener('click', function () {
+            toastList.forEach(toast => toast.show());
+        });
+    </script>
+
+
+
+
+
+    <table class="table table-striped">
     <thead>
-        <tr>
-            <th>
+        <th colspan="2">
+        <td></td>
+        <td></td>
+        <td></td>
+        </th>
+
+        <tr class="text-muted">
+
+            <td>
                 @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
+            </td>
+            <td>
                 @Html.DisplayNameFor(model => model.Cpf)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Senha)
-            </th>
-            <th>
+            </td>
+            <td>
+
+            </td>
+            <td>
                 @Html.DisplayNameFor(model => model.Cargo)
-            </th>
-            <th></th>
+            </td>
+            <td></td>
         </tr>
     </thead>
     <tbody>
@@ -36,17 +92,106 @@
                 @Html.DisplayFor(modelItem => item.Cpf)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Senha)
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Cargo)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
+
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-card-list"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash3-fill"></i></a>
+
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+   
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Colaborador</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form asp-controller="Usuarios" asp-action="Create" method="post">
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label label-title">Nome do Vendedor</label>
+                                <input name="Nome" class="form-control" type="text" placeholder="Insira o Primeiro Nome" required />
+                            </div>
+
+                            <div class="col-3">
+                                <label class="form-label label-title">CPF</label>
+                                <input name="Cpf" class="form-control type="text" placeholder="Apenas Números" required/>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-3">
+                                <label class="form-label label-title">Senha</label>
+                                <input name="Senha" class="form-control" type="password" placeholder="Insira a Senha" required />
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-3">
+                                <label class="form-label label-title">Selecione o Cargo</label>
+                                <select name="Cargo" class="form-select" required>
+                                    <option selected value="Vendedor">Vendedor</option>
+                                    <option value="Financeiro">Financeiro</option>
+                                    <option value="Expedidor">Expedidor</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                            <button class="btn com-btn-primary" type="button" disabled id="loading-button" style="display: none;">
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                <span class="visually-hidden">Loading...</span>
+                            </button>
+
+                            <asp:UpdatePanel ID="updatePanel" runat="server">
+                                <ContentTemplate>
+                                    <input type="submit" value="Cadastrar" class="btn com-btn-primary" onclick="showLoadingButton()" />
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="submit-button" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+
+                        
+                    </form>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    function showLoadingButton() {
+        var loadingButton = document.getElementById("loading-button");
+        loadingButton.style.display = "inline-block";
+    }
+
+
+
+
+
+</script>

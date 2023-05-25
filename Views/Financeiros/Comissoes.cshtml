@@ -1,20 +1,19 @@
 ﻿@model IEnumerable<Commpay.Models.Venda>
 @using Commpay.Models.Enums
 
-
 @{
-    ViewData["Title"] = "Comissoes";
+    ViewData["Title"] = "CommPay | Comissões";
+
+    decimal somaComissoes = Model.Sum(x => x.Valor_Total * 0.05m);
 }
-
-
 
 <div class="bubble-banner mb-5">
     <div class="container">
         <div>
-            <h1>Você deve pagar</h1>
+            <h1>Você pagará</h1>
         </div>
         <div>
-            <h1>$@Model.Sum(x => x.Valor_Total)</h1>
+            <h1>@somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</h1>
         </div>
         <div class="text-muted">
             Em comissões aos vendedores
@@ -25,7 +24,15 @@
 
 
 <div class="container">
+
+
         <main role="main" class="pb-3">
+
+
+
+        Lista de usuários<span class="ms-2 shadow-sm badge bg-info">@Model.Select(x => x.Vendedor).Distinct().Count()</span>
+
+
 
         <table class="table table-striped">
             <thead>
@@ -44,7 +51,31 @@
                     </tr>
                 }
             </tbody>
+
+
+
+
         </table>
+        
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
         </main>
     </div>
 

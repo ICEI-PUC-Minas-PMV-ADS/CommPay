@@ -1,14 +1,24 @@
 ﻿@model IEnumerable<Commpay.Models.Venda>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Vendas";
 }
 
 
 
 
-<h1>Vendas</h1>
+<div class="bubble-banner mb-5">
+    <div class="container">
+        <div>
+            <h1>Cadastre suas vendas</h1>
+        </div>
+        <div class="text-muted">
+            Faça suas vendas e receba sua comissão
+        </div>
+    </div>
+</div>
 
+<div class="container">
 <p>
     <a type="button" class="btn com-btn-primary" asp-action="Create"><i class="bi bi-cart-plus me-2"></i>Nova Venda</a>
 </p>
@@ -182,6 +192,7 @@
 
 </table>
 
+</div>
 
    
 

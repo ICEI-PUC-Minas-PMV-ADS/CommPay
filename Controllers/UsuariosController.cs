@@ -135,21 +135,29 @@ namespace Commpay.Controllers
         }
 
         // POST: Usuarios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Senha,Cargo")] Usuario usuario)
         {
-            if (ModelState.IsValid)
+            var confereCPF = await _context.Usuario
+                .FirstOrDefaultAsync(m => m.Cpf == usuario.Cpf);
+
+            if (confereCPF != null)
+            {
+                ViewBag.cpfExiste = true;
+            }
+
+            else if (ModelState.IsValid)
             {
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return RedirectToAction(nameof(Index));
         }
+
+
 
         // GET: Usuarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
