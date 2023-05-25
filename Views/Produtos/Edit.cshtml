@@ -35,18 +35,3 @@
     </div>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
-            <script>
-                    $(document).ready(function() {                    
-                        $('#Valor').maskMoney({
-                            prefix: 'R$ ', 
-                            thousands: '.',
-                            decimal: ',', 
-                            precision: 2 
-                        });
-                    });
-            </script>
-}
