@@ -61,7 +61,7 @@
 </div>
 
 
-<div class="row">
+<div class="row mb-5">
     <div class="col-6 me-5">
         <a type="button" asp-action="Index" class="btn btn-outline-secondary">
                 <i class="bi bi-caret-left"></i> Voltar 
@@ -75,7 +75,7 @@
                 Confirmar
             </button>
         </div>
-        <input type="text" name="Valor_Total" id="valorTotal" hidden/>
+            <input type="text" name="Valor_Total" step="any" id="valorTotal" hidden />
         <input type="text" name="Entregador" id="entregador" value="José" hidden />
     </form>
 
@@ -167,9 +167,11 @@
                 }
             });
 
-            document.querySelector("#cart-total").textContent = "R$" + total.toFixed(2);
+            var formattedTotal = total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 
-            document.getElementById("valorTotal").value = total;
+            document.querySelector("#cart-total").textContent = "R$" + formattedTotal;
+
+            document.getElementById("valorTotal").value = formattedTotal;
         }
 
 

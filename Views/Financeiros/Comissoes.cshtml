@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "CommPay | Comissões";
 
-    decimal somaComissoes = Model.Sum(x => x.Valor_Total * 0.05m);
+    //decimal somaComissoes = Model.Sum(x => x.Valor_Total);
 }
 
 <div class="bubble-banner mb-5">
@@ -13,7 +13,7 @@
             <h1>Você pagará</h1>
         </div>
         <div>
-            <h1>@somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</h1>
+            @*<h1>@somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</h1>*@
         </div>
         <div class="text-muted">
             Em comissões aos vendedores
@@ -47,7 +47,7 @@
                 {
                     <tr>
                         <td>@item.Key</td>
-                        <td>@item.Sum(x => x.Valor_Total * 0.05m).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
+                        <td>@item.Sum(x => x.Valor_Total).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
                     </tr>
                 }
             </tbody>

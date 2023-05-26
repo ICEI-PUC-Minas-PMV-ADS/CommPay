@@ -17,8 +17,8 @@
         <div>
             @foreach (var item in Model.Where(x => x.Vendedor == User.Identity.Name))
             {
-                decimal comissao = item.Valor_Total * 0.05m;
-                somaComissoes += comissao;                
+                @*decimal comissao = item.Valor_Total * 0.05m;*@
+                @*somaComissoes += comissao;   *@             
             }
             <h1>@somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</h1>
         </div>
@@ -48,10 +48,10 @@
                         <td class="text-center">@item.Valor_Total.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
                         <td class="text-center">
                             @{
-                                decimal comissao = item.Valor_Total * 0.05m;                                
-                                string comissaoFormatada = comissao.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
+                                //decimal comissao = item.Valor_Total * 0.05m;                                
+                                //string comissaoFormatada = comissao.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
                             }
-                            @comissaoFormatada
+                         @*   @comissaoFormatada*@
                         </td>
                     </tr>
                 }
