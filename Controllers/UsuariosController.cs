@@ -152,6 +152,7 @@ namespace Commpay.Controllers
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
+                TempData["successmessage"] = "Saved successfully";
                 return RedirectToAction(nameof(Index));
             }
             return RedirectToAction(nameof(Index));

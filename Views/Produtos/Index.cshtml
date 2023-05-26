@@ -19,14 +19,16 @@
         </div>
     </div>
 
-    <form method="get" action="">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Pesquisar produto" name="search" value="@Context.Request.Query["search"].ToString()">
-            <button class="btn btn-outline-secondary" type="submit">Pesquisar</button>
-        </div>
-    </form>
+   
 
 <div class="container">
+
+        <form method="get" action="">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Pesquisar produto" name="search" value="@Context.Request.Query["search"].ToString()">
+                <button class="btn btn-outline-secondary" type="submit">Pesquisar</button>
+            </div>
+        </form>
 
 <p>   
     <a type="button" class="btn com-btn-primary" asp-action="Create"><i class="bi bi-clipboard-check"></i> Novo Produto</a>
