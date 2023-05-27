@@ -23,10 +23,6 @@ namespace Commpay.Controllers
             _context = context;
         }
 
-
-
-
-
         // GET: Produtos
         public async Task<IActionResult> Index()
         {

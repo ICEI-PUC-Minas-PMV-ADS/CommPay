@@ -6,7 +6,7 @@
     ViewData["Title"] = "CommPay | Minhas Comissões";
 }
 @{
-    decimal somaComissoes = 0; 
+    float somaComissoes = 0f; 
 }
 
 <div class="bubble-banner mb-5">
@@ -17,9 +17,9 @@
         <div>
             @foreach (var item in Model.Where(x => x.Vendedor == User.Identity.Name))
             {
-                @*decimal comissao = item.Valor_Total * 0.05m;*@
-                @*somaComissoes += comissao;   *@             
-            }
+                float comissao = item.Valor_Total * 0.05f;
+                somaComissoes += comissao;                
+            } 
             <h1>@somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</h1>
         </div>
         <div class="text-muted">
@@ -48,10 +48,10 @@
                         <td class="text-center">@item.Valor_Total.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
                         <td class="text-center">
                             @{
-                                //decimal comissao = item.Valor_Total * 0.05m;                                
-                                //string comissaoFormatada = comissao.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
+                                float comissao = item.Valor_Total * 0.05f;                                
+                                string comissaoFormatada = comissao.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
                             }
-                         @*   @comissaoFormatada*@
+                            @comissaoFormatada
                         </td>
                     </tr>
                 }

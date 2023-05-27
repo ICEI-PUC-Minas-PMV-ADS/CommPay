@@ -19,6 +19,6 @@ namespace Commpay.Models
 
         [DisplayFormat(DataFormatString = "{0:C}")]
         [Required(ErrorMessage = "Preenchimento obrigatório!")] //Mensagem de obrigatoriedade!
-        public decimal Valor { get; set; }
+        public float Valor { get; set; }
     }
 }

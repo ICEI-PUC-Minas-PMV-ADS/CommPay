@@ -24,7 +24,7 @@ namespace Commpay.Models
         [DisplayFormat(DataFormatString = "{0:C}")]
         [DisplayName("Valor total")]
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
-        public decimal Valor_Total { get; set; }
+        public float Valor_Total { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
         public string Entregador { get; set; }
