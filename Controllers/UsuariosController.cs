@@ -33,10 +33,10 @@ namespace Commpay.Controllers
         // POST DA PAGINA DE LOGIN
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Login([Bind("Nome,Senha")] Usuario dadoslogin)
+        public async Task<IActionResult> Login([Bind("Cpf,Senha")] Usuario dadoslogin)
         {
             var user = await _context.Usuario
-                .FirstOrDefaultAsync(m => m.Nome == dadoslogin.Nome);
+                .FirstOrDefaultAsync(m => m.Cpf == dadoslogin.Cpf);
 
             if (user == null)
             {
@@ -104,35 +104,14 @@ namespace Commpay.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
-              return _context.Usuario != null ? 
-                          View(await _context.Usuario.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Usuario'  is null.");
-        }
+            var success = TempData["UserSuccess"];
+            ViewBag.Sucesso = success;
 
-        // GET: Usuarios/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Usuario == null)
-            {
-                return NotFound();
-            }
-
-            var usuario = await _context.Usuario
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            return View(usuario);
+            return View(await _context.Usuario.ToListAsync());
         }
 
 
-        // GET: Usuarios/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+
 
         // POST: Usuarios/Create
         [HttpPost]
@@ -146,17 +125,19 @@ namespace Commpay.Controllers
             {
                 ViewBag.cpfExiste = true;
             }
-
             else if (ModelState.IsValid)
             {
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                TempData["successmessage"] = "Saved successfully";
-                return RedirectToAction(nameof(Index));
+                TempData["UserSuccess"] = "Usuário Cadastrado com Sucesso!";
+                return RedirectToAction("Index", new { success = "Usuário Cadastrado com Sucesso!" });
             }
-            return RedirectToAction(nameof(Index));
+
+            return RedirectToAction("Index");
         }
+
+
 
 
 

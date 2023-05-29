@@ -5,9 +5,38 @@
     ViewData["Title"] = "CommPay | Entregas";
 }
 
-<h1>Entregas</h1>
+<div class="bubble-banner mb-5">
+    <div class="container">
+        <div>
+            <h1>Cadastre suas entregas</h1>
+        </div>
+        <div class="text-muted">
+            Aqui você verifica e altera os status das entregas
+        </div>
+    </div>
+</div>
 
 
+
+<div class="container">
+
+    <div class="d-flex justify-content-end mb-4">
+        <a class="text-secondary custom-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <b><i class="bi bi-gear-fill"></i> Suporte</b>
+        </a>
+    </div>
+
+
+    @{
+        int pageSize = 7; // Número de itens por página
+        int pageNumber = (Context.Request.Query["page"].Count > 0) ? int.Parse(Context.Request.Query["page"].ToString()) : 1; // Página atual
+
+        var pagedItems = Model.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+
+
+        int totalItems = Model.Count();
+        int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+    }
 <table class="table">
     <thead>
         <tr>
@@ -31,7 +60,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+            @foreach (var item in pagedItems)
         {
             <tr>
                 <td>
@@ -146,6 +175,30 @@
         }
     </tbody>
 </table>
+
+    <nav>
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="?page=@(pageNumber - 1)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+            @for (int i = 1; i <= totalPages; i++)
+            {
+
+                <li class="page-item"><a class="page-link" href="?page=@i">@i</a></li>
+                <a href=""></a>
+
+            }
+            <li class="page-item">
+                <a class="page-link" href="?page=@(pageNumber + 1)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
 
 
 
