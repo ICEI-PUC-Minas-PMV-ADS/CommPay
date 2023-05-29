@@ -42,9 +42,9 @@ A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade
 |------|-----------------------------------------|----|
 |RF-001| A aplicação deve possibilitar ao usuário realizar login mediante a validação de usuário e senha. | ALTA | 
 |RF-002| A aplicação deve mostrar para o vendedor o valor das comissões recebidas e a receber.  | MÉDIA |
-|RF-003| A aplicação deve permitir  que o expedidor cadastre  as entregas realizadas . | ALTA |
+|RF-003| A aplicação deve permitir  que o expedidor alterar status da entrega. | ALTA |
 |RF-004| A aplicação deve realizar a soma das comissões de cada vendedor separadamente.  | ALTA |
-|RF-005| A aplicação deve permitir ao vendedor realizar o cadastro das vendas realizadas junto ao comprovante de venda. | ALTA |
+|RF-005| A aplicação deve permitir ao vendedor realizar o cadastro das vendas realizadas. | ALTA |
 |RF-006| A aplicação deve permitir ao setor financeiro cadastrar usuário. | ALTA |
 
 ### Requisitos não Funcionais
@@ -57,11 +57,9 @@ A tabela a seguir apresenta os requisitos não funcionais que o projeto deverá 
 |RNF-002| A aplicação deverá ser responsiva permitindo a visualização em um celular de forma adequada. |  ALTA | 
 |RNF-003| A aplicação deve gerar o relatório de comissões de forma rápida, não demorando mais que 5s. | MÉDIA | 
 |RNF-004| A aplicação deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge). | ALTA | 
-|RNF-005| A aplicação deve proporcionar uma alta disponibilidade.  | ALTA | 
-|RNF-006| A aplicação  deve ter bom nível de contraste entre os elementos da tela em conformidade. | MÉDIA | 
-|RNF-007| O sistema deverá se comunicar com o banco SQL Server. | ALTA | 
-|RNF-008| O sistema só pode ser acessado por: Auxiliar Financeiro, Expedidor e Vendedora. | ALTA | 
-|RNF-009| A solução deve ser intuitiva e fácil de usar, garantindo uma curva de aprendizado rápida. | MÉDIA | 
+|RNF-005| A aplicação  deve ter bom nível de contraste entre os elementos da tela em conformidade. | MÉDIA | 
+|RNF-006| O sistema deverá se comunicar com o banco SQL Server. | ALTA | 
+|RNF-007| O sistema só pode ser acessado por: Financeiro, Expedidor e Vendedora. | ALTA | 
 
 ## Restrições
 
