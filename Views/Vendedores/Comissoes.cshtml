@@ -9,13 +9,34 @@
     float somaComissoes = 0f; 
 }
 
+
+<script>
+    $(document).ready(function () {
+        toastr.success('There was an error loading the Asset List!', 'Asset Register');
+
+       toastrService.warning('Some warning message', 'some title', {
+            positionClass: 'toast-bottom-right'
+        });
+
+        setTimeout(function () {
+            location.reload();
+        }, 10000); // 10000 milissegundos = 10 segundos
+
+
+    });
+</script>
+
+
+
+
+
 <div class="bubble-banner mb-5">
     <div class="container">
         <div>
-            <h1>Você receberá</h1>
+            <h1>Suas comissões, você tem</h1>
         </div>
         <div>
-            @foreach (var item in Model.Where(x => x.Vendedor == User.Identity.Name))
+            @foreach (var item in Model.Where(x => x.Vendedor == User.Identity.Name && x.Status == Status.Entregue))
             {
                 float comissao = item.Valor_Total * 0.05f;
                 somaComissoes += comissao;                
@@ -23,13 +44,78 @@
             <h1>@somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</h1>
         </div>
         <div class="text-muted">
-            em comissões!
+            Em vendas finalizadas para receber sua comissão
         </div>
     </div>
 </div>
 
+
+
 <div class="container">
+
+
+    <div class="d-flex justify-content-end">
+        <form class="col-2 justify-content-end text-end" method="get" action="">
+            <div class="input-group">
+                <select class="form-select form-select-sm" id="filter-select" name="filter" aria-label=".form-select-sm example">
+                    <option selected>Selecione um filtro</option>
+                    <option value="maior">Maior Valor</option>
+                    <option value="menor">Menor Valor</option>
+                    <option value="pendente">Pendentes</option>
+                </select>
+                <button class="btn com-btn-primary btn-sm" type="submit"><i class="bi bi-search"></i></button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+    @{
+        // Filtra as vendas do vendedor logado com status 0, 1 ou nulo
+        var vendasPendentes = Model.Where(x => x.Vendedor == User.Identity.Name && (x.Status == Status.Andamento || x.Status == Status.Pendente || x.Status == null));
+
+        // Calcula a soma dos valores das vendas pendentes
+        float somaVendasPendentes = vendasPendentes.Sum(x => x.Valor_Total);
+    }
+
+    Pendentes de conclusão <span class="ms-2 shadow-sm badge bg-info">@somaVendasPendentes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</span>
+
+
+
     <main role="main" class="pb-3">
+
+        @{
+            var vendasFiltradas = Model.Where(x => x.Vendedor == User.Identity.Name);
+            var filtro = Context.Request.Query["filter"].ToString();
+
+            if (filtro == "pendente")
+            {
+                vendasFiltradas = vendasFiltradas.Where(x => x.Status != Status.Entregue);
+            }
+            else if (filtro == "maior")
+            {
+                vendasFiltradas = vendasFiltradas.OrderByDescending(x => x.Valor_Total);
+            }
+            else if ( filtro == "menor")
+            {
+                vendasFiltradas = vendasFiltradas.OrderBy(x => x.Valor_Total);
+            }
+
+            // Ordenação por Id mantida para os casos em que filtro não é "maior"
+            vendasFiltradas = vendasFiltradas.OrderBy(x => x.Status);
+
+            int pageSize = 6; // Número de itens por página
+            int pageNumber = (Context.Request.Query["page"].Count > 0) ? int.Parse(Context.Request.Query["page"].ToString()) : 1; // Página atual
+
+            var pagedItems = vendasFiltradas.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+
+            int totalItems = vendasFiltradas.Count();
+            int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+
+        }
+
+
 
         <table class="table table-striped">
             <thead class="thead-dark">            
@@ -37,27 +123,70 @@
                 <th>Número da venda</th>
                 <th class="text-center">Valor total</th>
                 <th class="text-center">Comissão sobre a venda</th>
+                    <th></th>
             </tr>  
             </thead>
             <tbody>          
-                   
-                @foreach (var item in Model.Where(x => x.Vendedor == User.Identity.Name))
+
+
+                @if (!pagedItems.Any())
                 {
-                    <tr>
-                        <td >@item.Id</td>
-                        <td class="text-center">@item.Valor_Total.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
-                        <td class="text-center">
-                            @{
-                                float comissao = item.Valor_Total * 0.05f;                                
-                                string comissaoFormatada = comissao.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
-                            }
-                            @comissaoFormatada
-                        </td>
+                    <tr class="text-center">
+                        <td colspan="4">Nenhum registro encontrado</td>
                     </tr>
                 }
+                    else
+                    {
+                        foreach (var item in pagedItems)
+                        {
+                            <tr class="venda-item">
+                                <td>@item.Id</td>
+                                <td class="text-center">@item.Valor_Total.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
+                                <td class="text-center">
+                                    @{
+                                        float comissao = item.Valor_Total * 0.05f;
+                                        string comissaoFormatada = comissao.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
+                                    }
+                                    @comissaoFormatada
+                                </td>
+                                <td class="text-center">
+                                    @if (item.Status == Status.Entregue)
+                                    {
+                                        <span class="shadow-sm badge bg-info"><i class="bi bi-exclamation-triangle-fill"></i>  Concluído!</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="shadow-sm badge bg-warning"><i class="bi bi-hourglass-split"></i> Processando...</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+
+
+
 
             </tbody>
         </table>
+
+        <div class="d-flex justify-content-center">
+            <nav>
+                <ul class="pagination">
+                    @if (totalPages > 1)
+                    {
+                        for (int i = 1; i <= totalPages; i++)
+                        {
+                            <li class="page-item @(i == pageNumber ? "active" : "")">
+                                <a class="btn com-btn-primary btn-sm ms-1" href="?filter=@filtro&page=@i">@i</a>
+                            </li>
+                        }
+
+                    }
+                </ul>
+            </nav>
+        </div>
+
+
     </main>
 </div>
 
