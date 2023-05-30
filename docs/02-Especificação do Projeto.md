@@ -76,5 +76,6 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 
 A imagem a seguir representa o diagrama de casos de uso do projeto em desenvolvimento:
 
-![Caso de uso_page-0001](https://user-images.githubusercontent.com/89876269/236640931-6909393f-614a-4653-8fdd-5b59958ac4b2.jpg)
+![1](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/2ec46a36-65a7-422b-aff5-c7ea23f80150)
+
 
