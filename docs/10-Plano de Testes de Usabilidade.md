@@ -18,10 +18,10 @@
 |Critério de Êxito | - A conexão com o banco de dados deve ser estabelecida com sucesso <br> - Os dados devem ser recuperados e exibidos corretamente na aplicação <br>
 |  	|  	|
 | **Caso de Teste**   | **CT-04– Acesso ao sistema**   |
-|  Requisito Associado   | RNF-008- O sistema só pode ser acessado por: Auxiliar Financeiro, Expedidor e Vendedor(a). |
-| Objetivo do Teste   | Verificar se o acesso à aplicação está restrito apenas aos usuários autorizados. |
-| Passos   | - Acessar o navegador <br> - Informar o endereço da aplicação<br> - Tentar acessar a aplicação com um usuário não autorizado <br> |
-|Critério de Êxito | - Os usuários autorizados devem conseguir acessar a aplicação normalmente <br> - O acesso deve ser negado para usuários não autorizados |
+|  Requisito Associado   | RNF-008- O sistema só pode ser acessado por usuários cadastrados |
+| Objetivo do Teste   | Verificar se o acesso à aplicação está restrito apenas aos usuários cadastrados. |
+| Passos   | - Acessar o navegador <br> - Informar o endereço da aplicação<br> - Tentar acessar a aplicação com um usuário não cadastrado <br> |
+|Critério de Êxito | - Os usuários cadastrados devem conseguir acessar a aplicação normalmente se o login e senha estriverem corretos <br> - O acesso deve ser negado caso o login e/ou a senha estiver incorreto e uma mensagem com esta informação deve aparecer. |
 |  	|  	|
 | **Caso de teste**  |**CT-04 - Compatibilidade**|
 | Requisito Associado  | RFN-004 - A aplicação de ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge). |
