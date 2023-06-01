@@ -23,4 +23,15 @@
 | Passos   | - Acessar o navegador <br> - Informar o endereço da aplicação<br> - Tentar acessar a aplicação com um usuário não autorizado <br> |
 |Critério de Êxito | - Os usuários autorizados devem conseguir acessar a aplicação normalmente <br> - O acesso deve ser negado para usuários não autorizados |
 |  	|  	|
-
+| ** Caso de teste**  |**CT-04 - Compatibilidade**|
+| Requisito Associado  | RFN-004 - A aplicação de ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge). |
+| Objetivo do teste  | Verificar se a aplicação é compativel com os principais nevegadores do mercado. |
+| Passos  | - Acessar o Navegador <br> - Informar o endereco da aplicação <br> - Verificar se a página é exibida integralmente em todos os navegadores com êxito. |
+| Critério de Éxito  | - A página deve ser exibida de forma integral em todos os navegadores testados (Google chrome, Firefox, Microsoft Edge). |
+|  	|  	|
+| **Caso de Teste**   | **CT-05– Nível de contraste**   |
+|  Requisito Associado   | RNF-006- A aplicação deve ter bom nível de contraste entre os elemtnos da tela em conformidade. |
+| Objetivo do Teste   | Verificar se a aplicação tem bom nível de contraste entre os elementos da tela. |
+| Passos   | - Acessar o Navegador <br> - Informar o endereço da aplicação <br> - Realizar o login com um usuário válido <br> - Navegar pelas telas da aplicação <br> - Verificar se há uma boa distinção de cores entre os elementos da tela, com textos, botões e campos de entrada de dados <br> - Verificar se o contraste das cores atende ás normas de acessibilidade, como a WCAG 2.0 (Web contente Acessibility Guidelines). |
+|Critério de Êxito | - Todos os elementos da tela devem ter uma boa distinção de cores, facilitando a visualização <br> - O contraste das cores devem atender ás normas de acessibilidade, como a WCAG 2.0 (Web contente Acessibility Guidelines) <br>
+- A navegação pelas telas da aplicação devem ser fluída e sem erros visuais que prejudquem a experiência do usuário. |
