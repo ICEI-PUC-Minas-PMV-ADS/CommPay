@@ -32,14 +32,13 @@
 
 
 
-        <table class="table table-striped">
-            <thead>
-                    <th colspan="2"></th>
+        <table class="table table-striped">         
+                    
                 <tr class="text-muted">
                     <td>Vendedor</td>
                     <td>Valor Total</td>
                 </tr>
-            </thead>
+            
             <tbody>
                 @foreach (var item in Model.GroupBy(x => x.Vendedor))
                 {

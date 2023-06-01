@@ -60,7 +60,7 @@
     </thead>
     <tbody>
 
-            @foreach (var item in pagedItems)
+            @foreach (var item in pagedItems.Where(x => x.Vendedor == User.Identity.Name))
         {
             <tr>
                
@@ -187,13 +187,7 @@
                                 </div>
                             </div>
                             <!--FINAL DO MODAL-->
-                        }
-                        
-
-
-
-
-
+                        }                
 
                 </td>
             </tr>
