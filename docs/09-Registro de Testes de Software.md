@@ -4,7 +4,7 @@
 
 ![login](https://user-images.githubusercontent.com/114542015/236707310-93a3b5a2-e8b5-4b01-9885-df05699db353.gif)
 
-**CT-02 – Alterar status entrega:**
+**CT-03 – Alterar status de entrega:**
 
 ![entrega](https://user-images.githubusercontent.com/114542015/236707602-9fb99779-debf-4606-87f7-37d55628214a.gif)
 
