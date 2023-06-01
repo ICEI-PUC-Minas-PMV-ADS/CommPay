@@ -14,7 +14,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 | Passos 	|  1. Realizar o login na aplicação como vendedor. <br> 2. Acessar a tela de comissões.<br> |
 |Critério de Êxito | - Deve ser possível visualizar o valor das comissões recebidas e a receber para o vendedor logado.<br>  Deve ser possível visualizar a soma das comissões de cada vendedor separadamente. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-03 – Cadastrar entregas realizadas** 	|
+| **Caso de Teste** 	| **CT-03 – Alterar status de entrega** 	|
 |	Requisito Associado 	| RF-003 - A aplicação deve permitir que o expedidor cadastre as entregas realizadas. |
 | Objetivo do Teste 	| Verificar se é possível cadastrar entregas realizadas na aplicação. |
 | Passos 	|  1.   	Realizar o login na aplicação como expedidor.<br> 2. Acessar a tela de cadastro de entregas. <br> 3. Modificar status da entrega (entregue, pendente).<br> 4. Clicar no botão “Salvar”. |
