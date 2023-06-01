@@ -23,7 +23,7 @@
 | Passos   | - Acessar o navegador <br> - Informar o endereço da aplicação<br> - Tentar acessar a aplicação com um usuário não autorizado <br> |
 |Critério de Êxito | - Os usuários autorizados devem conseguir acessar a aplicação normalmente <br> - O acesso deve ser negado para usuários não autorizados |
 |  	|  	|
-| ** Caso de teste**  |**CT-04 - Compatibilidade**|
+| **Caso de teste**  |**CT-04 - Compatibilidade**|
 | Requisito Associado  | RFN-004 - A aplicação de ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge). |
 | Objetivo do teste  | Verificar se a aplicação é compativel com os principais nevegadores do mercado. |
 | Passos  | - Acessar o Navegador <br> - Informar o endereco da aplicação <br> - Verificar se a página é exibida integralmente em todos os navegadores com êxito. |
