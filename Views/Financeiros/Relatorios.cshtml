@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Commpay.Models.Venda>
 @using Commpay.Models
+@using PdfSharp;
 
 @{
     ViewData["Title"] = "Relatórios";
@@ -103,7 +104,7 @@
                     } @somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
                 </h3>
                 <div class="text-muted">
-                    Total de comissões pagas no mês atual.
+                    Total de comissões á serem pagas.
                 </div>
             </div>
         </div>
@@ -115,16 +116,16 @@
                     Data de pagamento
                 </div>
             </div>
-        </div>    
-
-        
+        </div>       
 
 </div>
 <div class="row">
     <div class="card border-secondary mb-3">
         <div class="card-body text-secondary">
-            <h5 class="card-title">Secondary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">
+                    
+            </h5>
+            
         </div>
     </div>
 </div>
