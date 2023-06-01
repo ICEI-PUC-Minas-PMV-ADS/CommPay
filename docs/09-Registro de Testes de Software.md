@@ -24,7 +24,7 @@ Pontos negativos: Não tem.<br>
 
 Considerações: Para a equipe de desenvolvedores, a página de login está aprovada após o teste.
 
-**CT-02 – Alterar status entrega:**<br>
+**CT-03 – Alterar status entrega:**<br>
 
 Teste realizado com sucesso e critério de êxito aceito, com ressalvas. O login foi realizado facilmente conforme teste anterior, porém o usuário teve certa dificuldade em distinguir o botão de alterar o status da entrega.<br> 
 
