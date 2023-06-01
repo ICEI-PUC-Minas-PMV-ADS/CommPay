@@ -29,7 +29,8 @@
             string nomeMes = dataFutura.ToString("MMM").ToLower();
             string mesFormatado = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nomeMes);
             string dataFormatada = mesFormatado + " " + dataFutura.ToString("dd yy").ToUpper();
-            float somaVendas = 0f;            
+            float somaVendas = 0f;
+            float somaComissoes = 0f;
         }      
 
 
@@ -49,28 +50,7 @@
                 </div>
             </div>
         </div>
-        <div class="card border-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-body text-secondary">
-                <h5 class="card-title"><i class="bi bi-people-fill"></i></h5>
-                <h3 class="card-title text-primary">
-                    @{
-                        var vendedoresUnicos = new HashSet<string>();
-                        foreach (var item in Model)
-                        {
-                            if (item.Vendedor != null)
-                            {
-                                vendedoresUnicos.Add(item.Vendedor);
-                            }
-                        }
-                        int contadorVendedores = vendedoresUnicos.Count;
-                        @contadorVendedores 
-                    } Vendedor(es)
-                </h3>
-                <div class="text-muted">
-                    Ativo(s) na plataforma
-                </div>
-            </div>
-        </div>
+
         <div class="card border-secondary mb-3" style="max-width: 18rem;">
             <div class="card-body text-secondary">
                 <h5 class="card-title"><i class="bi bi-calendar-plus-fill"></i></i></h5>
@@ -88,15 +68,55 @@
                 </div>
             </div>
         </div>
+
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-body text-secondary">
+                <h5 class="card-title"><i class="bi bi-people-fill"></i></h5>
+                <h3 class="card-title text-primary">
+                    @{
+                        var vendedoresUnicos = new HashSet<string>();
+                        foreach (var item in Model)
+                        {
+                            if (item.Vendedor != null)
+                            {
+                                vendedoresUnicos.Add(item.Vendedor);
+                            }
+                        }
+                        int contadorVendedores = vendedoresUnicos.Count;
+                        @contadorVendedores
+                    } Vendedor(es)
+                </h3>
+                <div class="text-muted">
+                    Ativo(s) na plataforma
+                </div>
+            </div>
+        </div>
+
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-body text-secondary">
+                <h5 class="card-title"><i class="bi bi-cash-coin"></i></h5>
+                <h3 class="card-title text-primary">
+                    @foreach(var item in Model)
+                    {
+                        float comissao = item.Valor_Total * 0.05f;
+                        somaComissoes += comissao;
+                    } @somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
+                </h3>
+                <div class="text-muted">
+                    Total de comissões pagas no mês atual.
+                </div>
+            </div>
+        </div>
         <div class="card border-secondary mb-3" style="max-width: 18rem;">
             <div class="card-body text-secondary">
                 <h5 class="card-title"><i class="bi bi-calendar2-date-fill"></i></h5>
-                <h3 class="card-title text-primary">@dataFormatada</h3>
+                <h3 class="card-title text-primary" id="first-business-day"></h3>
                 <div class="text-muted">
                     Data de pagamento
                 </div>
             </div>
-        </div>
+        </div>    
+
         
 
 </div>
@@ -108,5 +128,31 @@
         </div>
     </div>
 </div>
-
 </div>
+
+<script>
+    // Obter a data atual
+    var currentDate = new Date();
+
+    // Adicionar um mês à data atual
+    currentDate.setMonth(currentDate.getMonth() + 1);
+
+    // Definir o dia como 1
+    currentDate.setDate(1);
+
+    // Verificar se o dia é um sábado (6) ou domingo (0)
+    // Se for, avançar para o próximo dia
+    while (currentDate.getDay() === 6 || currentDate.getDay() === 0) {
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    // Formatar a data no formato desejado (dd/mm/yyyy)
+    var day = String(currentDate.getDate()).padStart(2, '0');
+    var month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    var year = currentDate.getFullYear();
+
+    var formattedDate = day + '/' + month + '/' + year;
+
+    // Exibir a data no elemento <h3>
+    document.getElementById('first-business-day').innerHTML = formattedDate;
+</script>
