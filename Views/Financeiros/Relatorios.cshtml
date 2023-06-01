@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Commpay.Models.Venda>
+@using Commpay.Models
 
 @{
     ViewData["Title"] = "Relatórios";
@@ -28,16 +29,21 @@
             string nomeMes = dataFutura.ToString("MMM").ToLower();
             string mesFormatado = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nomeMes);
             string dataFormatada = mesFormatado + " " + dataFutura.ToString("dd yy").ToUpper();
-        }
-
-
-       
+            float somaVendas = 0f;            
+        }      
 
 
         <div class="card border-secondary mb-3" style="max-width: 18rem;">
             <div class="card-body text-secondary">
                 <h5 class="card-title"><i class="bi bi-cash-coin"></i></h5>
-                <h3 class="card-title text-primary">$1000,00</h3>
+                <h3 class="card-title text-primary">
+                    @foreach(var item in Model)
+                    {
+                        float totalVendas = item.Valor_Total;
+                        somaVendas += totalVendas;
+                    } 
+                    @somaVendas.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
+                </h3>
                 <div class="text-muted">
                     Total em vendas
                 </div>
@@ -46,7 +52,20 @@
         <div class="card border-secondary mb-3" style="max-width: 18rem;">
             <div class="card-body text-secondary">
                 <h5 class="card-title"><i class="bi bi-people-fill"></i></h5>
-                <h3 class="card-title text-primary">10 Vendedores</h3>
+                <h3 class="card-title text-primary">
+                    @{
+                        var vendedoresUnicos = new HashSet<string>();
+                        foreach (var item in Model)
+                        {
+                            if (item.Vendedor != null)
+                            {
+                                vendedoresUnicos.Add(item.Vendedor);
+                            }
+                        }
+                        int contadorVendedores = vendedoresUnicos.Count;
+                        @contadorVendedores 
+                    } Vendedor(es)
+                </h3>
                 <div class="text-muted">
                     Ativo(s) na plataforma
                 </div>
@@ -55,7 +74,15 @@
         <div class="card border-secondary mb-3" style="max-width: 18rem;">
             <div class="card-body text-secondary">
                 <h5 class="card-title"><i class="bi bi-calendar-plus-fill"></i></i></h5>
-                <h3 class="card-title text-primary">Jul 29 2023</h3>
+                <h3 class="card-title text-primary">
+                    
+                    @foreach(var item in Model)
+                    {
+                        DateTime dataUltimaVenda = item.Data_Compra;
+                        dataFormatada = dataUltimaVenda.ToString("dd/MM/yyyy");
+                    } @dataFormatada                   
+                    
+                </h3>
                 <div class="text-muted">
                     Data da ultima venda
                 </div>
