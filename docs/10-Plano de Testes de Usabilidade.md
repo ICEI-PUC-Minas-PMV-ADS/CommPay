@@ -30,7 +30,7 @@
 | Critério de Éxito  | - A página deve ser exibida de forma integral em todos os navegadores testados (Google chrome, Firefox, Microsoft Edge). |
 |  	|  	|
 | **Caso de Teste**   | **CT-05– Nível de contraste**   |
-|  Requisito Associado   | RNF-006- A aplicação deve ter bom nível de contraste entre os elemtnos da tela em conformidade. |
+|  Requisito Associado   | RNF-006- A aplicação deve ter bom nível de contraste entre os elementos da tela em conformidade. |
 | Objetivo do Teste   | Verificar se a aplicação tem bom nível de contraste entre os elementos da tela. |
 | Passos   | - Acessar o Navegador <br> - Informar o endereço da aplicação <br> - Realizar o login com um usuário válido <br> - Navegar pelas telas da aplicação <br> - Verificar se há uma boa distinção de cores entre os elementos da tela, com textos, botões e campos de entrada de dados <br> - Verificar se o contraste das cores atende ás normas de acessibilidade, como a WCAG 2.0 (Web contente Acessibility Guidelines). |
 |Critério de Êxito | - Todos os elementos da tela devem ter uma boa distinção de cores, facilitando a visualização <br> - O contraste das cores devem atender ás normas de acessibilidade, como a WCAG 2.0 (Web contente Acessibility Guidelines) <br>
