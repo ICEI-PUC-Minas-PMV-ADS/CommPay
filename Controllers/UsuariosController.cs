@@ -102,10 +102,8 @@ namespace Commpay.Controllers
 
 
         // GET: Usuarios
-        public async Task<IActionResult> Index()
-        {
-            var success = TempData["UserSuccess"];
-            ViewBag.Sucesso = success;
+        public async Task<IActionResult> Index()        {
+           
 
             return View(await _context.Usuario.ToListAsync());
         }
@@ -129,9 +127,8 @@ namespace Commpay.Controllers
             {
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 _context.Add(usuario);
-                await _context.SaveChangesAsync();
-                TempData["UserSuccess"] = "Usuário Cadastrado com Sucesso!";
-                return RedirectToAction("Index", new { success = "Usuário Cadastrado com Sucesso!" });
+                await _context.SaveChangesAsync();               
+                return RedirectToAction("Index");
             }
 
             return RedirectToAction("Index");
