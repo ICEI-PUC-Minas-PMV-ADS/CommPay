@@ -6,21 +6,20 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 Abaixo se encontra o diagrama de classes que orienta nosso projeto:
 
-![Diagrama de classes_page-0001 (2)](https://user-images.githubusercontent.com/89876269/236642674-033db5d3-4fcb-465d-86fe-2ca9ceec03ef.jpg)
+![Diagrama de classes_page-0001](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/89876269/55c66b0f-c3da-41ce-bea2-ae73310b3057)
 
 
 ## Modelo ER (Projeto Conceitual)
 
 A imagem abaixo representa o modelo conceitual do banco de dados da aplicação:
 
-![MER - Commpay_page-0001](https://user-images.githubusercontent.com/89876269/229934476-41539fc9-fdd0-445f-b614-88b9c6b1f821.jpg)
-
+![MER - Commpay_page-0001](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/89876269/86315ace-4eec-45f7-8886-2aa52b49b3a6)
 
 ## Projeto da Base de Dados
 
 Na imagem a seguir encontra-se o modelo da base de dados contendo os relacionamento entre as tabelas do banco a ser desenvolvido.
 
-![DER - CommPay_page-0001](https://user-images.githubusercontent.com/89876269/229911930-c32558d7-734c-44ac-a4d6-e9917b15342a.jpg)
+![DER - CommPay_page-0001](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/89876269/481ae85f-2c03-4cd7-a510-161ad136bbf8)
 
 ## Tecnologias Utilizadas
 
