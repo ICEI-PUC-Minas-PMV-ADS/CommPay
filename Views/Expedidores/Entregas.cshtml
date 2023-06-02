@@ -26,7 +26,7 @@
                     <option selected>Selecione um filtro</option>
                     <option value="maior">Maior Valor</option>
                     <option value="menor">Menor Valor</option>
-                    <option value="pendente">Pendentes</option>
+                    <option value="pendente">Pendente</option>
                 </select>
                 <button class="btn com-btn-primary btn-sm" type="submit"><i class="bi bi-search"></i></button>
             </div>
@@ -38,12 +38,9 @@
     </div>
 
     @{
-        int pageSize = 7; // Número de itens por página
+        int pageSize = 4; // Número de itens por página
         int pageNumber = (Context.Request.Query["page"].Count > 0) ? int.Parse(Context.Request.Query["page"].ToString()) : 1; // Página atual
-
         var pagedItems = Model.Skip((pageNumber - 1) * pageSize).Take(pageSize);
-
-
         int totalItems = Model.Count();
         int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
     }
@@ -100,11 +97,8 @@
                             <span class="shadow-sm badge bg-info"><i class="bi bi-check-circle-fill"></i>  Entregue</span>
 
                         }
-
                     </td>
-
                     <td>
-
                         <!-- Button trigger modal -->
                         <!--Condição para fazer com que o botão só apareça se o status for diferente de entregue!-->
                         @if (item.Status != Status.Entregue)
@@ -123,10 +117,7 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-
-
-                                        <form asp-action="Edit" asp-route-id="@item.Id" method="post">
-
+                                        <form asp-action="Edit" asp-route-id="@item.Id" asp-route-page="@pageNumber" method="post">                                            
                                             <div class="row">
                                                 <div class="col-6">
                                                     <label class="form-label label-title">Nome do Vendedor</label>
@@ -161,22 +152,23 @@
                                                         {
                                                             <option value="@((int)Status.Pendente)" selected>Pendente</option>
                                                             <option value="@((int)Status.Andamento)">Em Andamento</option>
-                                                            <option value="@((int)Status.Entregue)">Entregue</option>
+                                                            <option value="@((int)Status.Entregue)">Entregue</option>                                                            
                                                         }
                                                         else if (item.Status == Status.Andamento)
                                                         {
                                                             <option value="@((int)Status.Andamento)" selected>Em Andamento</option>
                                                             <option value="@((int)Status.Pendente)">Pendente</option>
-                                                            <option value="@((int)Status.Entregue)">Entregue</option>
+                                                            <option value="@((int)Status.Entregue)">Entregue</option>                                                           
                                                         }
                                                         else if (item.Status == Status.Entregue)
                                                         {
                                                             <option value="@((int)Status.Entregue)" selected disabled>Entregue</option>
+                                                            
                                                         }
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer mt-3">
+                                            <div class="modal-footer mt-3">                                                
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                                 <button type="submit" class="btn com-btn-primary">Confirmar</button>
                                             </div>
@@ -191,28 +183,16 @@
         </tbody>
     </table>
 
-    <nav>
-        <ul class="pagination justify-content-center">
-            <li class="page-item">
-                <a class="page-link" href="?page=@(pageNumber - 1)" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-
-            @for (int i = 1; i <= totalPages; i++)
-            {
-
-                <li class="page-item"><a class="page-link" href="?page=@i">@i</a></li>
-                <a href=""></a>
-
-            }
-            <li class="page-item">
-                <a class="page-link" href="?page=@(pageNumber + 1)" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <div class="pagination  justify-content-center">
+        <nav>
+            <ul class="pagination">
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(i == pageNumber ? "active" : "")"><a class="btn com-btn-primary btn-sm ms-1" href="?page=@i">@i</a></li>
+                }
+            </ul>
+        </nav>
+    </div>
 </div>
 
 
