@@ -16,8 +16,6 @@
     </div>
 </div>
 
-
-
 <div class="container">
 
     <div class="d-flex justify-content-end">
@@ -39,8 +37,6 @@
         </a>
     </div>
 
-
-
     @{
         int pageSize = 7; // Número de itens por página
         int pageNumber = (Context.Request.Query["page"].Count > 0) ? int.Parse(Context.Request.Query["page"].ToString()) : 1; // Página atual
@@ -51,143 +47,148 @@
         int totalItems = Model.Count();
         int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
     }
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Vendedor)
-            </th>
-            <th>
-                Data da Compra
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Entregador)
-            </th>
-            <th>
-                Previsão de Entrega
-            </th>
-            <th>
-                Status
-            </th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-            @foreach (var item in pagedItems)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Vendedor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Data_Compra)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Entregador)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Data_Entrega)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Vendedor)
+                </th>
+                <th>
+                    Data da Compra
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Entregador)
+                </th>
+                <th>
+                    Previsão de Entrega
+                </th>
+                <th>
+                    Status
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in pagedItems)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Vendedor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data_Compra)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Entregador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data_Entrega)
+                    </td>
 
-                <td>
-                    @if (item.Status == null || item.Status == Status.Pendente)
-                    {
-                        <span class="shadow-sm badge bg-danger"><i class="bi bi-exclamation-triangle-fill"></i>  Pendente</span>
-                    }
-                    else if (item.Status == Status.Andamento)
-                    {
-                        <span class="shadow-sm badge bg-warning"><i class="bi bi-hourglass-split"></i> Em Andamento</span>
-                    }
-                    else if (item.Status == Status.Entregue)
-                    {
-                        <span class="shadow-sm badge bg-info"><i class="bi bi-check-circle-fill"></i>  Entregue</span>
-                    }
-                </td>
+                    <td>
+                        @if (item.Status == null || item.Status == Status.Pendente)
+                        {
+                            <span class="shadow-sm badge bg-danger"><i class="bi bi-exclamation-triangle-fill"></i>  Pendente</span>
+                        }
+                        else if (item.Status == Status.Andamento)
+                        {
+                            <span class="shadow-sm badge bg-warning"><i class="bi bi-hourglass-split"></i> Em Andamento</span>
+                        }
+                        else if (item.Status == Status.Entregue)
+                        {
+                            <span class="shadow-sm badge bg-info"><i class="bi bi-check-circle-fill"></i>  Entregue</span>
 
-                <td>
+                        }
 
-                    <!-- Button trigger modal -->
-                        <button type="button" class="btn com-btn-primary" data-bs-toggle="modal" data-bs-target="#editStatus_@item.Id" onclick="setPageNumber(@pageNumber)">
-                        <i class="bi bi-truck"></i> Alterar Status
-                    </button>
+                    </td>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="editStatus_@item.Id" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Informações de Entrega</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
+                    <td>
+
+                        <!-- Button trigger modal -->
+                        @if (item.Status != Status.Entregue)
+                        {
+                            <button type="button" class="btn com-btn-primary" data-bs-toggle="modal" data-bs-target="#editStatus_@item.Id" onclick="setPageNumber(@pageNumber)">
+                                <i class="bi bi-truck"></i> Alterar Status
+                            </button>
+                        }
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="editStatus_@item.Id" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Informações de Entrega</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
 
 
-                                    <form asp-action="Edit" asp-route-id="@item.Id" method="post">
+                                        <form asp-action="Edit" asp-route-id="@item.Id" method="post">
 
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <label class="form-label label-title">Nome do Vendedor</label>
-                                                <input class="form-control" type="text" placeholder="@item.Vendedor" disabled>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <label class="form-label label-title">Nome do Vendedor</label>
+                                                    <input class="form-control" type="text" placeholder="@item.Vendedor" disabled>
+                                                </div>
+
+                                                <div class="col">
+                                                    <label class="form-label label-title">Data da Compra</label>
+                                                    <input class="form-control" type="text" placeholder="@item.Data_Compra" disabled>
+                                                </div>
                                             </div>
 
-                                            <div class="col">
-                                                <label class="form-label label-title">Data da Compra</label>
-                                                <input class="form-control" type="text" placeholder="@item.Data_Compra" disabled>
-                                            </div>
-                                        </div>
+                                            <div class="row mt-3">
+                                                <div class="col-6">
+                                                    <label class="form-label label-title">Entregador</label>
+                                                    <select class="form-select" name="Entregador">
+                                                        <option value="@item.Entregador" selected>@item.Entregador</option>
+                                                    </select>
+                                                </div>
 
-                                        <div class="row mt-3">
-                                            <div class="col-6">
-                                                <label class="form-label label-title">Entregador</label>
-                                                <select class="form-select" name="Entregador">
-                                                    <option value="@item.Entregador" selected>@item.Entregador</option>
-                                                </select>
+                                                <div class="col">
+                                                    <label class="form-label label-title">Previsão de Entrega</label>
+                                                    <input class="form-control" type="text" placeholder="@item.Data_Entrega" disabled>
+                                                </div>
                                             </div>
 
-                                            <div class="col">
-                                                <label class="form-label label-title">Previsão de Entrega</label>
-                                                <input class="form-control" type="text" placeholder="@item.Data_Entrega" disabled>
+                                            <div class="row mt-3">
+                                                <div class="col">
+                                                    <label class="form-label label-title">Status da Entrega</label>
+                                                    <select class="form-select" name="Status">
+                                                        @if (item.Status == null || item.Status == Status.Pendente)
+                                                        {
+                                                            <option value="@((int)Status.Pendente)" selected>Pendente</option>
+                                                            <option value="@((int)Status.Andamento)">Em Andamento</option>
+                                                            <option value="@((int)Status.Entregue)">Entregue</option>
+                                                        }
+                                                        else if (item.Status == Status.Andamento)
+                                                        {
+                                                            <option value="@((int)Status.Andamento)" selected>Em Andamento</option>
+                                                            <option value="@((int)Status.Pendente)">Pendente</option>
+                                                            <option value="@((int)Status.Entregue)">Entregue</option>
+                                                        }
+                                                        else if (item.Status == Status.Entregue)
+                                                        {
+                                                            <option value="@((int)Status.Entregue)" selected disabled>Entregue</option>
+                                                        }
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="row mt-3">
-                                            <div class="col">
-                                                <label class="form-label label-title">Status da Entrega</label>
-                                                <select class="form-select" name="Status">
-                                                    @if (item.Status == null || item.Status == Status.Pendente)
-                                                    {
-                                                        <option value="@((int)Status.Pendente)" selected>Pendente</option>
-                                                        <option value="@((int)Status.Andamento)">Em Andamento</option>
-                                                        <option value="@((int)Status.Entregue)">Entregue</option>
-                                                    }
-                                                    else if (item.Status == Status.Andamento)
-                                                    {
-                                                        <option value="@((int)Status.Andamento)" selected>Em Andamento</option>
-                                                        <option value="@((int)Status.Pendente)">Pendente</option>
-                                                        <option value="@((int)Status.Entregue)">Entregue</option>
-                                                    }
-                                                    else if (item.Status == Status.Entregue)
-                                                    {
-                                                            <option value="@((int)Status.Entregue)" selected disabled>Entregue</option>                      
-                                                    }
-                                                </select>
+                                            <div class="modal-footer mt-3">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                <button type="submit" class="btn com-btn-primary">Confirmar</button>
                                             </div>
-                                        </div>
-                                        <div class="modal-footer mt-3">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                            <button type="submit" class="btn com-btn-primary">Confirmar</button>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
     <nav>
         <ul class="pagination justify-content-center">
