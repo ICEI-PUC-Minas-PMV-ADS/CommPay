@@ -108,7 +108,7 @@
                 <td>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn com-btn-primary" data-bs-toggle="modal" data-bs-target="#editStatus_@item.Id">
+                        <button type="button" class="btn com-btn-primary" data-bs-toggle="modal" data-bs-target="#editStatus_@item.Id" onclick="setPageNumber(@pageNumber)">
                         <i class="bi bi-truck"></i> Alterar Status
                     </button>
 
@@ -154,7 +154,7 @@
                                         <div class="row mt-3">
                                             <div class="col">
                                                 <label class="form-label label-title">Status da Entrega</label>
-                                                <select class="form-select" name="Status" disabled="@(item.Status == Status.Entregue)">
+                                                <select class="form-select" name="Status">
                                                     @if (item.Status == null || item.Status == Status.Pendente)
                                                     {
                                                         <option value="@((int)Status.Pendente)" selected>Pendente</option>
@@ -169,8 +169,7 @@
                                                     }
                                                     else if (item.Status == Status.Entregue)
                                                     {
-                                                        <option value="@((int)Status.Entregue)" selected>Entregue</option>
-
+                                                            <option value="@((int)Status.Entregue)" selected disabled>Entregue</option>                      
                                                     }
                                                 </select>
                                             </div>

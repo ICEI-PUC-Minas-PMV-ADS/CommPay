@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "CommPay | Comissões";
 
-   float somaComissoes = Model.Sum(x => x.Valor_Total);
+   float somaComissoes = Model.Sum(x => x.Valor_Total * 0.05f);
 }
 
 <div class="bubble-banner mb-5">
@@ -36,7 +36,8 @@
                     
                 <tr class="text-muted">
                     <td>Vendedor</td>
-                    <td>Valor Total</td>
+                    <td>Valor total em vendas</td>
+                <td>Valor total em comissões</td>
                 </tr>
             
             <tbody>
@@ -45,6 +46,7 @@
                     <tr>
                         <td>@item.Key</td>
                         <td>@item.Sum(x => x.Valor_Total).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
+                        <td>@item.Sum(x => x.Valor_Total * 0.05f).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
                     </tr>
                 }
             </tbody>
