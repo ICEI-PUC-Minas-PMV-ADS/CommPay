@@ -6,7 +6,7 @@
     ViewData["Title"] = "CommPay | Minhas Comissões";
 }
 @{
-    float somaComissoes = 0f; 
+    float somaComissoes = 0f;
 }
 
 
@@ -14,7 +14,7 @@
     $(document).ready(function () {
         toastr.success('There was an error loading the Asset List!', 'Asset Register');
 
-       toastrService.warning('Some warning message', 'some title', {
+        toastrService.warning('Some warning message', 'some title', {
             positionClass: 'toast-bottom-right'
         });
 
@@ -26,30 +26,24 @@
     });
 </script>
 
-
-
-
-
 <div class="bubble-banner mb-5">
     <div class="container">
         <div>
-            <h1>Suas comissões, você tem</h1>
+            <h1>Você reveberá</h1>
         </div>
         <div>
             @foreach (var item in Model.Where(x => x.Vendedor == User.Identity.Name && x.Status == Status.Entregue))
             {
                 float comissao = item.Valor_Total * 0.05f;
-                somaComissoes += comissao;                
-            } 
+                somaComissoes += comissao;
+            }
             <h1>@somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</h1>
         </div>
         <div class="text-muted">
-            Em vendas finalizadas para receber sua comissão
+            Em comissões sobre suas vendas concluídas.
         </div>
     </div>
 </div>
-
-
 
 <div class="container">
 
@@ -69,14 +63,12 @@
     </div>
 
 
-
-
     @{
         // Filtra as vendas do vendedor logado com status 0, 1 ou nulo
         var vendasPendentes = Model.Where(x => x.Vendedor == User.Identity.Name && (x.Status == Status.Andamento || x.Status == Status.Pendente || x.Status == null));
 
         // Calcula a soma dos valores das vendas pendentes
-        float somaVendasPendentes = vendasPendentes.Sum(x => x.Valor_Total);
+        float somaVendasPendentes = vendasPendentes.Sum(x => x.Valor_Total * 0.05f);
     }
 
     Pendentes de conclusão <span class="ms-2 shadow-sm badge bg-info">@somaVendasPendentes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</span>
@@ -97,7 +89,7 @@
             {
                 vendasFiltradas = vendasFiltradas.OrderByDescending(x => x.Valor_Total);
             }
-            else if ( filtro == "menor")
+            else if (filtro == "menor")
             {
                 vendasFiltradas = vendasFiltradas.OrderBy(x => x.Valor_Total);
             }
@@ -118,15 +110,15 @@
 
 
         <table class="table table-striped">
-            <thead class="thead-dark">            
-            <tr class="dark-row">
-                <th>Número da venda</th>
-                <th class="text-center">Valor total</th>
-                <th class="text-center">Comissão sobre a venda</th>
+            <thead class="thead-dark">
+                <tr class="dark-row">
+                    <th>Número da venda</th>
+                    <th class="text-center">Valor total</th>
+                    <th class="text-center">Comissão sobre a venda</th>
                     <th></th>
-            </tr>  
+                </tr>
             </thead>
-            <tbody>          
+            <tbody>
 
 
                 @if (!pagedItems.Any())
@@ -135,33 +127,33 @@
                         <td colspan="4">Nenhum registro encontrado</td>
                     </tr>
                 }
-                    else
+                else
+                {
+                    foreach (var item in pagedItems)
                     {
-                        foreach (var item in pagedItems)
-                        {
-                            <tr class="venda-item">
-                                <td>@item.Id</td>
-                                <td class="text-center">@item.Valor_Total.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
-                                <td class="text-center">
-                                    @{
-                                        float comissao = item.Valor_Total * 0.05f;
-                                        string comissaoFormatada = comissao.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
-                                    }
-                                    @comissaoFormatada
-                                </td>
-                                <td class="text-center">
-                                    @if (item.Status == Status.Entregue)
-                                    {
-                                        <span class="shadow-sm badge bg-info"><i class="bi bi-exclamation-triangle-fill"></i>  Concluído!</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="shadow-sm badge bg-warning"><i class="bi bi-hourglass-split"></i> Processando...</span>
-                                    }
-                                </td>
-                            </tr>
-                        }
+                        <tr class="venda-item">
+                            <td>@item.Id</td>
+                            <td class="text-center">@item.Valor_Total.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
+                            <td class="text-center">
+                                @{
+                                    float comissao = item.Valor_Total * 0.05f;
+                                    string comissaoFormatada = comissao.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
+                                }
+                                @comissaoFormatada
+                            </td>
+                            <td class="text-center">
+                                @if (item.Status == Status.Entregue)
+                                {
+                                    <span class="shadow-sm badge bg-info"><i class="bi bi-exclamation-triangle-fill"></i>  Concluído!</span>
+                                }
+                                else
+                                {
+                                    <span class="shadow-sm badge bg-warning"><i class="bi bi-hourglass-split"></i> Processando...</span>
+                                }
+                            </td>
+                        </tr>
                     }
+                }
 
 
 
@@ -185,8 +177,6 @@
                 </ul>
             </nav>
         </div>
-
-
     </main>
 </div>
 
