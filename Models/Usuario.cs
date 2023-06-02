@@ -1,4 +1,5 @@
-﻿using Commpay.Models.Enums;
+﻿using Commpay.CustomAttributes;
+using Commpay.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,12 +13,11 @@ namespace Commpay.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
-       [RegularExpression("^[a-zA-Z]+", ErrorMessage = "Apenas caracteres de A a Z são permitidos")]
+        [RegularExpression("^[a-zA-Z]+", ErrorMessage = "Apenas caracteres de A a Z são permitidos")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
-        [MinLength(11, ErrorMessage = "O CPF deve ser válido")]
-        [MaxLength(11, ErrorMessage = "O CPF deve ser válido")]
+        [CPFValidator]
         public string Cpf { get; set; }
 
         [Required(ErrorMessage = "Preenchimento obrigatório!")]
