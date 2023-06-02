@@ -40,8 +40,6 @@ namespace Commpay.Models
                 .HasMaxLength(100);
         }
 
-        public DbSet<Commpay.Models.Usuario>? Usuario { get; set; }
-
-        public DbSet<ItemVenda> ItemVendas { get; set; }
+        public DbSet<Commpay.Models.Usuario>? Usuario { get; set; }      
     }
 }

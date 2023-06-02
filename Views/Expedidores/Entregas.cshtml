@@ -106,6 +106,7 @@
                     <td>
 
                         <!-- Button trigger modal -->
+                        <!--Condição para fazer com que o botão só apareça se o status for diferente de entregue!-->
                         @if (item.Status != Status.Entregue)
                         {
                             <button type="button" class="btn com-btn-primary" data-bs-toggle="modal" data-bs-target="#editStatus_@item.Id" onclick="setPageNumber(@pageNumber)">
