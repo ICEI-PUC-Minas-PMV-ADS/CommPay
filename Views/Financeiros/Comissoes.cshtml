@@ -4,7 +4,14 @@
 @{
     ViewData["Title"] = "CommPay | Comissões";
 
-   float somaComissoes = Model.Sum(x => x.Valor_Total * 0.05f);
+    float somaComissoes = Model.Sum(x => x.Valor_Total * 0.05f);
+    int pageSize = 6; // Número de itens por página
+    int pageNumber = (Context.Request.Query["page"].Count > 0) ? int.Parse(Context.Request.Query["page"].ToString()) : 1; // Página atual
+
+    var pagedItems = Model.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+
+    int totalItems = Model.Count();
+    int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
 }
 
 <div class="bubble-banner mb-5">
@@ -24,7 +31,7 @@
 <div class="container">
 
 
-        <main role="main" class="pb-3">
+    <main role="main" class="pb-3">
 
 
 
@@ -32,14 +39,14 @@
 
 
 
-        <table class="table table-striped">         
-                    
-                <tr class="text-muted">
-                    <td>Vendedor</td>
-                    <td>Valor total em vendas</td>
+        <table class="table table-striped">
+
+            <tr class="text-muted">
+                <td>Vendedor</td>
+                <td>Valor total em vendas</td>
                 <td>Valor total em comissões</td>
-                </tr>
-            
+            </tr>
+
             <tbody>
                 @foreach (var item in Model.GroupBy(x => x.Vendedor))
                 {
@@ -52,28 +59,17 @@
             </tbody>
 
         </table>
-        
+
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(i == pageNumber ? "active" : "")"><a class="btn com-btn-primary btn-sm ms-1" href="?page=@i">@i</a></li>
+                }
             </ul>
         </nav>
-
-
-        </main>
-    </div>
+    </main>
+</div>
 
 
 

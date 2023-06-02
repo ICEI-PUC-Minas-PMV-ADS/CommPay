@@ -1,11 +1,8 @@
 ﻿@model IEnumerable<Commpay.Models.Usuario>
 
 @{
-    ViewData["Title"] = "Usuários";
+    ViewData["Title"] = "CommPay | Usuários";
 }
-
-
-
 
 <div class="bubble-banner mb-5">
     <div class="container">
@@ -44,45 +41,43 @@
 
 
     <table class="table table-striped">
-    <thead>
-       
+        <thead>
 
-        <tr class="text-muted">
 
-            <td>
-                @Html.DisplayNameFor(model => model.Nome)
-            </td>
-            <td>
-                @Html.DisplayNameFor(model => model.Cpf)
-            </td>
-            <td>
+            <tr class="text-muted">
 
-            </td>
-            <td>
-                @Html.DisplayNameFor(model => model.Cargo)
-            </td>
-            <td></td>
-        </tr>
-    </thead>
-    <tbody>
+                <td>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Cpf)
+                </td>
+                <td>
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Cargo)
+                </td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
             @foreach (var item in pagedItems)
             {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cpf)
-            </td>
-            <td>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cpf)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cargo)
+                    </td>
+                    <td>
 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cargo)
-            </td>
-            <td>
-                        
-                        <a data-bs-toggle="modal" data-bs-target="#detalhes_@item.Id" >
+                        <a data-bs-toggle="modal" data-bs-target="#detalhes_@item.Id">
                             <div class="btn com-btn-primary"><i class="bi bi-three-dots"></i></div>
                         </a>
 
@@ -117,41 +112,20 @@
                                 </div>
                             </div>
                         </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-
-
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-
-
-
-        <nav>
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="?page=@(pageNumber - 1)" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-
-                @for (int i = 1; i <= totalPages; i++)
-                {
-               
-                    <li class="page-item"><a class="page-link" href="?page=@i">@i</a></li>
-                    <a href=""></a>
- 
-                }
-                <li class="page-item">
-                    <a class="page-link" href="?page=@(pageNumber + 1)" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span> 
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-
+    <nav>
+        <ul class="pagination justify-content-center">
+            @for (int i = 1; i <= totalPages; i++)
+            {
+                <li class="page-item @(i == pageNumber ? "active" : "")"><a class="btn com-btn-primary btn-sm ms-1" href="?page=@i">@i</a></li>
+            }
+        </ul>
+    </nav>
 
     <!-- MODAL CREATE USER -->
     <div class="modal fade" id="criarUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -172,7 +146,7 @@
 
                             <div class="col-3">
                                 <label class="form-label label-title">CPF</label>
-                                <input name="Cpf" class="form-control" type="text" placeholder="Apenas Números" required/>
+                                <input name="Cpf" class="form-control" type="text" placeholder="Apenas Números" required />
                             </div>
                         </div>
 
@@ -212,17 +186,11 @@
 
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
                         </div>
-
-                        
                     </form>
                 </div>
-
-
-
             </div>
         </div>
     </div>
-
 </div>
 
 

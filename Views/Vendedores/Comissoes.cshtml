@@ -161,18 +161,12 @@
             </tbody>
         </table>
 
-        <div class="d-flex justify-content-center">
+        <div class="pagination  justify-content-center">
             <nav>
                 <ul class="pagination">
-                    @if (totalPages > 1)
+                    @for (int i = 1; i <= totalPages; i++)
                     {
-                        for (int i = 1; i <= totalPages; i++)
-                        {
-                            <li class="page-item @(i == pageNumber ? "active" : "")">
-                                <a class="btn com-btn-primary btn-sm ms-1" href="?filter=@filtro&page=@i">@i</a>
-                            </li>
-                        }
-
+                        <li class="page-item @(i == pageNumber ? "active" : "")"><a class="btn com-btn-primary btn-sm ms-1" href="?page=@i">@i</a></li>
                     }
                 </ul>
             </nav>
