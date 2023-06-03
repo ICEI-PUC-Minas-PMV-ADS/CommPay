@@ -73,8 +73,15 @@ namespace Commpay.Controllers
 
                 await HttpContext.SignInAsync(principal, props);
 
-                return Redirect("/");
-
+                switch (user.Cargo.ToString())
+                {
+                    case "Financeiro":
+                        return RedirectToAction("Relatorios", "Financeiros");
+                    case "Expedidor":
+                        return RedirectToAction("Entregas", "Expedidores");
+                    case "Vendedor":
+                        return RedirectToAction("Index", "Vendas");
+                }
             };
 
             ViewBag.Message = "Usuário e/ou Senha inválidos!";
