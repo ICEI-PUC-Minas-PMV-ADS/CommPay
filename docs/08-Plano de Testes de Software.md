@@ -30,6 +30,6 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |	Requisito Associado 	| RF-006 - A aplicação deve permitir ao setor financeiro cadastrar usuário. |
 | Objetivo do Teste 	| Verificar se o cadastro de usuário é realizado corretamente pelo setor financeiro. |
 | Passos 	|  1. Acessar o Navegador. <br> 2. Informar o endereço da aplicação. <br> 3. Acessar a área de cadastro dos usuários. <br> 4. Preencher o formulário com os dados necessários (nome, CPF, senha, cargo). <br> 5. Clicar no botão “Salvar”.|
-|Critério de Êxito | Após o cadastro, o usuário deve ser direcionado para a página inicial do site. |
+|Critério de Êxito | Após o cadastro, o usuário deve ser direcionado para a página de usuários cadastrados. |
 |  	|  	|
 
