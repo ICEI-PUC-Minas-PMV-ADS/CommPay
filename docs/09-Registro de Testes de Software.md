@@ -6,7 +6,14 @@
 
 **CT-02 - Visualizar comissões:**
 
-![COMISSÃO](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/114542015/a8b048d6-d93d-41df-9193-fb341921c6df)
+**Usuário Vendedor:**
+
+![COMISSÃO VENDA](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/114542015/d6a2f2e9-b10d-4307-8e35-b744ed182c7c)
+
+
+**Usuário Financeiro:**
+![COMISSÃO FINANCEIRO](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/114542015/18b10ac3-682b-4745-bcda-dab0dfccc143)
+
 
 
 **CT-03 – Alterar status de entrega:**
@@ -16,6 +23,8 @@
 **CT-04 - Cadastrar vendas realizadas:**
 
 ![VENDA (2)](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/114542015/045639c8-c0d8-4990-9848-c72e6ba69f10)
+
+**CT-05 - Cadastrar usuários:**
 
 
 
@@ -70,6 +79,15 @@ Pontos negativos:<br>
  ⁃ Não tem.<br>
 
 Critério de êxito: Aceito.<br>
+
+**CT-05 - Cadastrar usuários:**<br>
+
+Realizado acesso ao sistema com perfil do financeiro. Caminho até a tela de usuários foi rápido e sem problemas.
+Cadastrode usuário realizado de forma rápida e inuitiva.<br>
+
+Ao fechar a janela de cadastro, o usuário permaneceu na tela de usuário.<br>
+
+Critério de êxito: Aceito. <br>
 
 
 
