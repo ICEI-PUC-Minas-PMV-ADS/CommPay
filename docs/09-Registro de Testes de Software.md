@@ -25,7 +25,7 @@
 ![VENDA (2)](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/114542015/045639c8-c0d8-4990-9848-c72e6ba69f10)
 
 **CT-05 - Cadastrar usuários:**
-![Uploading CADASTRO USUÁRIO.gif…]()
+![CADASTRO USUÁRIO](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/114542015/26c85aff-b60e-4f4a-bb3e-af0a84347484)
 
 
 
