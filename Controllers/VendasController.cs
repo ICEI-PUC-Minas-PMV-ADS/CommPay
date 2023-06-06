@@ -265,7 +265,7 @@ namespace Commpay.Controllers
             XFont cardDataPagamentoFont = new XFont("Arial", 16);
             double cardDataPagamentoX = 20;
             double cardDataPagamentoY = 360;
-            desenho.DrawString("Data de pagamento: " + dataFormatada, cardUltimaVendaValueFont, XBrushes.Black, cardDataPagamentoX, cardDataPagamentoY);
+            desenho.DrawString("Data de pagamento: " + formattedDate, cardUltimaVendaValueFont, XBrushes.Black, cardDataPagamentoX, cardDataPagamentoY);
 
             //Salva o documento PDF em uma memória de fluxo.
             MemoryStream stream = new MemoryStream();
