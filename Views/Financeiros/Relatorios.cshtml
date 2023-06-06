@@ -83,9 +83,9 @@
                                 vendedoresUnicos.Add(item.Vendedor);
                             }
                         }
-                        int contadorVendedores = vendedoresUnicos.Count;
-                        @contadorVendedores
-                    } Vendedor(es)
+                        int contadorVendedores = vendedoresUnicos.Count;                        
+                    }@contadorVendedores
+                    Vendedor(es)
                 </h3>
                 <div class="text-muted">
                     Ativo(s) na plataforma
@@ -116,19 +116,19 @@
                     Data de pagamento
                 </div>
             </div>
-        </div>       
+        </div>    
+</div>
+    @using (Html.BeginForm("gerarPDF", "Vendas", FormMethod.Post))
+    {
+        <button type="submit" class="btn com-btn-primary mb-3"><i class="bi bi-filetype-pdf"></i> Gerar PDF</button>
+        <input type="hidden" name="somaVendas" value="@somaVendas" /> 
+        <input type="hidden" name="dataUltimaVenda" value="@dataFormatada" />  
+        <input type="hidden" name="contadorVendedores" value="@contadorVendedores" />
+        <input type="hidden" name="somaComissoes" value="@somaComissoes" />
+        <input type="hidden" name="dataPagamento" id="first-business-day" value="" />
+    }    
+</div>
 
-</div>
-<div class="row">
-    <div class="card border-secondary mb-3">
-        <div class="card-body text-secondary">
-            <h5 class="card-title">
-                    
-            </h5>
-            
-        </div>
-    </div>
-</div>
 </div>
 
 <script>
@@ -157,3 +157,4 @@
     // Exibir a data no elemento <h3>
     document.getElementById('first-business-day').innerHTML = formattedDate;
 </script>
+
