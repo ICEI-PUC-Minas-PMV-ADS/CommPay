@@ -38,7 +38,7 @@
         <thead>
             <tr>
                 <th>
-                    Data da Venda
+                    @Html.DisplayNameFor(model => model.Vendedor)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Valor_Total)
@@ -50,18 +50,152 @@
                     @Html.DisplayNameFor(model => model.Data_Entrega)
                 </th>
                 <th>
-
                 </th>
                 <th>
-
                 </th>
-                <th></th>
+
+
             </tr>
         </thead>
         <tbody>
             @if (User.IsInRole("Financeiro"))
             {
                 foreach (var item in pagedItems)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Vendedor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data_Compra)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Valor_Total)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Entregador)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data_Entrega)
+                        </td>
+                        <td>
+
+
+                            <!--BOTAO PARA ABRIR O MODAL-->
+                            <button type="button" class="btn btn-sm com-btn-primary" data-bs-toggle="modal" data-bs-target="#editStatus_@item.Id">
+                                <i class="bi bi-clipboard2-data-fill"></i>
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="editStatus_@item.Id" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Dados da Venda: #@item.Id</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+
+                                            <form class="row g-3">
+                                                <div class="col-12">
+                                                    <label for="inputEmail4" class="form-label">Vendedor</label>
+                                                    <input type="text" class="form-control" placeholder="@item.Vendedor" readonly>
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="inputAddress" class="form-label">Data da Venda</label>
+                                                    <input type="text" class="form-control" id="inputAddress" placeholder="@item.Data_Compra" readonly>
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="inputAddress2" class="form-label">Cliente</label>
+                                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Indisponível" disabled>
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="inputAddress2" class="form-label">Endereço</label>
+                                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Indisponível" disabled>
+                                                </div>
+
+                                                <div class="row mt-3 mb-3">
+                                                    <div class="col text-start">Total</div>
+                                                    <div class="col text-end">
+                                                        <span class="me-1 text-primary">BRL</span>
+                                                        <span id="cart-total">R$@item.Valor_Total</span>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                </div>
+                                            </form>
+
+
+                                            <form class="d-flex justify-content-between" asp-action="Edit" asp-route-id="@item.Id" method="get">
+                                                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                            </form>
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--FINAL DO MODAL-->
+
+                            <a asp-action="Edit" asp-route-id="@item.Id"></a>
+
+
+                            @if (@item.Status.ToString() == "Entregue")
+
+                            {
+                                <button type="button" class="btn text-light btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#deleteStatus_@item.Id" disabled>
+                                    <i class="bi bi-patch-check"></i> Entregue
+                                </button>
+                            }
+                            else
+                            {
+                                <!-- BOTAO DE ABRIR O MODAL-->
+                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteStatus_@item.Id">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="deleteStatus_@item.Id" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Deseja Deletar a Venda: #@item.Id ?</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+
+                                            <div class="modal-body">
+
+                                                <form class="d-flex justify-content-between" asp-action="Delete" asp-route-id="@item.Id" method="post">
+
+                                                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger col-5">Deletar</button>
+
+                                                </form>
+
+
+                                                <form asp-action="Edit" asp-route-id="@item.Id" method="post">
+                                                    <!-- Restante do formulário de edição -->
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--FINAL DO MODAL-->
+                            }
+
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                foreach (var item in pagedItems.Where(x => x.Vendedor == User.Identity.Name))
                 {
                     <tr>
 
@@ -191,141 +325,8 @@
                         </td>
                     </tr>
                 }
-            }            
-            else
-            {
-            foreach (var item in pagedItems.Where(x => x.Vendedor == User.Identity.Name))
-            {
-        <tr>
-
-            <td>
-                        @Html.DisplayFor(modelItem => item.Data_Compra)
-            </td>
-            <td>
-                        @Html.DisplayFor(modelItem => item.Valor_Total)
-            </td>
-            <td>
-                        @Html.DisplayFor(modelItem => item.Entregador)
-            </td>
-            <td>
-                        @Html.DisplayFor(modelItem => item.Data_Entrega)
-            </td>
-            <td>
-            </td>
-            <td>
-
-                <!--BOTAO PARA ABRIR O MODAL-->
-                <button type="button" class="btn btn-sm com-btn-primary" data-bs-toggle="modal" data-bs-target="#editStatus_@item.Id">
-                    <i class="bi bi-clipboard2-data-fill"></i>
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="editStatus_@item.Id" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Dados da Venda: #@item.Id</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-
-                            <div class="modal-body">
-
-                                <form class="row g-3">
-                                    <div class="col-12">
-                                        <label for="inputEmail4" class="form-label">Vendedor</label>
-                                        <input type="text" class="form-control" placeholder="@item.Vendedor" readonly>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputAddress" class="form-label">Data da Venda</label>
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="@item.Data_Compra" readonly>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputAddress2" class="form-label">Cliente</label>
-                                        <input type="text" class="form-control" id="inputAddress2" placeholder="Indisponível" disabled>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputAddress2" class="form-label">Endereço</label>
-                                        <input type="text" class="form-control" id="inputAddress2" placeholder="Indisponível" disabled>
-                                    </div>
-
-                                    <div class="row mt-3 mb-3">
-                                        <div class="col text-start">Total</div>
-                                        <div class="col text-end">
-                                            <span class="me-1 text-primary">BRL</span>
-                                            <span id="cart-total">R$@item.Valor_Total</span>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                    </div>
-                                </form>
-
-
-                                <form class="d-flex justify-content-between" asp-action="Edit" asp-route-id="@item.Id" method="get">
-                                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                </form>
-
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!--FINAL DO MODAL-->
-
-                <a asp-action="Edit" asp-route-id="@item.Id"></a>
-
-
-                        @if (@item.Status.ToString() == "Entregue")
-
-                        {
-                    <button type="button" class="btn text-light btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#deleteStatus_@item.Id" disabled>
-                        <i class="bi bi-patch-check"></i> Entregue
-                    </button>
-                        }
-                        else
-                        {
-                    <!-- BOTAO DE ABRIR O MODAL-->
-                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteStatus_@item.Id">
-                        <i class="bi bi-trash3-fill"></i>
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="deleteStatus_@item.Id" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Deseja Deletar a Venda: #@item.Id ?</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-
-                                <div class="modal-body">
-
-                                    <form class="d-flex justify-content-between" asp-action="Delete" asp-route-id="@item.Id" method="post">
-
-                                        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="submit" class="btn btn-sm btn-danger col-5">Deletar</button>
-
-                                    </form>
-
-
-                                    <form asp-action="Edit" asp-route-id="@item.Id" method="post">
-                                        <!-- Restante do formulário de edição -->
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--FINAL DO MODAL-->
-                        }
-
-            </td>
-        </tr>
             }
-            }
-    </tbody>
+        </tbody>
 
     </table>
 
