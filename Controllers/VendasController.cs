@@ -194,7 +194,7 @@ namespace Commpay.Controllers
             XGraphics desenho = XGraphics.FromPdfPage(page);            
 
             //Cria logo do cabeçalho
-            XImage logo = XImage.FromFile("C:\\Users\\pablo\\OneDrive\\Área de Trabalho\\Clone_CommPay\\wwwroot\\src\\logo_p.jpg");
+            XImage logo = XImage.FromFile("wwwroot\\src\\logo_p.jpg");
 
             //Definição da posição e tamanho da imagem
             double imageX = 200;
