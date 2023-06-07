@@ -9,6 +9,7 @@ using PdfSharp.Drawing.Layout;
 using System.Drawing;
 using PdfSharp.Charting;
 using static System.Net.Mime.MediaTypeNames;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Commpay.Controllers
 {
@@ -19,12 +20,13 @@ namespace Commpay.Controllers
         public VendasController(ApplicationDbContext context)
         {
             _context = context;
-        }
+        }        
 
         // GET: Vendas
         public async Task<IActionResult> Index()
-        {
-              return _context.Vendas != null ? 
+        {          
+
+            return _context.Vendas != null ? 
                           View(await _context.Vendas.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Vendas'  is null.");
         }
@@ -182,7 +184,26 @@ namespace Commpay.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public ActionResult gerarPDF(float somaVendas, string dataFormatada, float somaComissoes, string dataRelatorio, string dataGeracaoRelatorio)
+        //Método que calcula o primeiro dia útil do mês seguinte.
+        public DateTime ObterPrimeiroDiaUtil(DateTime dataAtual)
+        {
+            DateTime primeiroDia = dataAtual.AddMonths(1);
+            primeiroDia = new DateTime(primeiroDia.Year, primeiroDia.Month, 1);
+
+            if (primeiroDia.DayOfWeek == DayOfWeek.Saturday)
+            {
+                primeiroDia = primeiroDia.AddDays(2);
+            }
+            else if (primeiroDia.DayOfWeek == DayOfWeek.Sunday)
+            {
+                primeiroDia = primeiroDia.AddDays(1);
+            }
+            return primeiroDia;
+        }
+
+
+        //Método que gera o PDF de relatório.
+        public ActionResult gerarPDF(float somaVendas, string dataFormatada, float somaComissoes, string dataRelatorio, string dataGeracaoRelatorio, string dataPagamentoF)
         {
             //Cria um documento PDF.
             var document = new PdfDocument();
@@ -269,7 +290,7 @@ namespace Commpay.Controllers
             desenho.DrawString("Data de pagamento" , cardTitleFont, XBrushes.Black, cardDataPagamentoTitleX, cardDataPagamentoTitleY);
             double cardDataPagamentoValueX = 400;
             double cardDataPagamentoValueY = 470;
-            desenho.DrawString("" + dataFormatada, cardValueFont, XBrushes.Black, cardDataPagamentoValueX, cardDataPagamentoValueY);
+            desenho.DrawString("" + dataPagamentoF, cardValueFont, XBrushes.Black, cardDataPagamentoValueX, cardDataPagamentoValueY);
 
             //Desenho da data de criação do relatório
             double dataCriacaoX = 195;
@@ -284,6 +305,9 @@ namespace Commpay.Controllers
             //Retorna o arquivo PDF para donwload
             return File(stream, "application/pdf", "relatorio.pdf");
         }
+
+              
+
 
         private bool VendaExists(int id)
         {
