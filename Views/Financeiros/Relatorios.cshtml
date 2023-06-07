@@ -5,18 +5,30 @@
 
 @{
     ViewData["Title"] = "Relatórios";
+    DateTime dataAtual = DateTime.Now;
+    DateTime dataFutura = dataAtual.AddDays(15);
+    string nomeMes = dataFutura.ToString("MMMM");
+    string mesFormatado = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nomeMes);
+    string dataFormatada = mesFormatado + " " + dataFutura.ToString("dd yy").ToUpper();
+    float somaVendas = 0f;
+    float somaComissoes = 0f;
+    string dataRelatorio = DateTime.Now.ToString("MMMM/yyyy");
+    string dataGeracaoRelatorio = DateTime.Now.ToString();
+    var vendasController = new VendasController(null);
+    DateTime dataPagamento = vendasController.ObterPrimeiroDiaUtil(DateTime.Now);
+    string dataPagamentoF = dataPagamento.Date.ToString("dd/MM/yyyy");
 }
 
 <div class="bubble-banner mb-5">
     <div class="container">
         <div>
-            <h1>Precisando dos números?</h1>
+            <h1>Relatório Geral</h1>
         </div>
         <div>
-            <h1>Gere seus relatórios aqui</h1>
+            <h1>Mês de referência @mesFormatado</h1>
         </div>
         <div class="text-muted">
-            Seu relatório vai ser salvo até a data @DateTime.Now.ToString("dd/MM/yyyy")
+            Seu relatório será salvo na próxima data de pagamento!
         </div>
     </div>
 </div>
@@ -24,22 +36,7 @@
 <div class="container">
 
 <div class="row justify-content-between">
-
-        @{
-            DateTime dataAtual = DateTime.Now;
-            DateTime dataFutura = dataAtual.AddDays(15);
-            string nomeMes = dataFutura.ToString("MMM").ToLower();
-            string mesFormatado = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nomeMes);
-            string dataFormatada = mesFormatado + " " + dataFutura.ToString("dd yy").ToUpper();
-            float somaVendas = 0f;
-            float somaComissoes = 0f;
-            string dataRelatorio = DateTime.Now.ToString("MMMM/yyyy");
-            string dataGeracaoRelatorio = DateTime.Now.ToString();
-            var vendasController = new VendasController(null);
-            DateTime dataPagamento = vendasController.ObterPrimeiroDiaUtil(DateTime.Now);
-            string dataPagamentoF = dataPagamento.Date.ToString("dd/MM/yyyy");
-        }      
-
+       
 
         <div class="card border-secondary mb-3" style="max-width: 18rem;">
             <div class="card-body text-secondary">
@@ -47,8 +44,12 @@
                 <h3 class="card-title text-primary">
                     @foreach(var item in Model)
                     {
-                        float totalVendas = item.Valor_Total;
-                        somaVendas += totalVendas;
+                        DateTime dataVenda = item.Data_Compra;
+
+                        if(dataVenda.Month == DateTime.Now.Month){
+                            float totalVendas = item.Valor_Total;
+                            somaVendas += totalVendas;
+                        }
                     } 
                     @somaVendas.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
                 </h3>
@@ -105,9 +106,15 @@
                 <h3 class="card-title text-primary">
                     @foreach(var item in Model)
                     {
-                        float comissao = item.Valor_Total * 0.05f;
-                        somaComissoes += comissao;
-                    } @somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
+                        DateTime dataVenda = item.Data_Compra;
+
+                        if (dataVenda.Month == DateTime.Now.Month)
+                        {
+                            float comissao = item.Valor_Total * 0.05f;
+                            somaComissoes += comissao;
+                        }
+                    }
+                    @somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
                 </h3>
                 <div class="text-muted">
                     Total de comissões á serem pagas.
