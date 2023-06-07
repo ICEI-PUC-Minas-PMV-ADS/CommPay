@@ -4,7 +4,7 @@
 @using Commpay.Controllers;
 
 @{
-    ViewData["Title"] = "Relatórios";
+    ViewData["Title"] = "CommPay | Relatório Geral";
     DateTime dataAtual = DateTime.Now;
     DateTime dataFutura = dataAtual.AddDays(15);
     string nomeMes = dataFutura.ToString("MMMM");
@@ -35,8 +35,7 @@
 
 <div class="container">
 
-<div class="row justify-content-between">
-       
+<div class="row justify-content-between">       
 
         <div class="card border-secondary mb-3" style="max-width: 18rem;">
             <div class="card-body text-secondary">
@@ -136,6 +135,7 @@
     @using (Html.BeginForm("gerarPDF", "Vendas", FormMethod.Post))
     {
         <button type="submit" class="btn com-btn-primary mb-3"><i class="bi bi-filetype-pdf"></i> Gerar PDF</button>
+        //Inputs implicitos que armazenam o valor das variáveis para serem usados no método gerarPDF.
         <input type="hidden" name="somaVendas" value="@somaVendas" /> 
         <input type="hidden" name="dataFormatada" value="@dataFormatada" />  
         <input type="hidden" name="contadorVendedores" value="@contadorVendedores" />
@@ -143,10 +143,5 @@
         <input type="hidden" name="dataRelatorio" value="@dataRelatorio" />
         <input type="hidden" name="dataGeracaoRelatorio" value="@dataGeracaoRelatorio" />
         <input type="hidden" name="dataPagamentoF" value="@dataPagamentoF" />
-        
-
     }    
 </div>
-
-</div>
-
