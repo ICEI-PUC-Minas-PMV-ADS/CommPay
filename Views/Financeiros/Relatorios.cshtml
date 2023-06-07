@@ -32,6 +32,8 @@
             string dataFormatada = mesFormatado + " " + dataFutura.ToString("dd yy").ToUpper();
             float somaVendas = 0f;
             float somaComissoes = 0f;
+            string dataRelatorio = DateTime.Now.ToString("MMMM/yyyy");
+            string dataGeracaoRelatorio = DateTime.Now.ToString();
         }      
 
 
@@ -126,6 +128,9 @@
         <input type="hidden" name="contadorVendedores" value="@contadorVendedores" />
         <input type="hidden" name="somaComissoes" value="@somaComissoes" />
         <input type="hidden" name="formattedDate" id="first-business-day" value="" />
+        <input type="hidden" name="dataRelatorio" value="@dataRelatorio" />
+        <input type="hidden" name="dataGeracaoRelatorio" value="@dataGeracaoRelatorio" />
+
     }    
 </div>
 

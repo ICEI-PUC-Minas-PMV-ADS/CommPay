@@ -182,7 +182,7 @@ namespace Commpay.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public ActionResult gerarPDF(float somaVendas, string dataFormatada, int contadorVendedores, float somaComissoes, string formattedDate)
+        public ActionResult gerarPDF(float somaVendas, string dataFormatada, float somaComissoes, string dataRelatorio, string dataGeracaoRelatorio)
         {
             //Cria um documento PDF.
             var document = new PdfDocument();
@@ -197,10 +197,10 @@ namespace Commpay.Controllers
             XImage logo = XImage.FromFile("C:\\Users\\pablo\\OneDrive\\Área de Trabalho\\Clone_CommPay\\wwwroot\\src\\logo_p.jpg");
 
             //Definição da posição e tamanho da imagem
-            double imageX = 20;
-            double imageY = 20;
-            double imageWidth = 85;
-            double imageHeight = 45;
+            double imageX = 200;
+            double imageY = 40;
+            double imageWidth = 180;
+            double imageHeight = 75;
 
             //Desenha a imagem
             desenho.DrawImage(logo, imageX, imageY, imageWidth, imageHeight);            
@@ -222,50 +222,59 @@ namespace Commpay.Controllers
             double titleX = (page.Width - titleSize.Width) / 2;
 
             //Adiciona o título a página            
-            desenho.DrawString(title, titleFont, XBrushes.Black, new XPoint(titleX, 50));
-
-            //Definição subtítulo
-            string subTitle = "Período dd/mm/yyyy á dd/mm/yyyy";
-
+            desenho.DrawString(title, titleFont, XBrushes.Black, new XPoint(titleX, 170));
+           
             //Definição da posição do subtítulo
-            double subTitleX = 20;
-            double subTitleY = 80;           
+            double subTitleX = 270;
+            double subTitleY = 190;           
 
-            //Definição fonte subtitulo
-            XFont subTitleFont = new XFont("Arial", 9, XFontStyle.Italic);           
-
+            //Definição fonte e cor subtitulo
+            XFont subTitleFont = new XFont("Arial", 12, XFontStyle.Italic);
+           
             //Escrevendo subtitulo
-            desenho.DrawString(subTitle, subTitleFont, XBrushes.Black, subTitleX, subTitleY);
-
+            desenho.DrawString("" + dataRelatorio, subTitleFont, XBrushes.Black, subTitleX, subTitleY);
+            
             //Desenho do card de total em vendas
-            XFont cardVendasValueFont = new XFont("Arial", 16);
-            double cardVendaX = 20;
-            double cardvendaY = 120;
-            desenho.DrawString("Total em vendas: " + somaVendas.ToString("C", new System.Globalization.CultureInfo("pt-BR")), cardVendasValueFont, XBrushes.Black, cardVendaX, cardvendaY);
+            XFont cardTitleFont = new XFont("Arial", 20, XFontStyle.Bold);
+            double cardVendaTitleX = 60;
+            double cardVendaTitleY = 260;
+            desenho.DrawString("Total em vendas " , cardTitleFont, XBrushes.Black, cardVendaTitleX, cardVendaTitleY);
+            XFont cardValueFont = new XFont("Arial", 16);
+            double cardVendaValueX = 95;
+            double cardVendaValueY = 290;
+            desenho.DrawString("" + somaVendas.ToString("C", new System.Globalization.CultureInfo("pt-BR")), cardValueFont, XBrushes.Black, cardVendaValueX, cardVendaValueY);
 
-            //Desenho do card data da última compra            
-            XFont cardUltimaVendaValueFont = new XFont("Arial", 16);
-            double cardUltimaVendaX = 20;
-            double cardUltimaVendaY = 180;
-            desenho.DrawString("Data da última venda: " + dataFormatada, cardUltimaVendaValueFont, XBrushes.Black, cardUltimaVendaX, cardUltimaVendaY);
 
-            //Desenho do card vendedores ativos            
-            XFont cardVendedoresFont = new XFont("Arial", 16);
-            double cardVendedoresX = 20;
-            double cardVendedoresY = 240;
-            desenho.DrawString("Vendedores ativos: " + contadorVendedores, cardUltimaVendaValueFont, XBrushes.Black, cardVendedoresX, cardVendedoresY);
+            //Desenho do card data da última venda            
+            double cardUltimaCompraTitleX = 330;
+            double cardUltimaCompraTitleY = 260;
+            desenho.DrawString("Data da última venda ", cardTitleFont, XBrushes.Black, cardUltimaCompraTitleX, cardUltimaCompraTitleY);
+            double cardUltimaCompraValueX = 390;
+            double cardUltimaCompraValueY = 290;
+            desenho.DrawString("" + dataFormatada, cardValueFont, XBrushes.Black, cardUltimaCompraValueX, cardUltimaCompraValueY);
 
-            //Desenho do card comissoes            
-            XFont cardComissoesFont = new XFont("Arial", 16);
-            double cardComissoesX = 20;
-            double cardComissoesY = 300;
-            desenho.DrawString("Total de comissões a serem pagas: " + somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR")), cardUltimaVendaValueFont, XBrushes.Black, cardComissoesX, cardComissoesY);
 
-            //Desenho do card data da última compra            
-            XFont cardDataPagamentoFont = new XFont("Arial", 16);
-            double cardDataPagamentoX = 20;
-            double cardDataPagamentoY = 360;
-            desenho.DrawString("Data de pagamento: " + formattedDate, cardUltimaVendaValueFont, XBrushes.Black, cardDataPagamentoX, cardDataPagamentoY);
+            //Desenho do card comissões            
+            double cardComissoesTitleX = 60;
+            double cardComissoesTitleY = 440;
+            desenho.DrawString("Comissões á pagar ", cardTitleFont, XBrushes.Black, cardComissoesTitleX, cardComissoesTitleY);
+            double cardComissoesValueX = 110;
+            double cardComissoesValueY = 470;
+            desenho.DrawString("" + somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR")), cardValueFont, XBrushes.Black, cardComissoesValueX, cardComissoesValueY);
+
+
+            //Desenho do card data de pagamento            
+            double cardDataPagamentoTitleX = 340;
+            double cardDataPagamentoTitleY = 440;
+            desenho.DrawString("Data de pagamento" , cardTitleFont, XBrushes.Black, cardDataPagamentoTitleX, cardDataPagamentoTitleY);
+            double cardDataPagamentoValueX = 400;
+            double cardDataPagamentoValueY = 470;
+            desenho.DrawString("" + dataFormatada, cardValueFont, XBrushes.Black, cardDataPagamentoValueX, cardDataPagamentoValueY);
+
+            //Desenho da data de criação do relatório
+            double dataCriacaoX = 195;
+            double dataCriacaoY = 800;
+            desenho.DrawString("Relatório gerado em " + dataGeracaoRelatorio, subTitleFont, XBrushes.Black, dataCriacaoX, dataCriacaoY);
 
             //Salva o documento PDF em uma memória de fluxo.
             MemoryStream stream = new MemoryStream();
