@@ -29,9 +29,9 @@ O sistema é separado por dois tipos de úsuarios, sendo eles o perfil administr
 ![Cadastro de Entrega](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/79721330/b05c4093-782e-4a7c-9d72-25ab3b4f6063)
 
 
-### Relatório por Vendedor
+### Relatório Geral
 
-![Relatório  por Vendedor](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/79721330/e8847939-f86c-445b-86c5-2378077c493a)
+![Relatório  Geral](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/79721330/e8847939-f86c-445b-86c5-2378077c493a)
 
 ### Cadastro de Venda
 
