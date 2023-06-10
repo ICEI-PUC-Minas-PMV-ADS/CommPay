@@ -13,24 +13,42 @@ O sistema é separado por dois tipos de úsuarios, sendo eles o perfil administr
 
 ### Tela de Login
 
-![Tela de Login](https://user-images.githubusercontent.com/89876269/230788976-1ab789b7-a2d5-4048-a9f0-0f20dbe8eff6.png)
+![Tela de Login](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/79721330/7d44faad-aa68-482a-a567-82c6fe72cd54)
+
 
 ### Relatório de Comissões
 
-![Relatório de Comissões](https://user-images.githubusercontent.com/89876269/230789109-8af6a00b-e45d-4c32-b4b3-f85d90931777.png)
+![Relatório de Comissões](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/79721330/8b82310a-4457-466c-9090-8f0bfbdf477b)
 
-### Atualização do Status da Etregas
+###  Minhas Comissões  
 
-![Cadastro de Entrega](https://user-images.githubusercontent.com/89876269/230789026-0d7ba134-074f-4b9b-aeff-f03d0a92ef8e.png)
+![Minhas Comissões](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/79721330/ce52de9b-e9b8-49f0-b104-71b602b441f0)
+
+### Atualização do Status da Entregas
+
+![Cadastro de Entrega](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/79721330/b05c4093-782e-4a7c-9d72-25ab3b4f6063)
+
 
 ### Relatório por Vendedor
 
-![Relatório  por Vendedor](https://user-images.githubusercontent.com/89876269/230789092-a876668a-8d74-4742-b759-34a1a64c05f2.png)
+![Relatório  por Vendedor](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/79721330/e8847939-f86c-445b-86c5-2378077c493a)
+
+### Cadastro de Venda
+
+![Cadastro de Venda](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/79721330/d8d8ac47-4330-4f9e-8f26-3c7f2ed14e35)
 
 
-![Relatório Vendedor](https://user-images.githubusercontent.com/89876269/230789124-fbb28c77-2bc5-45af-9c07-d7c5f5e49644.png)
+### Cadastro de Produto
+
+![Cadastro De Produto](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/79721330/f149717b-d49c-4c93-baf8-754e8e136ab8)
+
 
 ### Cadastro de Usuário
 
-![Tela Cadastro](https://user-images.githubusercontent.com/89876269/230788997-cbdc7b63-73c0-454d-86f7-5f1ec59acb52.png)
+![Tela Cadastro](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/79721330/96b5504d-d359-4ed2-b345-b56393327f7a)
+
+
+
+
+
 
