@@ -90,13 +90,17 @@ O usuário Financeira conseguirá visualizar o relatório geral que consta as se
 |------|-----------------------------------------|----|
 |RF-007|A aplicação deve permitir ao setor financeiro acessar o relatório geral. |VendasController.cs | 
 
+![relatorio geral](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/99ec51f4-001f-4416-9755-f9fddd0ac60a)
 
 
-# Instruções de acesso
+## Instruções de acesso
 
-Não deixe de informar o link onde a aplicação estiver disponível para acesso (por exemplo: https://adota-pet.herokuapp.com/src/index.html).
+Para acessa a aplicação basta acessar o link  https://commpay.azurewebsites.net/Usuarios/Login e usar um dos usuarios abaixo para teste
 
-Se houver usuário de teste, o login e a senha também deverão ser informados aqui (por exemplo: usuário - admin / senha - admin).
+## Usuários para teste de acesso
 
-O link e o usuário/senha descritos acima são apenas exemplos de como tais informações deverão ser apresentadas.
-
+|USUÁRIOS  |    LOGIN    | SENHA |
+|----------|-------------|-------|
+|Financeiro| 11111111111 | 123   |
+|Vendedor  | 12312312312 | 123   |
+|Expedidor | 12312312332 | 123   |
