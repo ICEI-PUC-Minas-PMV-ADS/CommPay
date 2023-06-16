@@ -45,7 +45,8 @@ A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade
 |RF-003| A aplicação deve permitir  que o expedidor alterar status da entrega. | ALTA |
 |RF-004| A aplicação deve realizar a soma das comissões de cada vendedor separadamente.  | ALTA |
 |RF-005| A aplicação deve permitir ao vendedor realizar o cadastro das vendas realizadas. | ALTA |
-|RF-006| A aplicação deve permitir ao setor financeiro cadastrar usuário. | ALTA |
+|RF-006| A aplicação deve permitir ao setor financeiro cadastrar novo usuário. | ALTA |
+|RF-007| A aplicação deve permitir ao setor financeiro cadastrar produtos. | ALTA |
 
 ### Requisitos não Funcionais
 
