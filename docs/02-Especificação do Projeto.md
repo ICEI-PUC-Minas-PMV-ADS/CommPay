@@ -47,6 +47,7 @@ A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade
 |RF-005| A aplicação deve permitir ao vendedor realizar o cadastro das vendas realizadas. | ALTA |
 |RF-006| A aplicação deve permitir ao setor financeiro cadastrar novo usuário. | ALTA |
 |RF-007| A aplicação deve permitir ao setor financeiro cadastrar produtos. | ALTA |
+|RF-008| A aplicação deve permitir ao setor financeiro acessar o relatório geral | ALTA |
 
 ### Requisitos não Funcionais
 
