@@ -76,9 +76,9 @@ namespace Commpay.Controllers
                 switch (user.Cargo.ToString())
                 {
                     case "Financeiro":
-                        return RedirectToAction("Relatorios", "Financeiros");
+                        return RedirectToAction("Index", "Financeiros");
                     case "Expedidor":
-                        return RedirectToAction("Entregas", "Expedidores");
+                        return RedirectToAction("Index", "Expedidores");
                     case "Vendedor":
                         return RedirectToAction("Index", "Vendas");
                 }
