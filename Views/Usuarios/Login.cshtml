@@ -51,7 +51,7 @@
 
             <div class="form-group mb-3">
                 <label asp-for="Cpf" class="control-label"></label>
-                <input asp-for="Cpf" class="form-control" placeholder="Insira seu CPF" required/>
+                        <input asp-for="Cpf" class="form-control" maxlength="11" placeholder="Insira seu CPF" required />
                         <span asp-validation-for="Cpf" class="text-danger"></span>
             </div>
 
