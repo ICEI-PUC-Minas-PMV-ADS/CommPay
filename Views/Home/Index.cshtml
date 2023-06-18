@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mensagem de Boas-vindas</title>
+    <style>
+        .centralizado {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 35vh;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+    </style>
+
+    <title>Mensagem com Hora Atualizada</title>
+    <script>
+        function atualizarHora() {
+            var dataAtual = new Date();
+            var hora = ("0" + dataAtual.getHours()).slice(-2);
+            var minutos = ("0" + dataAtual.getMinutes()).slice(-2);
+            var segundos = ("0" + dataAtual.getSeconds()).slice(-2);
+            var horaFormatada = hora + ":" + minutos + ":" + segundos;
+
+            document.getElementById("horaAtual").innerText = horaFormatada;
+        }
+
+        setInterval(atualizarHora, 1000);
+    </script>
+
+    <body>
+        <div class="centralizado">
+            <h1><strong>Bem-vindo(a)!</strong></h1>
+            <p> @DateTime.Now.ToString("dddd"), @DateTime.Now.ToString("dd/MM/yyyy") </p>
+            <h1> <span id="horaAtual"></span></h1>
+            
+
+    </body>
+
+</head>

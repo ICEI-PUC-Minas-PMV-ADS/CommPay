@@ -1,0 +1,147 @@
+﻿@model IEnumerable<Commpay.Models.Venda>
+@using Commpay.Models
+@using PdfSharp;
+@using Commpay.Controllers;
+
+@{
+    ViewData["Title"] = "CommPay | Relatório Geral";
+    DateTime dataAtual = DateTime.Now;
+    DateTime dataFutura = dataAtual.AddDays(15);
+    string nomeMes = dataFutura.ToString("MMMM");
+    string mesFormatado = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nomeMes);
+    string dataFormatada = mesFormatado + " " + dataFutura.ToString("dd yy").ToUpper();
+    float somaVendas = 0f;
+    float somaComissoes = 0f;
+    string dataRelatorio = DateTime.Now.ToString("MMMM/yyyy");
+    string dataGeracaoRelatorio = DateTime.Now.ToString();
+    var vendasController = new VendasController(null);
+    DateTime dataPagamento = vendasController.ObterPrimeiroDiaUtil(DateTime.Now);
+    string dataPagamentoF = dataPagamento.Date.ToString("dd/MM/yyyy");
+}
+
+<div class="bubble-banner mb-5">
+    <div class="container">
+        <div>
+            <h1>Relatório Geral</h1>
+        </div>
+        <div>
+            <h1>Mês de referência @mesFormatado</h1>
+        </div>
+        <div class="text-muted">
+            Seu relatório será salvo na próxima data de pagamento!
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+<div class="row justify-content-between">       
+
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-body text-secondary">
+                <h5 class="card-title"><i class="bi bi-cash-coin"></i></h5>
+                <h3 class="card-title text-primary">
+                    @foreach(var item in Model)
+                    {
+                        DateTime dataVenda = item.Data_Compra;
+
+                        if(dataVenda.Month == DateTime.Now.Month){
+                            float totalVendas = item.Valor_Total;
+                            somaVendas += totalVendas;
+                        }
+                    } 
+                    @somaVendas.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
+                </h3>
+                <div class="text-muted">
+                    Total em vendas
+                </div>
+            </div>
+        </div>
+
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-body text-secondary">
+                <h5 class="card-title"><i class="bi bi-calendar-plus-fill"></i></i></h5>
+                <h3 class="card-title text-primary">
+                    
+                    @foreach(var item in Model)
+                    {
+                        DateTime dataUltimaVenda = item.Data_Compra;
+                        dataFormatada = dataUltimaVenda.ToString("dd/MM/yyyy");
+                    } @dataFormatada                   
+                    
+                </h3>
+                <div class="text-muted">
+                    Data da ultima venda
+                </div>
+            </div>
+        </div>
+
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-body text-secondary">
+                <h5 class="card-title"><i class="bi bi-people-fill"></i></h5>
+                <h3 class="card-title text-primary">
+                    @{
+                        var vendedoresUnicos = new HashSet<string>();
+                        foreach (var item in Model)
+                        {
+                            if (item.Vendedor != null)
+                            {
+                                vendedoresUnicos.Add(item.Vendedor);
+                            }
+                        }
+                        int contadorVendedores = vendedoresUnicos.Count;                        
+                    }@contadorVendedores
+                    Vendedor(es)
+                </h3>
+                <div class="text-muted">
+                    Ativo(s) na plataforma
+                </div>
+            </div>
+        </div>
+
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-body text-secondary">
+                <h5 class="card-title"><i class="bi bi-cash-coin"></i></h5>
+                <h3 class="card-title text-primary">
+                    @foreach(var item in Model)
+                    {
+                        DateTime dataVenda = item.Data_Compra;
+
+                        if (dataVenda.Month == DateTime.Now.Month)
+                        {
+                            float comissao = item.Valor_Total * 0.05f;
+                            somaComissoes += comissao;
+                        }
+                    }
+                    @somaComissoes.ToString("C", new System.Globalization.CultureInfo("pt-BR"))
+                </h3>
+                <div class="text-muted">
+                    Total de comissões á serem pagas.
+                </div>
+            </div>
+        </div>
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-body text-secondary">
+                <h5 class="card-title"><i class="bi bi-calendar2-date-fill"></i></h5>
+                <h3 class="card-title text-primary">
+                    @dataPagamentoF
+            </h3>
+                <div class="text-muted">
+                    Data de pagamento                    
+                </div>
+            </div>
+        </div>    
+</div>
+    @using (Html.BeginForm("gerarPDF", "Vendas", FormMethod.Post))
+    {
+        <button type="submit" class="btn com-btn-primary mb-3"><i class="bi bi-filetype-pdf"></i> Gerar PDF</button>
+        //Inputs implicitos que armazenam o valor das variáveis para serem usados no método gerarPDF.
+        <input type="hidden" name="somaVendas" value="@somaVendas" /> 
+        <input type="hidden" name="dataFormatada" value="@dataFormatada" />  
+        <input type="hidden" name="contadorVendedores" value="@contadorVendedores" />
+        <input type="hidden" name="somaComissoes" value="@somaComissoes" />        
+        <input type="hidden" name="dataRelatorio" value="@dataRelatorio" />
+        <input type="hidden" name="dataGeracaoRelatorio" value="@dataGeracaoRelatorio" />
+        <input type="hidden" name="dataPagamentoF" value="@dataPagamentoF" />
+    }    
+</div>

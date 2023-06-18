@@ -1,0 +1,116 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.label-title{
+    font-weight: 300;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1020px) {
+
+    .com-footer {
+        visibility: hidden;
+    }
+
+        .com-footer a img{
+            visibility:hidden;
+        }
+
+        .com-footer .navbar-brand img {
+        }
+
+        .com-footer .com-footer-text {
+            visibility: hidden;
+        }
+}
+
+
+.fs-6{
+    font-size: 5px;
+}
+
+.com-nav {
+    background-color: #0E2A50;
+    padding: 20px;
+}
+
+
+
+.com-footer {
+    background-color: #0E2A50;
+}
+
+
+/* BOTAO PRIMARIO*/
+.com-btn-primary {
+    color: white;
+    background-color: #0E2A50;
+}
+
+    .com-btn-primary:hover {
+        background-color: #1ADCFF;
+    }
+
+/* BOTAO DE REMOVER */
+.com-btn-remove {
+    color: whitesmoke;
+    background-color: rgb(206, 4, 4);
+}
+
+    .com-btn-remove:hover {
+        color: whitesmoke;
+        background-color: rgb(143, 0, 0);
+    }
+
+
+/* BOTAO DE NAVEGAÇÃO */
+
+.com-btn-select {
+    border-radius: 100px;
+    border: 2px solid #0E2A50;
+}
+
+.com-btn-select:hover {
+        background-color: #0E2A50;
+        color: white;
+}
+
+.com-btn-select.active {
+        border: 2px solid #0E2A50;
+        background-color: #0E2A50;
+        color: white;   
+}
+
+.bi.bi-pencil-square, .bi.bi-card-list, .bi.bi-trash3-fill {
+    font-size: 14px
+}
+
+
+.bubble-banner {
+    align-items: center;
+    background-image: url(/src/bb-banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    height: 16vh;
+    justify-content: center;
+    max-height: 608px;
+    
+}
+
+
+
+.custom-link {
+    color: #0E2A50;
+    text-decoration: none;
+    border-width: 0 0 4px; /* Largura da borda: superior 0, direita 0, inferior 2px, esquerda 0 */
+    border-style: none none dotted; /* Estilo da borda: superior nenhum, direita nenhum, inferior pontilhado, esquerda nenhum */
+    cursor: pointer;
+}
+
+    .custom-link:hover {
+        text-decoration: none;
+        color: #0E2A50;
+    }

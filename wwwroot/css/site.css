@@ -1,0 +1,42 @@
+html {
+  font-size: 14px;
+}
+
+.fs-6{
+    font-size:5px;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    padding: 0px 0px 60px 0px ;
+}
+
+
+
+.com-footer {
+    bottom: 0;
+    position: absolute;
+    background-color: #0E2A50;
+    text-align: center;
+    padding: 2vh;
+}

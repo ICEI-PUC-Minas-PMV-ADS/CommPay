@@ -1,0 +1,37 @@
+﻿@model Commpay.Models.Produto
+
+@{
+    ViewData["Title"] = "CommPay | Editar Produtos"; 
+}
+
+<h1>Editar Produto</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                     <a type="button" asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-caret-left"></i> Voltar 
+        </a>
+                  <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check2-square"></i>
+                Salvar
+            </button>           
+            </div>
+        </form>
+    </div>
+</div>
+

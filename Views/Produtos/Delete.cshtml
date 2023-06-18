@@ -1,0 +1,35 @@
+﻿@model Commpay.Models.Produto
+
+@{
+    ViewData["Title"] = "CommPay | Apagar Produtos"; 
+}
+
+<h1>Deseja realmente apagar esse produto?</h1>
+<div class="content">   
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+             <a type="button" asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-caret-left"></i> Voltar 
+        </a>
+          <button type="submit" class="btn btn-danger">
+                <i class="bi bi-check2-square"></i>
+                Confirmar
+            </button>      
+    </form>    
+</div>

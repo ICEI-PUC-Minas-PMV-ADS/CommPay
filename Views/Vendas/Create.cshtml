@@ -1,0 +1,180 @@
+﻿@model Commpay.Models.VendaProduto
+
+@{
+    ViewData["Title"] = "Vendas";
+}
+
+<div class="container">
+<div class="row"><h4>Cadastro de Pedidos</h4>
+
+    <div class="col-7 me-4">
+        <div class="overflow-auto scrollspy-example" style="max-height: 540px;">
+            @foreach (var produto in @Model.Produto)
+            {
+                <div class="col mb-3 shadow-sm">
+                    <div class="input-group">
+                        <input class="form-control" type="text" value="@Html.DisplayFor(modelItem => @produto.Descricao)" readonly>
+                        <span class="input-group-text">@Html.DisplayFor(modelItem => produto.Valor)</span>
+                        <button class="btn btn-danger rm-cart" type="button" data-product-id="@produto.Id">-</button>
+                        <button class="btn btn-primary add-cart" type="button" data-product-id="@produto.Id">+</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    @{
+        DateTime dataHoraAtual = DateTime.Now;
+    }
+
+
+    <div class="col-4 ms-4">
+        <div class="row mb-1">
+            <div class="col text-start">Data:</div>
+            <div class="col text-end">@dataHoraAtual.ToString("dd/MM/yyyy")</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col text-start">Hora:</div>
+            <div class="col text-end">@dataHoraAtual.ToString("HH:mm:ss")</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col text-start">Produtos</div>
+            <div class="col text-end">Quantidade</div>
+        </div>
+        <div id="cart-items"></div>
+        <hr>
+        <div class="row">
+            <div class="col text-start">Total</div>
+            <div class="col text-end">
+                <span class="me-1 text-primary">BRL</span>
+                <span id="cart-total">R$0.00</span> 
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="row mb-5">
+    <div class="col-6 me-5">
+        <a type="button" asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-caret-left"></i> Voltar 
+        </a>
+    </div>
+
+    <form class="col-5 text-end" asp-action="Create">
+        <div class="">
+            <button type="submit" class="btn com-btn-primary">
+                <i class="bi bi-shield-check"></i>
+                Confirmar
+            </button>
+        </div>
+            <input type="text" name="Valor_Total" step="any" id="valorTotal" hidden />
+        <input type="text" name="Entregador" id="entregador" value="José" hidden />
+    </form>
+
+</div>
+</div>
+<script>
+
+    
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        
+
+
+        var cartItems = [];
+  
+
+        var addCartButtons = document.querySelectorAll(".add-cart");
+        addCartButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                var productId = this.dataset.productId;
+                var productName = $(this).siblings("input[type='text']").val();
+                var productPrice = parseFloat($(this).siblings(".input-group-text").text().replace(/[^\d,-]/g, '').replace(',', '.'));
+                var cartItem = { id: productId, name: productName, price: productPrice, quantity: 1 };
+
+                var index = cartItems.findIndex(function (item) {
+                    return item.id === productId;
+                });
+
+                if (index === -1) {
+                    cartItems.push(cartItem);
+                } else {
+                    cartItems[index].quantity++;
+                }
+
+                renderCartItems();
+                updateCartTotal();
+            });
+        });
+
+        var removeCartButtons = document.querySelectorAll(".rm-cart");
+        removeCartButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                var productId = button.dataset.productId;
+
+                var index = cartItems.findIndex(function (item) {
+                    return item.id === productId;
+                });
+
+                if (index !== -1) {
+                    if (cartItems[index].quantity > 1) {
+                        cartItems[index].quantity--;
+                    } else {
+                        cartItems.splice(index, 1);
+                    }
+
+                    renderCartItems();
+                    updateCartTotal();
+                }
+            });
+        });
+
+        function renderCartItems() {
+            var cartItemsHtml = "";
+
+            cartItems.forEach(function (item) {
+                cartItemsHtml += "<div class='row mb-1'>";
+                cartItemsHtml += "<div class='col text-start' style='font-size: 10px'>" + item.name + "</div>";
+                cartItemsHtml += "<div class='col text-end' style='font-size: 10px'>" + item.quantity + "</div>";
+                cartItemsHtml += "</div>";
+            });
+
+            document.querySelector("#cart-items").innerHTML = cartItemsHtml;
+        }
+
+        function updateCartTotal() {
+            var total = 0;
+
+            cartItems.forEach(function (item) {
+                if ('price' in item) {
+                    var itemPrice = Number(item.price);
+                    total += itemPrice * item.quantity;
+                }
+            });
+
+            var formattedTotal = total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+
+            document.querySelector("#cart-total").textContent = "R$" + formattedTotal;
+
+            document.getElementById("valorTotal").value = formattedTotal;
+        }
+
+
+
+        
+
+
+
+
+    });
+
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

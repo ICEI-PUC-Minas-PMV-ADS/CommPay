@@ -1,0 +1,40 @@
+﻿@model Commpay.Models.Produto
+
+@{
+    ViewData["Title"] = "CommPay | Cadastro de Produtos";   
+
+}
+<head>    
+    <link rel="stylesheet" type="text/css" href="/css/style.css">    
+</head>
+
+<h1>Cadastro de novo produto</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>                
+            </div>
+            <div class="form-group">
+                <a type="button" asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-caret-left"></i> Voltar </a>
+                <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check2-square"></i>
+                Confirmar
+                </button>             
+             </div>
+        </form>
+    </div>
+</div>  
+
+

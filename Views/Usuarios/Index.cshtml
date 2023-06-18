@@ -1,0 +1,202 @@
+﻿@model IEnumerable<Commpay.Models.Usuario>
+
+@{
+    ViewData["Title"] = "CommPay | Usuários";
+}
+
+<div class="bubble-banner mb-5">
+    <div class="container">
+        <div>
+            <h1>Cadastre seus colaboradores</h1>
+        </div>
+        <div class="text-muted">
+            Pronto para adicionar seus colaboradores à sua plataforma?
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="d-flex justify-content-end mb-4">
+        <a class="me-3 custom-link" data-bs-toggle="modal" data-bs-target="#criarUser">
+            <b><i class="bi bi-file-earmark-plus-fill"></i> Criar Usuário</b>
+        </a>
+
+        <a class="text-secondary custom-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <b><i class="bi bi-gear-fill"></i> Suporte</b>
+        </a>
+    </div>
+
+    @{
+        int pageSize = 4; // Número de itens por página
+        int pageNumber = (Context.Request.Query["page"].Count > 0) ? int.Parse(Context.Request.Query["page"].ToString()) : 1; // Página atual
+
+        var pagedItems = Model.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+
+
+        int totalItems = Model.Count();
+        int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+    }
+
+
+    <table class="table table-striped">
+        <thead>
+
+
+            <tr class="text-muted">
+
+                <td>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Cpf)
+                </td>
+                <td>
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Cargo)
+                </td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in pagedItems)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cpf)
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cargo)
+                    </td>
+                    <td>
+
+                        <a data-bs-toggle="modal" data-bs-target="#detalhes_@item.Id">
+                            <div class="btn com-btn-primary"><i class="bi bi-three-dots"></i></div>
+                        </a>
+
+
+                        <!--MODAL DETALHES-->
+                        <div class="modal fade" id="detalhes_@item.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="form-label label-title">Nome do Vendedor</label>
+                                                <input class="form-control" type="text" placeholder="@item.Nome" readonly />
+                                            </div>
+
+                                            <div class="col-3">
+                                                <label class="form-label label-title">CPF</label>
+                                                <input class="form-control" type="text" placeholder="@item.Cpf" readonly />
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-3">
+                                                <label class="form-label label-title">Cargo</label>
+                                                <input class="form-control" type="text" placeholder="@item.Cargo" readonly />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <nav>
+        <ul class="pagination justify-content-center">
+            @for (int i = 1; i <= totalPages; i++)
+            {
+                <li class="page-item @(i == pageNumber ? "active" : "")"><a class="btn com-btn-primary btn-sm ms-1" href="?page=@i">@i</a></li>
+            }
+        </ul>
+    </nav>
+
+    <!-- MODAL CREATE USER -->
+    <div class="modal fade" id="criarUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Colaborador</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form asp-controller="Usuarios" asp-action="Create" method="post">
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label label-title">Nome do Vendedor</label>
+                                <input name="Nome" class="form-control" type="text" placeholder="Insira o Primeiro Nome" required />
+                            </div>
+
+                            <div class="col-3">
+                                <label class="form-label label-title">CPF</label>
+                                <input name="Cpf" class="form-control" type="text" placeholder="Apenas Números" required />
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-3">
+                                <label class="form-label label-title">Senha</label>
+                                <input name="Senha" class="form-control" type="password" placeholder="Insira a Senha" required />
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-3">
+                                <label class="form-label label-title">Selecione o Cargo</label>
+                                <select name="Cargo" class="form-select" required>
+                                    <option selected value="Vendedor">Vendedor</option>
+                                    <option value="Financeiro">Financeiro</option>
+                                    <option value="Expedidor">Expedidor</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                            <button class="btn com-btn-primary" type="button" disabled id="loading-button" style="display: none;">
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                <span class="visually-hidden">Loading...</span>
+                            </button>
+
+                            <asp:UpdatePanel ID="updatePanel" runat="server">
+                                <ContentTemplate>
+                                    <input type="submit" value="Cadastrar" class="btn com-btn-primary" onclick="showLoadingButton()" />
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="submit-button" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function showLoadingButton() {
+        var loadingButton = document.getElementById("loading-button");
+        loadingButton.style.display = "inline-block";
+    }
+</script>
