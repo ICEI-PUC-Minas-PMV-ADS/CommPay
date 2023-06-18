@@ -10,7 +10,7 @@ Apresenta os campos para que o usuário possa inserir os dados de CPF e SENHA e 
 
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
-|RF-001| A aplicação deve possibilitar ao usuário realizar login mediante a validação de usuário e senha. | HomeController.cs| 
+|RF-001| A aplicação deve possibilitar ao usuário realizar login mediante a validação de usuário e senha. | Login\Login.cshtml| 
 
 ![erro login](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/ee3fdfc8-26cd-4ddb-a46e-eed582eb7769)
 
@@ -20,7 +20,7 @@ O usuário Vendedor poderá visualizar suas comissões.
 
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
-|RF-002|A aplicação deve mostrar para o vendedor o valor das comissões recebidas e a receber. | VendasController.cs | 
+|RF-002|A aplicação deve mostrar para o vendedor o valor das comissões recebidas e a receber. | Vendas\index.cshtml  | 
 
 ![Comissões vendedor](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/0b8f3430-a6f4-43cf-9af7-a30f91ceb53a)
 
@@ -30,7 +30,7 @@ O usuário Expedidor poderá atualizar os status das entregas após as vendas se
 
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
-|RF-003|A aplicação deve permitir ao expedidor alterar o status da entrega. |ExpedidoresController.cs | 
+|RF-003|A aplicação deve permitir ao expedidor alterar o status da entrega. |Expedidores\Entregas.cshtml| 
 
 ![Att entrega expedidor(1)](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/f536bb8e-4dd1-44dd-84d1-eb8e73dbca2b)
 
@@ -42,7 +42,7 @@ O usuário Financeiro conseguirá visualizar as comissões somadas automaticamen
 
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
-|RF-004|A aplicação deve realizar a soma das comissões de cada vendedor separadamente. |VendasController.cs | 
+|RF-004|A aplicação deve realizar a soma das comissões de cada vendedor separadamente. |Vendas\index.cshtml | 
 
 ![pagamento de comissões](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/62d23d75-03bd-4d29-b384-721739f39549)
 
@@ -52,7 +52,7 @@ O usuário Vendedor conseguirá cadastrar suas vendas atráveés do menu vendas.
 
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
-|RF-005|A aplicação deve permitir ao vendedor realizar o cadastro das vendas realizadas. |VendasController.cs | 
+|RF-005|A aplicação deve permitir ao vendedor realizar o cadastro das vendas realizadas. |Vendas\index.cshtml| 
 
 ![cadastro de vendas(1)](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/91815f7d-e36c-435c-9356-c78b9f84abbe)
 
@@ -64,7 +64,7 @@ O usuário Financeira conseguirá cadastra novos usuários através do menu Usu�
 
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
-|RF-006|A aplicação deve permitir ao setor financeiro cadastrar novo usuário. |UsuariosController.cs | 
+|RF-006|A aplicação deve permitir ao setor financeiro cadastrar novo usuário. |Usuarios\Index.cshtml | 
 
 ![cadastra novo usuario(1)](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/e73899f1-7e4c-4003-b421-b609562a99e3)
 
@@ -76,7 +76,7 @@ O usuário Financeira conseguirá cadastra novos produtos através do menu Produ
 
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
-|RF-007|A aplicação deve permitir ao setor financeiro cadastrar produtos. |ProdutosController.cs | 
+|RF-007|A aplicação deve permitir ao setor financeiro cadastrar produtos. |Produtos\Index.cshtml, Produtos\Create.cshtml| 
 
 ![cadsatro de produtos(1)](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/ad25d621-0ff7-4ea5-aa0b-0d0ac8e95898)
 
@@ -88,7 +88,7 @@ O usuário Financeira conseguirá visualizar o relatório geral que consta as se
 
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
-|RF-007|A aplicação deve permitir ao setor financeiro acessar o relatório geral. |VendasController.cs | 
+|RF-007|A aplicação deve permitir ao setor financeiro acessar o relatório geral. |Vendas\Index.cshtml | 
 
 ![relatorio geral](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/99ec51f4-001f-4416-9755-f9fddd0ac60a)
 
