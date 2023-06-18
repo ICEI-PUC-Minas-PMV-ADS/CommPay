@@ -82,13 +82,13 @@ O usuário Financeira conseguirá cadastra novos produtos através do menu Produ
 
 ![cadsatro de produtos(2)](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/c32476c2-16ec-4efd-948c-3ba8653178ae)
 
-## 8. Cadastro de produtos (RF-07)
+## 8. Cadastro de produtos (RF-08)
 
 O usuário Financeira conseguirá visualizar o relatório geral que consta as seguintes informações: Total em vendas, Data da ultima venda, Vendedores Ativo(s) na plataforma, Total de comissões á serem pagas e da Data de pagamento das comissões.
 
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
-|RF-007|A aplicação deve permitir ao setor financeiro acessar o relatório geral. |Vendas\Index.cshtml | 
+|RF-008|A aplicação deve permitir ao setor financeiro acessar o relatório geral. |Vendas\Index.cshtml | 
 
 ![relatorio geral](https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay/assets/111931438/99ec51f4-001f-4416-9755-f9fddd0ac60a)
 
