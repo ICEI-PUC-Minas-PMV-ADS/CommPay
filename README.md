@@ -25,13 +25,15 @@ Desenvolvimento de uma aplicação simples que visa automatizar e evitar falhas 
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Para acessa a aplicação basta acessar o link  https://commpay.azurewebsites.net/Usuarios/Login e usar um dos usuarios abaixo para teste
 
-Não deixe de informar o link onde a aplicação estiver disponível para acesso (por exemplo: https://adota-pet.herokuapp.com/src/index.html).
+ Usuários para teste de acesso
 
-Se houver usuário de teste, o login e a senha também deverão ser informados aqui (por exemplo: usuário - admin / senha - admin).
-
-O link e o usuário/senha descritos acima são apenas exemplos de como tais informações deverão ser apresentadas.
+|USUÁRIOS  |    LOGIN    | SENHA |
+|----------|-------------|-------|
+|Financeiro| 11111111111 | 123   |
+|Vendedor  | 12312312312 | 123   |
+|Expedidor | 12312312332 | 123   |
 
 # Documentação
 
