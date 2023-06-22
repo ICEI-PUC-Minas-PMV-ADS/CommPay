@@ -11,25 +11,25 @@
 
 
 <script>
-    $(document).ready(function () {
-        toastr.success('There was an error loading the Asset List!', 'Asset Register');
+    //$(document).ready(function () {
+    //    toastr.success('Filtro Aplicado', '');
 
-        toastrService.warning('Some warning message', 'some title', {
-            positionClass: 'toast-bottom-right'
-        });
+    //    toastrService.warning('Some warning message', 'some title', {
+    //        positionClass: 'toast-bottom-right'
+    //    });
 
-        setTimeout(function () {
-            location.reload();
-        }, 10000); // 10000 milissegundos = 10 segundos
+    //    setTimeout(function () {
+    //        location.reload();
+    //    }, 10000); // 10000 milissegundos = 10 segundos
 
 
-    });
+    //});
 </script>
 
 <div class="bubble-banner mb-5">
     <div class="container">
         <div>
-            <h1>Você reveberá</h1>
+            <h1>Você receberá</h1>
         </div>
         <div>
             @foreach (var item in Model.Where(x => x.Vendedor == User.Identity.Name && x.Status == Status.Entregue))

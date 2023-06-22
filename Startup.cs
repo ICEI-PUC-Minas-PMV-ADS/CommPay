@@ -1,5 +1,6 @@
 ﻿using Commpay.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
@@ -40,6 +41,12 @@ namespace Commpay
                     options.LoginPath = "/Usuarios/Login/";
                 });
 
+            //LOCALE Services
+
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                options.DefaultRequestCulture = new RequestCulture("pt-BR");
+            });
 
             services.AddControllersWithViews();
         }
@@ -71,6 +78,7 @@ namespace Commpay
 
             app.UseAuthorization();
 
+            app.UseRequestLocalization();
 
             app.UseEndpoints(endpoints =>
             {

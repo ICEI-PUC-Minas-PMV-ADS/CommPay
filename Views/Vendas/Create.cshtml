@@ -93,7 +93,7 @@
             button.addEventListener("click", function () {
                 var productId = this.dataset.productId;
                 var productName = $(this).siblings("input[type='text']").val();
-                var productPrice = parseFloat($(this).siblings(".input-group-text").text().replace(/[^\d,-]/g, '').replace(',', '.'));
+                var productPrice = parseFloat($(this).siblings(".input-group-text").text().replace(/[^\d,.]/g, ''));
                 var cartItem = { id: productId, name: productName, price: productPrice, quantity: 1 };
 
                 var index = cartItems.findIndex(function (item) {
@@ -156,19 +156,12 @@
                 }
             });
 
-            var formattedTotal = total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+            var formattedTotal = total.toLocaleString('en-US', { minimumFractionDigits: 2 });
 
             document.querySelector("#cart-total").textContent = "R$" + formattedTotal;
 
             document.getElementById("valorTotal").value = formattedTotal;
         }
-
-
-
-        
-
-
-
 
     });
 
