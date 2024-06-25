@@ -1,0 +1,25 @@
+message: Please cite this software using these metadata.
+title: CommPay
+authors:
+  - family-names: Ramires Guimarães Brito
+    given-names: Amanda
+  - family-names: Amorim Marçal
+    given-names: Geison
+  - family-names: Guilherme dos Reis
+    given-names: Lucas
+  - family-names: Cezar de Almeida dos Santos
+    given-names: Marlon
+  - family-names: Kingma
+    given-names: Victor
+  - family-names: Muriell Batista Alves
+    given-names: Pablo
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Ribeiro da Mota
+    given-names: Rosilane
+keywords:
+  - Gestão
+  - Comissão
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/CommPay
+version: 1.0.0
+date-released: 2023-06-31
